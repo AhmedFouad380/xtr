@@ -135,7 +135,7 @@ return [
     'provider' => 'provider',
     'category' => 'section',
     'order_number' => 'Order number',
-    'ready_orders' => 'ready service orders',
+    'ready_orders' => ' Orders',
     'body_ar' => 'Content in Arabic',
     'body_en' => 'The content is in English',
     'providers' => 'providers',
@@ -769,6 +769,8 @@ return [
     'iban' => 'IBAN ',
     'paypal' => 'Paypal ',
     'Click to open on map' => 'Click to open on map',
-    'Preview' => 'Preview'
+    'Preview' => 'Preview',
+    'agencies'=>'agencies',
+    'whyus'=>'why us',
 
 ];

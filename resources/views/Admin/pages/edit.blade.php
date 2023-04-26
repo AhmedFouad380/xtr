@@ -1,13 +1,10 @@
 @extends('layout.layout')
-@section('title',__('lang.'.$data->type))
 
 @php
     $route = 'pages';
 @endphp
 
-@section('styles')
-    <link href="{{url('/')}}/assets/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css"/>
-
+@section('style')
     <style>
         @media (min-width: 992px) {
             .aside-me .content {
@@ -18,20 +15,20 @@
 @endsection
 @section('header')
     <!--begin::Heading-->
-    <h1 class="text-dark fw-bolder my-0 fs-2">   {{trans('lang.'.$data->type)}}</h1>
+    <h1 class="text-dark fw-bolder my-0 fs-2"> {{trans('lang.edit')}}</h1>
     <!--end::Heading-->
     <!--begin::Breadcrumb-->
     <ul class="breadcrumb fw-bold fs-base my-1">
         <li class="breadcrumb-item">
             <a href="{{url('/')}}" class="text-muted">
-                {{trans('lang.Dashboard')}}
-            </a>
+                {{trans('lang.Dashboard')}} </a>
         </li>
         <li class="breadcrumb-item">
-            {{trans('lang.pages')}}
+            <a href="{{route($route.'.index')}}" class="text-muted">
+                {{trans('lang.'.$route)}} </a>
         </li>
         <li class="breadcrumb-item">
-            {{trans('lang.'.$data->type)}}
+            {{trans('lang.edit')}}
         </li>
     </ul>
     <!--end::Breadcrumb-->
@@ -45,7 +42,6 @@
         <div class="content flex-row-fluid" id="kt_content">
 
             <!--begin::Basic info-->
-
             <div class="card mb-5 mb-xl-10">
                 <!--begin::Card header-->
                 <div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse"
@@ -63,32 +59,12 @@
                     <!--begin::Form-->
                     <form id="kt_account_profile_details_form" action="{{url($route.'/update/'.$data->id)}}"
                           class="form"
-                          method="post" enctype="multipart/form-data">
-                        @csrf
-                        <input type="hidden" name="type" value="{{$data->type}}" required>
-                        <!--begin::Card body-->
+                          method="post"  enctype="multipart/form-data" >
+                    @csrf
+                    <!--begin::Card body-->
                         <div class="card-body border-top p-9">
                             <!--begin::Input group-->
-                            <!--begin::Input group-->
-                            <div class="fv-row mb-7">
-                                <!--begin::Label-->
-                                <label class="required fw-bold fs-6 mb-2">{{__('lang.name_ar')}}</label>
-                                <!--end::Label-->
-                                <!--begin::Input-->
-                                <textarea name="name_ar" id="editor1">
-                                    {!! $data->name_ar !!}
-                                </textarea>
-                            </div>
-                            <!--end::Input group-->  <!--begin::Input group-->
-                            <div class="fv-row mb-7">
-                                <!--begin::Label-->
-                                <label class="required fw-bold fs-6 mb-2">{{__('lang.name_en')}}</label>
-                                <!--end::Label-->
-                                <!--begin::Input-->
-                                <textarea name="name_en" id="editor2">
-                                    {!! $data->name_en !!}
-                                </textarea>
-                            </div>
+                            @include('Admin.'.$route.'.form')
                         </div>
                         <!--end::Scroll-->
                         <!--begin::Actions-->
@@ -111,11 +87,27 @@
     </div>
 @endsection
 
-@push('scripts')
-    <script src="https://cdn.ckeditor.com/4.20.2/full/ckeditor.js"></script>
+@section('script')
+
     <script>
-        CKEDITOR.replace('editor1');
-        CKEDITOR.replace('editor2');
+
+        $("#state").change(function () {
+            var wahda = $(this).val();
+
+            if (wahda != '') {
+                $.get("{{ URL::to('/get-branch')}}" + '/' + wahda, function ($data) {
+                    var outs = "";
+                    $.each($data, function (title, id) {
+                        console.log(title)
+                        outs += '<option value="' + id + '">' + title + '</option>'
+                    });
+                    $('#branche').html(outs);
+                });
+            }
+        });
     </script>
-@endpush
+
+
+
+@endsection
 

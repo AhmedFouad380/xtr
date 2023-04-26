@@ -13,7 +13,7 @@ return [
     'download_file' => 'تحميل الملف',
     'service' => 'الخدمة',
     'view_request' => 'عرض الطلب',
-
+    'agencies'=>'عملائنا',
     'provider_service_requests' => 'طلبات خدمات مقدم الخدمة',
     'home' => 'الصفحة الرئيسية',
     'request_details' => 'تفاصيل الطلب',
@@ -143,7 +143,7 @@ return [
     'provider' => 'مقدم الخدمة',
     'category' => 'القسم',
     'order_number' => 'رقم الطلب',
-    'ready_orders' => 'طلبات مستعد',
+    'ready_orders' => 'الطلبات ',
     'body_ar' => 'المحتوى بالعربية',
     'body_en' => 'المحتوى بالانجليزية',
     'providers' => 'مقدمي الخدمة',
@@ -777,5 +777,6 @@ return [
     'iban' => 'الايبان ',
     'paypal' => 'باي بال ',
     'Click to open on map' => 'اضغط لفتح الموقع على الخريطة',
-    'Preview' => 'عرض'
+    'Preview' => 'عرض',
+    'whyus'=>'لماذا تخترنا'
 ];
