@@ -42,9 +42,7 @@
                                            data-kt-check-target="#users_table .form-check-input" value="1"/>
                                 </div>
                             </th>
-
                             <th class="min-w-125px">{{__('lang.image')}}</th>
-                            <th class="min-w-125px">{{__('lang.page_type')}}</th>
                             <th class="min-w-125px">{{__('lang.name_ar')}}</th>
                             <th class="min-w-125px">{{__('lang.name_en')}}</th>
                             <th class="min-w-125px">{{__('lang.Users_active')}}</th>
@@ -79,7 +77,7 @@
                 autoWidth: false,
                 responsive: true,
                 aaSorting: [],
-                "dom": "<'card-header border-0 p-0 pt-6'<'card-title' <'d-flex align-items-center position-relative my-1'f> r> <'card-toolbar' <'d-flex justify-content-end add_button'B> r>>  <'row'l r> <''t><'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>", // horizobtal scrollable datatable
+                "dom": "<'card-header border-0 p-0 pt-6'<'card-title' <'d-flex align-items-center position-relative my-1'f> r> <'card-toolbar' <'d-flex justify-content-end add_button 'B> r>>  <'row'l r> <''t><'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>", // horizobtal scrollable datatable
                 lengthMenu: [[10, 25, 50, 100, 250, -1], [10, 25, 50, 100, 250, "All"]],
                 "language": {
                     search: '<i class="fa fa-eye" aria-hidden="true"></i>',

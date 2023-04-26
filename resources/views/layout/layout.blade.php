@@ -14,7 +14,7 @@ License: For each use you must have a valid license purchased only from above li
 <!--begin::Head-->
 <head>
     <base href="../">
-    <title> Kalsh || @yield('title')
+    <title> XTR || @yield('title')
     </title>
     <meta charset="utf-8"/>
     <meta name="description"

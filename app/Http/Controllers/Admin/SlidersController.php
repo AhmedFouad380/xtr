@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\SliderRequest;
 use App\Models\Slider;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
@@ -75,12 +76,12 @@ class SlidersController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-//    public function store(SliderRequest $request)
-//    {
-//        $data = $request->validated();
-//        $this->objectName::create($data);
-//        return redirect(route($this->route . '.index'))->with('message', trans('lang.added_s'));
-//    }
+    public function store(SliderRequest $request)
+    {
+        $data = $request->validated();
+        $this->objectName::create($data);
+        return redirect(route($this->route . '.index'))->with('message', trans('lang.added_s'));
+    }
 
 
     /**
