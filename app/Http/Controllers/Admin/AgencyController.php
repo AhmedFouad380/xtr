@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\AgencyRequest;
 use App\Http\Requests\Admin\SliderRequest;
+use App\Models\Agency;
 use App\Models\Slider;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
@@ -13,7 +15,7 @@ class AgencyController extends Controller
     protected $viewPath = 'Admin.agencies.';
     private $route = 'agencies';
 
-    public function __construct(Slider $model)
+    public function __construct(Agency $model)
     {
         $this->objectName = $model;
     }
@@ -35,18 +37,13 @@ class AgencyController extends Controller
                                 </div>';
                 return $checkbox;
             })
-            ->editColumn('name', function ($row) {
-                $name = '';
-                $name .= ' <span class="text-gray-800 text-hover-primary mb-1">' . $row->title . '</span>';
-                return $name;
-            })
             ->addColumn('is_active', $this->viewPath . 'parts.active_btn')
             ->addColumn('actions', function ($row) {
                 $actions = ' <a href="' . url($this->route . "/edit/" . $row->id) . '" class="btn btn-active-light-info">' . trans('lang.edit') . '<i class="bi bi-pencil-fill"></i>  </a>';
                 return $actions;
             })
 
-            ->rawColumns(['actions', 'checkbox', 'name', 'is_active', 'branch', 'type_trans'])
+            ->rawColumns(['actions', 'checkbox', 'is_active'])
             ->make();
 
     }
@@ -73,7 +70,7 @@ class AgencyController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function store(SliderRequest $request)
+    public function store(AgencyRequest $request)
     {
         $data = $request->validated();
         $this->objectName::create($data);
@@ -111,12 +108,12 @@ class AgencyController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(SliderRequest $request)
+    public function update(AgencyRequest $request)
     {
         $data = $request->validated();
         if (isset($data['image'])) {
             $img_name = 'slider_' . time() . random_int(0000, 9999) . '.' . $data['image']->getClientOriginalExtension();
-            $data['image']->move(public_path('/uploads/agencies/'), $img_name);
+            $data['image']->move(public_path('/uploads/Agency/'), $img_name);
             $data['image'] = $img_name;
         } else {
             unset($data['image']);

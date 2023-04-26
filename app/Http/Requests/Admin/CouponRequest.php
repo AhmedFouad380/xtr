@@ -4,7 +4,7 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PageRequest extends FormRequest
+class CouponRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +24,10 @@ class PageRequest extends FormRequest
     public function rules()
     {
         return [
-            'name_ar' => 'required|string|max:255',
-            'name_en' => 'required|string|max:255',
-            'description_ar' => 'required',
-            'description_en' => 'required',
-            'image' => 'nullable|image|mimes:png,jpg,jpeg,svg',
+            'name' => 'required|string|max:255',
+            'discount' => 'required|numeric|min:0',
+            'count' => 'required|numeric|min:0',
+            'expire_date' => 'required|date',
         ];
     }
 }

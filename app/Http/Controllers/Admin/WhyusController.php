@@ -4,18 +4,18 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\PageRequest;
-use App\Http\Requests\Admin\SliderRequest;
+use App\Http\Requests\Admin\WhyusRequest;
 use App\Models\Page;
-use App\Models\Slider;
+use App\Models\WhyUs;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 
-class PagesController extends Controller
+class WhyusController extends Controller
 {
-    protected $viewPath = 'Admin.pages.';
-    private $route = 'pages';
+    protected $viewPath = 'Admin.whyus';
+    private $route = 'whyus';
 
-    public function __construct(Page $model)
+    public function __construct(WhyUs $model)
     {
         $this->objectName = $model;
     }
@@ -74,7 +74,7 @@ class PagesController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function store(PageRequest $request)
+    public function store(WhyusRequest $request)
     {
         $data = $request->validated();
         $this->objectName::create($data);
@@ -112,12 +112,12 @@ class PagesController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(PageRequest $request)
+    public function update(WhyusRequest $request)
     {
         $data = $request->validated();
         if (isset($data['image'])) {
             $img_name = 'slider_' . time() . random_int(0000, 9999) . '.' . $data['image']->getClientOriginalExtension();
-            $data['image']->move(public_path('/uploads/Page/'), $img_name);
+            $data['image']->move(public_path('/uploads/whyus/'), $img_name);
             $data['image'] = $img_name;
         } else {
             unset($data['image']);

@@ -129,7 +129,7 @@ class frontController extends Controller
     public function Setting()
     {
 
-        $employee = Admin::findOrFail(Auth::guard('admin')->id());
+        $employee = User::findOrFail(Auth::guard('web')->id());
 
         return view('Admin.Admin.Profile', compact('employee'));
     }

@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\SlidersController;
 use \App\Http\Controllers\Admin\PagesController;
 use \App\Http\Controllers\Admin\AgencyController;
+use \App\Http\Controllers\Admin\WhyusController;
+use \App\Http\Controllers\Admin\CouponController;
+use \App\Http\Controllers\Admin\ContactController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,7 +36,6 @@ Route::group(['middleware' => ['web']], function () {
 
         Route::get('Setting', [\App\Http\Controllers\frontController::class, 'Setting'])->name('profile');
 
-    Route::get('Setting', [\App\Http\Controllers\frontController::class, 'Setting'])->name('profile');
 
     Route::group(['prefix' => 'sliders', 'as' => 'sliders'], function () {
         Route::get('/', [SlidersController::class, 'index'])->name('.index');
@@ -59,8 +61,11 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('/add-button', [PagesController::class, 'table_buttons'])->name('.table_buttons');
     });
     Route::group(['prefix' => 'contact_us', 'as' => 'contact_us'], function () {
-        Route::get('/', [SlidersController::class, 'index'])->name('.index');
-        Route::get('delete', [SlidersController::class, 'destroy'])->name('.delete');
+        Route::get('/', [ContactController::class, 'index'])->name('.index');
+        Route::get('/datatable', [ContactController::class, 'datatable'])->name('.datatable');
+        Route::get('delete', [ContactController::class, 'destroy'])->name('.delete');
+        Route::get('/add-button', [PagesController::class, 'table_buttons'])->name('.table_buttons');
+
     });
 
     Route::group(['prefix' => 'categories', 'as' => 'categories'], function () {
@@ -110,29 +115,30 @@ Route::group(['middleware' => ['web']], function () {
     });
 
     Route::group(['prefix' => 'whyus', 'as' => 'whyus'], function () {
-        Route::get('/', [SlidersController::class, 'index'])->name('.index');
-        Route::get('/datatable', [SlidersController::class, 'datatable'])->name('.datatable');
-        Route::get('/create', [SlidersController::class, 'create'])->name('.create');
-        Route::post('/store', [SlidersController::class, 'store'])->name('.store');
-        Route::get('/edit/{id}', [SlidersController::class, 'edit'])->name('.edit');
-        Route::post('/update/{id}', [SlidersController::class, 'update'])->name('.update');
-        Route::get('delete', [SlidersController::class, 'destroy'])->name('.delete');
-        Route::post('/change_active', [SlidersController::class, 'changeActive'])->name('.change_active');
-        Route::get('/add-button', [SlidersController::class, 'table_buttons'])->name('.table_buttons');
+        Route::get('/', [WhyusController::class, 'index'])->name('.index');
+        Route::get('/datatable', [WhyusController::class, 'datatable'])->name('.datatable');
+        Route::get('/create', [WhyusController::class, 'create'])->name('.create');
+        Route::post('/store', [WhyusController::class, 'store'])->name('.store');
+        Route::get('/edit/{id}', [WhyusController::class, 'edit'])->name('.edit');
+        Route::post('/update/{id}', [WhyusController::class, 'update'])->name('.update');
+        Route::get('delete', [WhyusController::class, 'destroy'])->name('.delete');
+        Route::post('/change_active', [WhyusController::class, 'changeActive'])->name('.change_active');
+        Route::get('/add-button', [WhyusController::class, 'table_buttons'])->name('.table_buttons');
     });
+
     Route::group(['prefix' => 'coupons', 'as' => 'coupons'], function () {
-        Route::get('/', [SlidersController::class, 'index'])->name('.index');
-        Route::get('/datatable', [SlidersController::class, 'datatable'])->name('.datatable');
-        Route::get('/create', [SlidersController::class, 'create'])->name('.create');
-        Route::post('/store', [SlidersController::class, 'store'])->name('.store');
-        Route::get('/edit/{id}', [SlidersController::class, 'edit'])->name('.edit');
-        Route::post('/update/{id}', [SlidersController::class, 'update'])->name('.update');
-        Route::get('delete', [SlidersController::class, 'destroy'])->name('.delete');
-        Route::post('/change_active', [SlidersController::class, 'changeActive'])->name('.change_active');
-        Route::get('/add-button', [SlidersController::class, 'table_buttons'])->name('.table_buttons');
+        Route::get('/', [CouponController::class, 'index'])->name('.index');
+        Route::get('/datatable', [CouponController::class, 'datatable'])->name('.datatable');
+        Route::get('/create', [CouponController::class, 'create'])->name('.create');
+        Route::post('/store', [CouponController::class, 'store'])->name('.store');
+        Route::get('/edit/{id}', [CouponController::class, 'edit'])->name('.edit');
+        Route::post('/update/{id}', [CouponController::class, 'update'])->name('.update');
+        Route::get('delete', [CouponController::class, 'destroy'])->name('.delete');
+        Route::post('/change_active', [CouponController::class, 'changeActive'])->name('.change_active');
+        Route::get('/add-button', [CouponController::class, 'table_buttons'])->name('.table_buttons');
     });
     Route::group(['prefix' => 'settings', 'as' => 'settings'], function () {
-        Route::get('/', [SlidersController::class, 'index'])->name('.index');
-        Route::post('/update/{id}', [SlidersController::class, 'update'])->name('.update');
+        Route::get('/', [\App\Http\Controllers\Admin\SettingController::class, 'index'])->name('.index');
+        Route::post('/update/{id}', [\App\Http\Controllers\Admin\SettingController::class, 'update'])->name('.update');
     });
 });
