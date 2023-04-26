@@ -40,14 +40,14 @@ class Page extends Model
     public function getImageAttribute($image)
     {
         if (!empty($image)) {
-            return asset('uploads/sliders') . '/' . $image;
+            return asset('uploads/Page') . '/' . $image;
         }
         return asset('defaults/default_blank.png');
     }
     public function setImageAttribute($image)
     {
         if (is_file($image)) {
-            $imageFields = upload($image, 'sliders');
+            $imageFields = upload($image, 'Page');
             $this->attributes['image'] = $imageFields;
         }else {
             $this->attributes['image'] = $image;

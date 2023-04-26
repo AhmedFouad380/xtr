@@ -1,8 +1,9 @@
 @extends('layout.layout')
 @php
-    $route = 'contact_us';
+    $route = 'orders';
 @endphp
-@section('title',__('lang.contact_us'))
+@section('title',__('lang.orders'))
+
 @section('header')
     <!--begin::Heading-->
     <h1 class="text-dark fw-bolder my-0 fs-2">{{trans('lang.'.$route)}} </h1>
@@ -36,18 +37,12 @@
                         <!--begin::Table row-->
 
                         <tr class="text-start text-muted fw-bolder fs-5 text-uppercase gs-0">
-                            <th class="w-10px pe-2">
-                                <div class="form-check form-check-sm form-check-custom form-check-solid me-3">
-                                    <input class="form-check-input" type="checkbox" data-kt-check="true"
-                                           data-kt-check-target="#users_table .form-check-input" value="1"/>
-                                </div>
-                            </th>
+                            <th class="min-w-125px">{{__('lang.order_number')}}</th>
+                            <th class="min-w-125px">{{__('lang.date')}}</th>
                             <th class="min-w-125px">{{__('lang.name')}}</th>
-                            <th class="min-w-125px">{{__('lang.phone')}}</th>
                             <th class="min-w-125px">{{__('lang.email')}}</th>
-                            <th class="min-w-125px">{{__('lang.address')}}</th>
-                            <th class="min-w-125px">{{__('lang.subject')}}</th>
-                            <th class="min-w-125px">{{__('lang.description')}}</th>
+                            <th class="min-w-125px">{{__('lang.phone')}}</th>
+                            <th class="min-w-125px">{{__('lang.Actions')}}</th>
                         </tr>
                         <!--end::Table row-->
                         </thead>
@@ -100,27 +95,29 @@
                     // {extend: 'colvis', className: 'btn secondary', text: 'إظهار / إخفاء الأعمدة '}
                 ],
                 ajax: {
-                    url: '{{ route('contact_us.datatable') }}',
+                    url: '{{ route($route.'.datatable') }}',
                     data: {}
                 },
                 columns: [
-                    {data: 'checkbox', name: 'checkbox', "searchable": false, "orderable": false},
+
+                    {data: 'id', name: 'id', "searchable": true, "orderable": true},
+                    {data: 'created_at', name: 'created_at', "searchable": true, "orderable": true},
                     {data: 'name', name: 'name', "searchable": true, "orderable": true},
-                    {data: 'phone', name: 'phone', "searchable": true, "orderable": true},
                     {data: 'email', name: 'email', "searchable": true, "orderable": true},
-                    {data: 'address', name: 'address', "searchable": true, "orderable": true},
-                    {data: 'subject', name: 'subject', "searchable": true, "orderable": true},
-                    {data: 'message', name: 'message', "searchable": false, "orderable": false},
+                    {data: 'phone', name: 'phone', "searchable": true, "orderable": true},
+                    {data: 'status', name: 'status', "searchable": true, "orderable": true},
+                    {data: 'actions', name: 'actions', "searchable": false, "orderable": false},
                 ]
             });
             $.ajax({
-                url: "{{ URL::to('contact_us/add-button')}}",
+                url: "{{ route($route.'.table_buttons') }}",
                 success: function (data) {
                     $('.add_button').append(data);
                 },
                 dataType: 'html'
             });
         });
+
     </script>
 
 @endsection

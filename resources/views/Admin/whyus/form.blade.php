@@ -25,37 +25,7 @@
            placeholder="" value="{{old('name_en',$data->name_en ?? '')}}" required/>
     <!--end::Input-->
 </div>
-<div class="fv-row mb-7">
-    <!--begin::Label-->
-    <label class="required fw-bold fs-6 mb-2">{{__('lang.button_ar')}}</label>
-    <!--end::Label-->
-    <!--begin::Input-->
-    <input type="text" name="button_ar"
-           class="form-control form-control-solid mb-3 mb-lg-0"
-           placeholder="" value="{{old('button_ar',$data->button_ar ?? '')}}" required/>
-    <!--end::Input-->
-</div>
-<!--end::Input group-->  <!--begin::Input group-->
-<div class="fv-row mb-7">
-    <!--begin::Label-->
-    <label class="required fw-bold fs-6 mb-2">{{__('lang.button_en')}}</label>
-    <!--end::Label-->
-    <!--begin::Input-->
-    <input type="text" name="button_en"
-           class="form-control form-control-solid mb-3 mb-lg-0"
-           placeholder="" value="{{old('button_en',$data->button_en ?? '')}}" required/>
-    <!--end::Input-->
-</div>
-<div class="fv-row mb-7">
-    <!--begin::Label-->
-    <label class=" fw-bold fs-6 mb-2">{{__('lang.link')}}</label>
-    <!--end::Label-->
-    <!--begin::Input-->
-    <input type="url" name="link"
-           class="form-control form-control-solid mb-3 mb-lg-0"
-           placeholder="" value="{{old('link',$data->link ?? '')}}" required/>
-    <!--end::Input-->
-</div>
+
 <div class="fv-row mb-7">
     <!--begin::Label-->
     <label class=" fw-bold fs-6 mb-2">{{__('lang.description_ar')}}</label>
@@ -63,7 +33,7 @@
     <!--begin::Input-->
     <textarea rows="3" name="description_ar"
            class="form-control form-control-solid mb-3 mb-lg-0"
-              placeholder="" value="" > {{old('description_ar',$data->description_ar ?? '')}} </textarea>
+              placeholder="" value="{{old('description_ar',$data->description_ar ?? '')}}" > </textarea>
     <!--end::Input-->
 </div>
 <!--end::Input group-->  <!--begin::Input group-->
@@ -74,7 +44,7 @@
     <!--begin::Input-->
     <textarea rows="3" name="description_en"
               class="form-control form-control-solid mb-3 mb-lg-0"
-              placeholder="" value="" > {{old('description_en',$data->description_en ?? '')}} </textarea>
+              placeholder="" value="{{old('description_en',$data->description_en ?? '')}}" > </textarea>
     <!--end::Input-->
 </div>
 

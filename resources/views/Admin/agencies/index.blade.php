@@ -1,8 +1,8 @@
 @extends('layout.layout')
 @php
-    $route = 'contact_us';
+    $route = 'agencies';
 @endphp
-@section('title',__('lang.contact_us'))
+@section('title',__('lang.agencies'))
 @section('header')
     <!--begin::Heading-->
     <h1 class="text-dark fw-bolder my-0 fs-2">{{trans('lang.'.$route)}} </h1>
@@ -42,12 +42,9 @@
                                            data-kt-check-target="#users_table .form-check-input" value="1"/>
                                 </div>
                             </th>
-                            <th class="min-w-125px">{{__('lang.name')}}</th>
-                            <th class="min-w-125px">{{__('lang.phone')}}</th>
-                            <th class="min-w-125px">{{__('lang.email')}}</th>
-                            <th class="min-w-125px">{{__('lang.address')}}</th>
-                            <th class="min-w-125px">{{__('lang.subject')}}</th>
-                            <th class="min-w-125px">{{__('lang.description')}}</th>
+                            <th class="min-w-125px">{{__('lang.image')}}</th>
+                            <th class="min-w-125px">{{__('lang.Users_active')}}</th>
+                            <th class="min-w-125px">{{__('lang.Actions')}}</th>
                         </tr>
                         <!--end::Table row-->
                         </thead>
@@ -78,7 +75,7 @@
                 autoWidth: false,
                 responsive: true,
                 aaSorting: [],
-                "dom": "<'card-header border-0 p-0 pt-6'<'card-title' <'d-flex align-items-center position-relative my-1'f> r> <'card-toolbar' <'d-flex justify-content-end add_button'B> r>>  <'row'l r> <''t><'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>", // horizobtal scrollable datatable
+                "dom": "<'card-header border-0 p-0 pt-6'<'card-title' <'d-flex align-items-center position-relative my-1'f> r> <'card-toolbar' <'d-flex justify-content-end add_button 'B> r>>  <'row'l r> <''t><'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>", // horizobtal scrollable datatable
                 lengthMenu: [[10, 25, 50, 100, 250, -1], [10, 25, 50, 100, 250, "All"]],
                 "language": {
                     search: '<i class="fa fa-eye" aria-hidden="true"></i>',
@@ -100,21 +97,23 @@
                     // {extend: 'colvis', className: 'btn secondary', text: 'إظهار / إخفاء الأعمدة '}
                 ],
                 ajax: {
-                    url: '{{ route('contact_us.datatable') }}',
+                    url: '{{ route($route.'.datatable') }}',
                     data: {}
                 },
                 columns: [
                     {data: 'checkbox', name: 'checkbox', "searchable": false, "orderable": false},
-                    {data: 'name', name: 'name', "searchable": true, "orderable": true},
-                    {data: 'phone', name: 'phone', "searchable": true, "orderable": true},
-                    {data: 'email', name: 'email', "searchable": true, "orderable": true},
-                    {data: 'address', name: 'address', "searchable": true, "orderable": true},
-                    {data: 'subject', name: 'subject', "searchable": true, "orderable": true},
-                    {data: 'message', name: 'message', "searchable": false, "orderable": false},
+                    {
+                        data: 'image', name: 'image', "searchable": false, "orderable": false,
+                        render: function (data) {
+                            return "<img src=\"" + data + "\" height=\"50\"/>";
+                        }
+                    },
+                    {data: 'is_active', name: 'is_active', "searchable": true, "orderable": true},
+                    {data: 'actions', name: 'actions', "searchable": false, "orderable": false},
                 ]
             });
             $.ajax({
-                url: "{{ URL::to('contact_us/add-button')}}",
+                url: "{{ URL::to($route.'/add-button')}}",
                 success: function (data) {
                     $('.add_button').append(data);
                 },

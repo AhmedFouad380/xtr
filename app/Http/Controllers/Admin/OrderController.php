@@ -3,19 +3,19 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\PageRequest;
-use App\Http\Requests\Admin\SliderRequest;
-use App\Models\Page;
-use App\Models\Slider;
+use App\Models\Order;
+use Carbon\Carbon;
+use Dflydev\DotAccessData\Data;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 
-class PagesController extends Controller
+class OrderController extends Controller
 {
-    protected $viewPath = 'Admin.pages.';
-    private $route = 'pages';
+    protected $viewPath = 'Admin.orders.';
+    private $route = 'orders';
 
-    public function __construct(Page $model)
+
+    public function __construct(Order $model)
     {
         $this->objectName = $model;
     }
@@ -25,10 +25,10 @@ class PagesController extends Controller
         return view($this->viewPath . '.index');
     }
 
-
     public function datatable(Request $request)
     {
-        $data = $this->objectName::orderBy('id', 'desc');
+        $data = $this->objectName::orderBy('created_at', 'desc');
+
         return DataTables::of($data)
             ->addColumn('checkbox', function ($row) {
                 $checkbox = '';
@@ -37,24 +37,26 @@ class PagesController extends Controller
                                 </div>';
                 return $checkbox;
             })
-            ->editColumn('name', function ($row) {
-                $name = '';
-                $name .= ' <span class="text-gray-800 text-hover-primary mb-1">' . $row->title . '</span>';
-                return $name;
-            })
-            ->addColumn('is_active', $this->viewPath . 'parts.active_btn')
-            ->addColumn('actions', function ($row) {
-                $actions = ' <a href="' . url($this->route . "/edit/" . $row->id) . '" class="btn btn-active-light-info">' . trans('lang.edit') . '<i class="bi bi-pencil-fill"></i>  </a>';
+            ->addColumn('name', function ($row) {
+                $actions = $row->first_name .' ' . $row->last_name;
                 return $actions;
             })
-            ->rawColumns(['actions', 'checkbox', 'name', 'is_active', 'branch'])
+            ->addColumn('created_at', function ($row) {
+                $actions = Carbon::parse($row->created_at)->format('Y-m-d H:i:s');
+                return $actions;
+            })
+            ->addColumn('actions', function ($row) {
+                $actions = ' <a href="' . route($this->route . ".show", ['id' => $row->id]) . '" class="btn btn-active-light-info">' . trans('lang.view') . ' <i class="bi bi-eye"></i>  </a>';
+                return $actions;
+            })
+
+            ->addColumn('status', function ($row) {
+                $text = $row->status ? trans('lang.' . $row->status->name) : '';
+                return ' <span class="text-gray-800 text-hover-primary mb-1">' . $text . '</span>';
+            })
+            ->rawColumns(['actions', 'checkbox', 'category', 'customer_name', 'provider_name', 'status','payment_status'])
             ->make();
 
-    }
-
-    public function table_buttons()
-    {
-        return view($this->viewPath . '.button');
     }
 
     /**
@@ -74,12 +76,6 @@ class PagesController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function store(PageRequest $request)
-    {
-        $data = $request->validated();
-        $this->objectName::create($data);
-        return redirect(route($this->route . '.index'))->with('message', trans('lang.added_s'));
-    }
 
 
     /**
@@ -90,9 +86,9 @@ class PagesController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = $this->objectName::findOrFail($id);
+        return view($this->viewPath . '.show', compact('data'));
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -112,15 +108,15 @@ class PagesController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(PageRequest $request)
+    public function update(ReadyOrderRequest $request)
     {
         $data = $request->validated();
-        if (isset($data['image'])) {
-            $img_name = 'slider_' . time() . random_int(0000, 9999) . '.' . $data['image']->getClientOriginalExtension();
-            $data['image']->move(public_path('/uploads/Page/'), $img_name);
-            $data['image'] = $img_name;
-        } else {
+        if ($data['image'] == null) {
             unset($data['image']);
+        } else {
+            $img_name = 'service_' . time() . random_int(0000, 9999) . '.' . $data['image']->getClientOriginalExtension();
+            $data['image']->move(public_path('/uploads/services/'), $img_name);
+            $data['image'] = $img_name;
         }
         $this->objectName::whereId($request->id)->update($data);
         return redirect(route($this->route . '.index'))->with('message', trans('lang.updated_s'));
@@ -144,8 +140,20 @@ class PagesController extends Controller
 
     public function changeActive(Request $request)
     {
-        $data['is_active'] = $request->status;
+        $data['status'] = $request->status;
         $this->objectName::where('id', $request->id)->update($data);
         return 1;
+    }
+
+    public function changeIsChecked(Request $request)
+    {
+        $data['is_checked'] = $request->is_checked;
+        $this->objectName::where('id', $request->id)->update($data);
+        return 1;
+    }
+
+    public function table_buttons()
+    {
+        return view($this->viewPath . '.button');
     }
 }

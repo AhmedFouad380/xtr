@@ -3,19 +3,18 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\PageRequest;
 use App\Http\Requests\Admin\SliderRequest;
-use App\Models\Page;
+use App\Models\Coupon;
 use App\Models\Slider;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 
-class PagesController extends Controller
+class CouponController extends Controller
 {
-    protected $viewPath = 'Admin.pages.';
-    private $route = 'pages';
+    protected $viewPath = 'Admin.coupons.';
+    private $route = 'coupons';
 
-    public function __construct(Page $model)
+    public function __construct(Coupon $model)
     {
         $this->objectName = $model;
     }
@@ -37,17 +36,13 @@ class PagesController extends Controller
                                 </div>';
                 return $checkbox;
             })
-            ->editColumn('name', function ($row) {
-                $name = '';
-                $name .= ' <span class="text-gray-800 text-hover-primary mb-1">' . $row->title . '</span>';
-                return $name;
-            })
             ->addColumn('is_active', $this->viewPath . 'parts.active_btn')
             ->addColumn('actions', function ($row) {
                 $actions = ' <a href="' . url($this->route . "/edit/" . $row->id) . '" class="btn btn-active-light-info">' . trans('lang.edit') . '<i class="bi bi-pencil-fill"></i>  </a>';
                 return $actions;
+
             })
-            ->rawColumns(['actions', 'checkbox', 'name', 'is_active', 'branch'])
+            ->rawColumns(['actions', 'checkbox', 'is_active'])
             ->make();
 
     }
@@ -74,7 +69,7 @@ class PagesController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function store(PageRequest $request)
+    public function store(CouponRequest $request)
     {
         $data = $request->validated();
         $this->objectName::create($data);
@@ -112,16 +107,9 @@ class PagesController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(PageRequest $request)
+    public function update(CouponRequest $request)
     {
         $data = $request->validated();
-        if (isset($data['image'])) {
-            $img_name = 'slider_' . time() . random_int(0000, 9999) . '.' . $data['image']->getClientOriginalExtension();
-            $data['image']->move(public_path('/uploads/Page/'), $img_name);
-            $data['image'] = $img_name;
-        } else {
-            unset($data['image']);
-        }
         $this->objectName::whereId($request->id)->update($data);
         return redirect(route($this->route . '.index'))->with('message', trans('lang.updated_s'));
     }
@@ -144,7 +132,7 @@ class PagesController extends Controller
 
     public function changeActive(Request $request)
     {
-        $data['is_active'] = $request->status;
+        $data['status'] = $request->status;
         $this->objectName::where('id', $request->id)->update($data);
         return 1;
     }
