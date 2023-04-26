@@ -146,7 +146,7 @@ return [
     'ready_service' => 'ready service',
     'basic_menus' => 'Main menus',
     'page_type' => 'Page type',
-    'sliders' => 'advertising images',
+    'sliders' => 'Sliders',
     'profile' => 'profile',
     'please_wait' => 'please wait',
     'number' => 'the number',

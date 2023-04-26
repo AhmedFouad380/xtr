@@ -69,7 +69,7 @@
 <!--end::Input group-->  <!--begin::Input group-->
 <div class="fv-row mb-7">
     <!--begin::Label-->
-    <label class="required fw-bold fs-6 mb-2">{{__('lang.description_en')}}</label>
+    <label class=" fw-bold fs-6 mb-2">{{__('lang.description_en')}}</label>
     <!--end::Label-->
     <!--begin::Input-->
     <textarea rows="3" name="description_en"
