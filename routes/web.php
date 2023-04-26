@@ -7,6 +7,7 @@ use \App\Http\Controllers\Admin\AgencyController;
 use \App\Http\Controllers\Admin\WhyusController;
 use \App\Http\Controllers\Admin\CouponController;
 use \App\Http\Controllers\Admin\ContactController;
+use \App\Http\Controllers\Admin\OrderController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -65,7 +66,6 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('/datatable', [ContactController::class, 'datatable'])->name('.datatable');
         Route::get('delete', [ContactController::class, 'destroy'])->name('.delete');
         Route::get('/add-button', [PagesController::class, 'table_buttons'])->name('.table_buttons');
-
     });
 
     Route::group(['prefix' => 'categories', 'as' => 'categories'], function () {
@@ -92,15 +92,17 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('/add-button', [SlidersController::class, 'table_buttons'])->name('.table_buttons');
     });
     Route::group(['prefix' => 'orders', 'as' => 'orders'], function () {
-        Route::get('/', [SlidersController::class, 'index'])->name('.index');
-        Route::get('/datatable', [SlidersController::class, 'datatable'])->name('.datatable');
-        Route::get('/create', [SlidersController::class, 'create'])->name('.create');
-        Route::post('/store', [SlidersController::class, 'store'])->name('.store');
-        Route::get('/edit/{id}', [SlidersController::class, 'edit'])->name('.edit');
-        Route::post('/update/{id}', [SlidersController::class, 'update'])->name('.update');
-        Route::get('delete', [SlidersController::class, 'destroy'])->name('.delete');
-        Route::post('/change_active', [SlidersController::class, 'changeActive'])->name('.change_active');
-        Route::get('/add-button', [SlidersController::class, 'table_buttons'])->name('.table_buttons');
+        Route::get('/', [OrderController::class, 'index'])->name('.index');
+        Route::get('/datatable', [OrderController::class, 'datatable'])->name('.datatable');
+        Route::get('/show/{id}', [OrderController::class, 'show'])->name('.show');
+
+        Route::get('/create', [OrderController::class, 'create'])->name('.create');
+        Route::post('/store', [OrderController::class, 'store'])->name('.store');
+        Route::get('/edit/{id}', [OrderController::class, 'edit'])->name('.edit');
+        Route::post('/update/{id}', [OrderController::class, 'update'])->name('.update');
+        Route::get('delete', [OrderController::class, 'destroy'])->name('.delete');
+        Route::post('/change_active', [OrderController::class, 'changeActive'])->name('.change_active');
+        Route::get('/add-button', [OrderController::class, 'table_buttons'])->name('.table_buttons');
     });
     Route::group(['prefix' => 'agencies', 'as' => 'agencies'], function () {
         Route::get('/', [AgencyController::class, 'index'])->name('.index');

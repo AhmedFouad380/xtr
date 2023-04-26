@@ -1,8 +1,8 @@
 @extends('layout.layout')
 @php
-    $route = 'delivery_orders';
+    $route = 'orders';
 @endphp
-@section('title',__('lang.delivery_orders'))
+@section('title',__('lang.orders'))
 
 @section('header')
     <!--begin::Heading-->
@@ -38,13 +38,11 @@
 
                         <tr class="text-start text-muted fw-bolder fs-5 text-uppercase gs-0">
                             <th class="min-w-125px">{{__('lang.order_number')}}</th>
-                            <th class="min-w-125px">{{__('lang.category')}}</th>
-                            <th class="min-w-125px">{{__('lang.customer')}}</th>
-                            <th class="min-w-125px">{{__('lang.order_date')}}</th>
-                            <th class="min-w-125px">{{__('lang.status')}}</th>
+                            <th class="min-w-125px">{{__('lang.date')}}</th>
+                            <th class="min-w-125px">{{__('lang.name')}}</th>
+                            <th class="min-w-125px">{{__('lang.email')}}</th>
+                            <th class="min-w-125px">{{__('lang.phone')}}</th>
                             <th class="min-w-125px">{{__('lang.Actions')}}</th>
-                            <th class="min-w-125px">{{__('lang.payment_status')}}</th>
-                            <th class="min-w-125px">{{__('lang.provider')}}</th>
                         </tr>
                         <!--end::Table row-->
                         </thead>
@@ -103,13 +101,12 @@
                 columns: [
 
                     {data: 'id', name: 'id', "searchable": true, "orderable": true},
-                    {data: 'category', name: 'category', "searchable": true, "orderable": true},
-                    {data: 'customer_name', name: 'customer_name', "searchable": true, "orderable": true},
                     {data: 'created_at', name: 'created_at', "searchable": true, "orderable": true},
+                    {data: 'name', name: 'name', "searchable": true, "orderable": true},
+                    {data: 'email', name: 'email', "searchable": true, "orderable": true},
+                    {data: 'phone', name: 'phone', "searchable": true, "orderable": true},
                     {data: 'status', name: 'status', "searchable": true, "orderable": true},
                     {data: 'actions', name: 'actions', "searchable": false, "orderable": false},
-                    {data: 'payment_status', name: 'payment_status', "searchable": true, "orderable": true},
-                    {data: 'provider_name', name: 'provider_name', "searchable": true, "orderable": true},
                 ]
             });
             $.ajax({
