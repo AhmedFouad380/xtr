@@ -84,7 +84,7 @@
 
             <div class="menu-item">
                 <a class="menu-link @if(request()->routeIs('providers.*')) active @endif "
-                   href="{{route('providers.index')}}">
+                   href="">
                     <span class="menu-icon">
                         <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                         <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Group.svg--><svg
@@ -107,7 +107,7 @@
             </div>
             <div class="menu-item">
                 <a class="menu-link @if(request()->routeIs('provider_service_requests.*')) active @endif "
-                   href="{{route('provider_service_requests.index')}}">
+                   href="{{url('provider_service_requests.index')}}">
                     <span class="menu-icon">
                         <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                         <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Group.svg--><svg
@@ -126,11 +126,7 @@
                         <!--end::Svg Icon-->
                     </span>
                     <span class="menu-title">{{__('lang.provider_service_requests')}}</span>
-                    @if(\App\Models\ProviderForm::where('status','pending')->count() > 0)
-                        <span
-                            class="badge badge-light-danger">{{\App\Models\ProviderForm::where('status','pending')->count()}}</span>
-                    @endif
-                </a>
+                                  </a>
             </div>
             <div class="menu-item">
                 <a class="menu-link  @if(request()->routeIs('contact_us.*')) active @endif "
@@ -153,10 +149,6 @@
                         <!--end::Svg Icon-->
                     </span>
                     <span class="menu-title">{{__('lang.contact_us')}}</span>
-                    @if(\App\Models\ContactForm::where('is_seen',0)->count() > 0)
-                        <span
-                            class="badge badge-light-danger">{{\App\Models\ContactForm::where('is_seen',0)->count()}}</span>
-                    @endif
                 </a>
             </div>
             <div class="menu-item">
@@ -166,7 +158,7 @@
             </div>
             <div class="menu-item">
                 <a class="menu-link @if(request()->routeIs('services.*')) active @endif "
-                   href="{{route('services.index')}}">
+                   href="{{url('services.index')}}">
 															<span class="menu-icon">
 																<!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
 																<span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\General\Thunder.svg--><svg
@@ -188,7 +180,7 @@
             </div>
             <div class="menu-item">
                 <a class="menu-link @if(request()->routeIs('ready_services.index')) active @endif "
-                   href="{{route('ready_services.index')}}">
+                   href="{{url('ready_services.index')}}">
 															<span class="menu-icon">
 																<!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
 																<span class="svg-icon svg-icon-2">
@@ -211,7 +203,7 @@
             </div>
             <div class="menu-item">
                 <a class="menu-link @if(request()->routeIs('car_services.*')) active @endif "
-                   href="{{route('car_services.index')}}">
+                   href="{{url('car_services.index')}}">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                             <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\General\Thunder.svg--><svg
@@ -234,7 +226,7 @@
             </div>
             <div class="menu-item">
                 <a class="menu-link @if(request()->routeIs('delivery_services.*')) active @endif "
-                   href="{{route('delivery_services.index')}}">
+                   href="{{url('delivery_services.index')}}">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                             <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\General\Thunder.svg--><svg
@@ -257,7 +249,7 @@
             </div>
             <div class="menu-item">
                 <a class="menu-link @if(request()->routeIs('car_types.*')) active @endif "
-                   href="{{route('car_types.index')}}">
+                   href="{{url('car_types.index')}}">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                             <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\General\Thunder.svg--><svg
@@ -285,7 +277,7 @@
             </div>
             <div class="menu-item">
                 <a class="menu-link @if(request()->routeIs('ready_orders.index')) active @endif "
-                   href="{{route('ready_orders.index')}}">
+                   href="{{url('ready_orders.index')}}">
                     <span class="menu-icon">
                         <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                         <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Shopping\Cart1.svg--><svg
@@ -311,7 +303,7 @@
             </div>
             <div class="menu-item">
                 <a class="menu-link @if(request()->routeIs('dream_orders.index')) active @endif "
-                   href="{{route('dream_orders.index')}}">
+                   href="{{url('dream_orders.index')}}">
                     <span class="menu-icon">
                         <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                         <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Shopping\Cart1.svg--><svg
@@ -337,7 +329,7 @@
             </div>
             <div class="menu-item">
                 <a class="menu-link @if(request()->routeIs('cars_orders.index')) active @endif "
-                   href="{{route('cars_orders.index')}}">
+                   href="{{url('cars_orders.index')}}">
                     <span class="menu-icon">
                         <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                         <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Shopping\Cart1.svg--><svg
@@ -363,7 +355,7 @@
             </div>
             <div class="menu-item">
                 <a class="menu-link @if(request()->routeIs('delivery_orders.*')) active @endif "
-                   href="{{route('delivery_orders.index')}}">
+                   href="{{url('delivery_orders.index')}}">
                     <span class="menu-icon">
                         <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                         <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Shopping\Cart1.svg--><svg
@@ -389,7 +381,7 @@
             </div>
             <div class="menu-item">
                 <a class="menu-link @if(request()->routeIs('limousine_orders.*')) active @endif "
-                   href="{{route('limousine_orders.index')}}">
+                   href="{{url('limousine_orders.index')}}">
                     <span class="menu-icon">
                         <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                         <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Shopping\Cart1.svg--><svg
@@ -420,7 +412,7 @@
             </div>
             <div class="menu-item">
                 <a class="menu-link @if(request()->routeIs('stores.*')) active @endif "
-                   href="{{route('stores.index')}}">
+                   href="{{url('stores.index')}}">
                     <span class="menu-icon">
                         <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                         <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Shopping\Cart1.svg--><svg
@@ -446,7 +438,7 @@
             </div>
             <div class="menu-item">
                 <a class="menu-link @if(request()->routeIs('important_numbers.*')) active @endif "
-                   href="{{route('important_numbers.index')}}">
+                   href="{{url('important_numbers.index')}}">
 															<span class="menu-icon">
 																<!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
 																<span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Devices\iPhone-X.svg--><svg
@@ -470,7 +462,7 @@
                 </a>
             </div>
             <div class="menu-item">
-                <a class="menu-link @if(request()->routeIs('news.*')) active @endif " href="{{route('news.index')}}">
+                <a class="menu-link @if(request()->routeIs('news.*')) active @endif " href="{{url('news.index')}}">
 															<span class="menu-icon">
 																<!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
 																<span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Home\Globe.svg--><svg
@@ -500,7 +492,7 @@
 
             <div class="menu-item">
                 <a class="menu-link @if(request()->routeIs('sliders.*')) active @endif "
-                   href="{{route('sliders.index')}}">
+                   href="{{url('sliders.index')}}">
                                                             <span class="menu-icon">
                                                                 <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                           <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Home\Picture.svg--><svg
@@ -521,7 +513,7 @@
             </div>
             <div class="menu-item">
                 <a class="menu-link @if(request()->routeIs('cities.*')) active @endif "
-                   href="{{route('cities.index')}}">
+                   href="{{url('cities.index')}}">
                                                             <span class="menu-icon">
                                                                 <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                           <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Map\Marker1.svg--><svg
@@ -541,7 +533,7 @@
             </div>
             <div class="menu-item">
                 <a class="menu-link @if(request()->routeIs('coupons.*')) active @endif "
-                   href="{{route('coupons.index')}}">
+                   href="{{url('coupons.index')}}">
                      <span class="menu-icon">
                                                             <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Shopping\Sale2.svg--><svg
                                                                     xmlns="http://www.w3.org/2000/svg"
@@ -592,7 +584,7 @@
                 <div class="menu-sub menu-sub-accordion @if(request()->routeIs('pages.*')) menu-active-bg @endif ">
                     <div class="menu-item">
                         <a class="menu-link @if(request()->segment(3) == 'user_terms') active @endif "
-                           href="{{route('pages.edit',['type'=>'user_terms'])}}">
+                           href="{{url('pages.edit',['type'=>'user_terms'])}}">
 																	<span class="menu-bullet">
 																		<span class="bullet bullet-dot"></span>
 																	</span>
@@ -602,7 +594,7 @@
                     <div
                         class="menu-item ">
                         <a class="menu-link @if(request()->segment(3) == 'user_privacy') active @endif  "
-                           href="{{route('pages.edit',['type'=>'user_privacy'])}}">
+                           href="{{url('pages.edit',['type'=>'user_privacy'])}}">
 																	<span class="menu-bullet">
 																		<span class="bullet bullet-dot"></span>
 																	</span>
@@ -611,7 +603,7 @@
                     </div>
                     <div class="menu-item">
                         <a class="menu-link  @if(request()->segment(3) == 'provider_terms') active @endif "
-                           href="{{route('pages.edit',['type'=>'provider_terms'])}}">
+                           href="{{url('pages.edit',['type'=>'provider_terms'])}}">
 																	<span class="menu-bullet">
 																		<span class="bullet bullet-dot"></span>
 																	</span>
@@ -621,7 +613,7 @@
 
                     <div class="menu-item ">
                         <a class="menu-link @if(request()->segment(3) == 'provider_privacy') active @endif"
-                           href="{{route('pages.edit',['type'=>'provider_privacy'])}}">
+                           href="{{url('pages.edit',['type'=>'provider_privacy'])}}">
 																	<span class="menu-bullet">
 																		<span class="bullet bullet-dot"></span>
 																	</span>
@@ -636,7 +628,7 @@
             </div>
 
             {{--            <div class="menu-item">--}}
-            {{--                <a class="menu-link" href="{{route('screens.index')}}">--}}
+            {{--                <a class="menu-link" href="{{url('screens.index')}}">--}}
             {{--                                                            <span class="menu-icon">--}}
             {{--                                                                <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->--}}
             {{--                                                                <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Media\Airplay-video.svg--><svg--}}

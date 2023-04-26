@@ -26,6 +26,7 @@ Route::get('reset-password/{token}/{email}', [\App\Http\Controllers\frontControl
 Route::post('reset-password', [\App\Http\Controllers\frontController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
 Route::group(['middleware' => ['web']], function () {
+    Route::get('Setting', [\App\Http\Controllers\frontController::class, 'Setting'])->name('profile');
 
     Route::group(['prefix' => 'sliders', 'as' => 'sliders'], function () {
         Route::get('/', [SlidersController::class, 'index'])->name('.index');

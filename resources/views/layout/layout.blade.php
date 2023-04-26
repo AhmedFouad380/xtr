@@ -233,11 +233,6 @@ License: For each use you must have a valid license purchased only from above li
 
                                 <!--begin::Menu-->
                             @include('layout.sidebars.basic_menus')
-{{--                            @include('layout.sidebars.ready_menus')--}}
-{{--                            @include('layout.sidebars.dream_menus')--}}
-{{--                            @include('layout.sidebars.limousine_menus')--}}
-{{--                            @include('layout.sidebars.cars_menus')--}}
-{{--                            @include('layout.sidebars.delivery_menus')--}}
                             <!--end::Menu-->
 
                                 <!--end::Tab pane-->
