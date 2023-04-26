@@ -13,7 +13,7 @@
                 </div>
             </div>
             <div class="menu-item">
-                <a class="menu-link  @if(request()->routeIs('dashboard.*')) active @endif " href="{{url('/')}}">
+                <a class="menu-link  @if(request()->routeIs('dashboard.*')) active @endif " href="{{route('dashboard.index')}}">
                     <span class="menu-icon">
                         <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                         <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Home\Home-heart.svg--><svg
@@ -36,7 +36,7 @@
             </div>
             <div class="menu-item">
                 <a class="menu-link @if(request()->routeIs('admins.*')) active @endif "
-                   href="{{url('/Admin_setting')}}">
+                   href="{{url('Admin_setting')}}">
 															<span class="menu-icon">
 																<!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
 																<span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\General\User.svg--><svg
@@ -62,7 +62,7 @@
 
             <div class="menu-item">
                 <a class="menu-link  @if(request()->routeIs('contact_us.*')) active @endif "
-                   href="{{url('/contact_us')}}">
+                   href="{{route('contact_us.index')}}">
                     <span class="menu-icon">
                         <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                         <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Communication\Active-call.svg--><svg
@@ -90,7 +90,7 @@
             </div>
             <div class="menu-item">
                 <a class="menu-link @if(request()->routeIs('categories.*')) active @endif "
-                   href="{{url('categories.index')}}">
+                   href="{{route('categories.index')}}">
 															<span class="menu-icon">
                                                                 <span class="svg-icon svg-icon-2">
 																	<svg xmlns="http://www.w3.org/2000/svg" width="24"
@@ -112,7 +112,7 @@
             </div>
             <div class="menu-item">
                 <a class="menu-link @if(request()->routeIs('products.*')) active @endif "
-                   href="{{url('products.index')}}">
+                   href="{{route('products.index')}}">
 															<span class="menu-icon">
 																<!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
 																<span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\General\Thunder.svg--><svg
@@ -139,8 +139,8 @@
                 </div>
             </div>
             <div class="menu-item">
-                <a class="menu-link @if(request()->routeIs('ready_orders.index')) active @endif "
-                   href="{{url('ready_orders.index')}}">
+                <a class="menu-link @if(request()->routeIs('orders.index')) active @endif "
+                   href="{{route('orders.index')}}">
                     <span class="menu-icon">
                         <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                         <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Shopping\Cart1.svg--><svg
@@ -171,7 +171,7 @@
             </div>
             <div class="menu-item">
                 <a class="menu-link @if(request()->routeIs('sliders.*')) active @endif "
-                   href="{{url('sliders.index')}}">
+                   href="{{route('sliders.index')}}">
                                                             <span class="menu-icon">
                                                                 <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                           <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Home\Picture.svg--><svg
@@ -192,7 +192,7 @@
             </div>
             <div class="menu-item">
                 <a class="menu-link @if(request()->routeIs('pages.*')) active @endif "
-                   href="{{url('pages.index')}}">
+                   href="{{route('pages.index')}}">
 															<span class="menu-icon">
 																<!--begin::Svg Icon | path: icons/duotune/ecommerce/ecm007.svg-->
 																<span class="svg-icon svg-icon-2">
@@ -214,7 +214,54 @@
                     <span class="menu-title">{{__('lang.pages')}}</span>
                 </a>
             </div>
-
+            <div class="menu-item">
+                <a class="menu-link @if(request()->routeIs('agencies.*')) active @endif "
+                   href="{{route('agencies.index')}}">
+															<span class="menu-icon">
+																<!--begin::Svg Icon | path: icons/duotune/ecommerce/ecm007.svg-->
+																<span class="svg-icon svg-icon-2">
+																	<svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                                                         height="24" viewBox="0 0 24 24" fill="none">
+																		<path opacity="0.3"
+                                                                              d="M14 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V8L14 2Z"
+                                                                              fill="black"></path>
+																		<path
+                                                                            d="M20 8L14 2V6C14 7.10457 14.8954 8 16 8H20Z"
+                                                                            fill="black"></path>
+																		<path
+                                                                            d="M10.3629 14.0084L8.92108 12.6429C8.57518 12.3153 8.03352 12.3153 7.68761 12.6429C7.31405 12.9967 7.31405 13.5915 7.68761 13.9453L10.2254 16.3488C10.6111 16.714 11.215 16.714 11.6007 16.3488L16.3124 11.8865C16.6859 11.5327 16.6859 10.9379 16.3124 10.5841C15.9665 10.2565 15.4248 10.2565 15.0789 10.5841L11.4631 14.0084C11.1546 14.3006 10.6715 14.3006 10.3629 14.0084Z"
+                                                                            fill="black"></path>
+																	</svg>
+																</span>
+                                                                <!--end::Svg Icon-->
+															</span>
+                    <span class="menu-title">{{__('lang.agencies')}}</span>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a class="menu-link @if(request()->routeIs('whyus.*')) active @endif "
+                   href="{{route('whyus.index')}}">
+															<span class="menu-icon">
+																<!--begin::Svg Icon | path: icons/duotune/ecommerce/ecm007.svg-->
+																<span class="svg-icon svg-icon-2">
+																	<svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                                                         height="24" viewBox="0 0 24 24" fill="none">
+																		<path opacity="0.3"
+                                                                              d="M14 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V8L14 2Z"
+                                                                              fill="black"></path>
+																		<path
+                                                                            d="M20 8L14 2V6C14 7.10457 14.8954 8 16 8H20Z"
+                                                                            fill="black"></path>
+																		<path
+                                                                            d="M10.3629 14.0084L8.92108 12.6429C8.57518 12.3153 8.03352 12.3153 7.68761 12.6429C7.31405 12.9967 7.31405 13.5915 7.68761 13.9453L10.2254 16.3488C10.6111 16.714 11.215 16.714 11.6007 16.3488L16.3124 11.8865C16.6859 11.5327 16.6859 10.9379 16.3124 10.5841C15.9665 10.2565 15.4248 10.2565 15.0789 10.5841L11.4631 14.0084C11.1546 14.3006 10.6715 14.3006 10.3629 14.0084Z"
+                                                                            fill="black"></path>
+																	</svg>
+																</span>
+                                                                <!--end::Svg Icon-->
+															</span>
+                    <span class="menu-title">{{__('lang.whyus')}}</span>
+                </a>
+            </div>
             <div class="menu-item">
                 <div class="menu-content pt-8 pb-2">
                     <span class="menu-section text-muted text-uppercase fs-8 ls-1">{{trans('lang.settings')}}</span>
@@ -225,7 +272,7 @@
 
             <div class="menu-item">
                 <a class="menu-link @if(request()->routeIs('settings.*')) active @endif "
-                   href="{{url('settings.index')}}">
+                   href="{{route('settings.index')}}">
                      <span class="menu-icon">
                                                             <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Shopping\Sale2.svg--><svg
                                                                     xmlns="http://www.w3.org/2000/svg"
@@ -251,7 +298,7 @@
             </div>
             <div class="menu-item">
                 <a class="menu-link @if(request()->routeIs('coupons.*')) active @endif "
-                   href="{{url('coupons.index')}}">
+                   href="{{route('coupons.index')}}">
                      <span class="menu-icon">
                                                             <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Shopping\Sale2.svg--><svg
                                                                     xmlns="http://www.w3.org/2000/svg"
@@ -277,7 +324,7 @@
             </div>
 
             {{--            <div class="menu-item">--}}
-            {{--                <a class="menu-link" href="{{url('screens.index')}}">--}}
+            {{--                <a class="menu-link" href="{{route('screens.index')}}">--}}
             {{--                                                            <span class="menu-icon">--}}
             {{--                                                                <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->--}}
             {{--                                                                <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Media\Airplay-video.svg--><svg--}}

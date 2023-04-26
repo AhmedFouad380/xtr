@@ -9,7 +9,15 @@ class Page extends Model
 {
     use HasFactory;
 
-    protected $appends = ['name'];
+
+    protected $guarded = ['id', 'created_at', 'updated_at'];
+
+    protected $appends = ['name','description'];
+
+    public function scopeActive($query)
+    {
+        return $query->where('is_active','active');
+    }
 
     public function getNameAttribute()
     {
@@ -17,6 +25,32 @@ class Page extends Model
             return $this->name_ar;
         } else {
             return $this->name_en;
+        }
+    }
+    public function getDescriptionAttribute()
+    {
+        if (\app()->getLocale() == "ar") {
+            return $this->description_ar;
+        } else {
+            return $this->description_en;
+        }
+    }
+
+
+    public function getImageAttribute($image)
+    {
+        if (!empty($image)) {
+            return asset('uploads/sliders') . '/' . $image;
+        }
+        return asset('defaults/default_blank.png');
+    }
+    public function setImageAttribute($image)
+    {
+        if (is_file($image)) {
+            $imageFields = upload($image, 'sliders');
+            $this->attributes['image'] = $imageFields;
+        }else {
+            $this->attributes['image'] = $image;
         }
     }
 
