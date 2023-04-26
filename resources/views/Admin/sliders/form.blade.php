@@ -48,7 +48,7 @@
 </div>
 <div class="fv-row mb-7">
     <!--begin::Label-->
-    <label class="required fw-bold fs-6 mb-2">{{__('lang.link')}}</label>
+    <label class=" fw-bold fs-6 mb-2">{{__('lang.link')}}</label>
     <!--end::Label-->
     <!--begin::Input-->
     <input type="url" name="link"
@@ -58,12 +58,12 @@
 </div>
 <div class="fv-row mb-7">
     <!--begin::Label-->
-    <label class="required fw-bold fs-6 mb-2">{{__('lang.description_ar')}}</label>
+    <label class=" fw-bold fs-6 mb-2">{{__('lang.description_ar')}}</label>
     <!--end::Label-->
     <!--begin::Input-->
     <textarea rows="3" name="description_ar"
            class="form-control form-control-solid mb-3 mb-lg-0"
-              placeholder="" value="{{old('description_ar',$data->description_ar ?? '')}}" required> </textarea>
+              placeholder="" value="{{old('description_ar',$data->description_ar ?? '')}}" > </textarea>
     <!--end::Input-->
 </div>
 <!--end::Input group-->  <!--begin::Input group-->
@@ -74,7 +74,7 @@
     <!--begin::Input-->
     <textarea rows="3" name="description_en"
               class="form-control form-control-solid mb-3 mb-lg-0"
-              placeholder="" value="{{old('description_en',$data->description_en ?? '')}}" required> </textarea>
+              placeholder="" value="{{old('description_en',$data->description_en ?? '')}}" > </textarea>
     <!--end::Input-->
 </div>
 
