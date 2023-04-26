@@ -50,15 +50,14 @@ class ProductImagesController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ProductRequest $request)
+    public function store(Request $request)
     {
-        $data = $request->validated();
-        $product_id = $this->objectName::create($data);
+
 
 
         foreach ($request->images as $image){
             $productImage = new ProductImages();
-            $productImage->product_id = $product_id->id;
+            $productImage->product_id = $request->product_id;
             $productImage->image = $image;
             $productImage->save();
         }
