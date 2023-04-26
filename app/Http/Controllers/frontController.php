@@ -50,7 +50,7 @@ class frontController extends Controller
         if (Auth::guard('web')->check()) {
             Auth::guard('web')->logout();
         }
-        return redirect('/')->with('message', 'success');
+        return redirect('/Dashboard')->with('message', 'success');
     }
 
     public function register()

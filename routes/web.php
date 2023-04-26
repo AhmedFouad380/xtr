@@ -13,9 +13,7 @@ use App\Http\Controllers\Admin\SlidersController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 Route::get('/login', function () {
     return view('auth.login');
 })->name('login');
@@ -26,6 +24,12 @@ Route::get('reset-password/{token}/{email}', [\App\Http\Controllers\frontControl
 Route::post('reset-password', [\App\Http\Controllers\frontController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
 Route::group(['middleware' => ['web']], function () {
+
+
+        Route::get('/Dashboard', [HomeController::class, 'index'])->name('dashboard.index');
+
+        Route::get('Setting', [\App\Http\Controllers\frontController::class, 'Setting'])->name('profile');
+
     Route::get('Setting', [\App\Http\Controllers\frontController::class, 'Setting'])->name('profile');
 
     Route::group(['prefix' => 'sliders', 'as' => 'sliders'], function () {
