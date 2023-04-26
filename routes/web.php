@@ -25,7 +25,7 @@ Route::post('forget-password', [\App\Http\Controllers\frontController::class, 's
 Route::get('reset-password/{token}/{email}', [\App\Http\Controllers\frontController::class, 'showResetPasswordForm'])->name('reset.password.get');
 Route::post('reset-password', [\App\Http\Controllers\frontController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
-Route::group(['middleware' => ['web']], function () {
+//Route::group(['middleware' => ['web']], function () {
 
 
         Route::get('/Dashboard', [HomeController::class, 'index'])->name('dashboard.index');
@@ -59,3 +59,4 @@ Route::group(['middleware' => ['web']], function () {
 
 
 });
+//});

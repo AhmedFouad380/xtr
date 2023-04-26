@@ -146,7 +146,7 @@ class SlidersController extends Controller
 
     public function changeActive(Request $request)
     {
-        $data['status'] = $request->status;
+        $data['is_active'] = $request->status;
         $this->objectName::where('id', $request->id)->update($data);
         return 1;
     }

@@ -110,7 +110,6 @@
                             return "<img src=\"" + data + "\" height=\"50\"/>";
                         }
                     },
-                    {data: 'type_trans', name: 'type_trans', "searchable": true, "orderable": true},
                     {data: 'name_ar', name: 'name_ar', "searchable": true, "orderable": true},
                     {data: 'name_en', name: 'name_en', "searchable": true, "orderable": true},
                     {data: 'is_active', name: 'is_active', "searchable": true, "orderable": true},
