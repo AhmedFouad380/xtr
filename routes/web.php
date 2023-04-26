@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\UsersController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\SlidersController;
 /*
@@ -44,5 +45,17 @@ Route::group(['middleware' => ['web']], function () {
         Route::post('/change_active', [SlidersController::class, 'changeActive'])->name('.change_active');
         Route::get('/add-button', [SlidersController::class, 'table_buttons'])->name('.table_buttons');
     });
+
+    Route::group(['prefix'=>'users','as'=>'users'],function (){
+        Route::get('/', [UsersController::class, 'index'])->name('.index');
+        Route::get('/datatable', [UsersController::class, 'datatable'])->name('.datatable');
+        Route::post('/store', [UsersController::class, 'store'])->name('.store');
+        Route::get('/edit/{id}', [UsersController::class, 'edit'])->name('.edit');
+        Route::post('/update/{id}', [UsersController::class, 'update'])->name('.update');
+        Route::get('delete', [UsersController::class, 'destroy'])->name('.delete');
+        Route::get('/add-button', [UsersController::class, 'table_buttons'])->name('.table_buttons');
+
+    });
+
 
 });
