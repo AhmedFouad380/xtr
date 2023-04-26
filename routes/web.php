@@ -58,5 +58,4 @@ Route::post('reset-password', [\App\Http\Controllers\frontController::class, 'su
     });
 
 
-});
 //});
