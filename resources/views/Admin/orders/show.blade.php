@@ -73,7 +73,7 @@
                                 <!--end::Details-->
                                 <!--begin::Actions-->
 
-
+                                <
                                 <!--end::Actions-->
                             </div>
                             <!--end::Head-->
