@@ -5,7 +5,7 @@
 @section('title',__('lang.Categories'))
 @section('header')
     <!--begin::Heading-->
-    <h1 class="text-dark fw-bolder my-0 fs-2">{{trans('lang.'.$route)}} </h1>
+    <h1 class="text-dark fw-bolder my-0 fs-2">{{trans('lang.Categories')}} </h1>
     <!--end::Heading-->
     <!--begin::Breadcrumb-->
     <ul class="breadcrumb fw-bold fs-base my-1">
@@ -14,7 +14,7 @@
                 {{trans('lang.Dashboard')}} </a>
         </li>
         <li class="breadcrumb-item">
-            {{trans('lang.'.$route)}}
+            {{trans('lang.Categories')}}
         </li>
     </ul>
     <!--end::Breadcrumb-->

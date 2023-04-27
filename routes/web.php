@@ -110,7 +110,7 @@ Route::group(['middleware' => ['web']], function () {
     });
     Route::group(['prefix' => 'products-images', 'as' => 'products-images'], function () {
         Route::get('/{id}', [ProductImagesController::class, 'index'])->name('.index');
-        Route::get('/datatable', [ProductImagesController::class, 'datatable'])->name('.datatable');
+        Route::get('/datatable/view', [ProductImagesController::class, 'datatable'])->name('.datatable');
         Route::get('/create', [ProductImagesController::class, 'create'])->name('.create');
         Route::post('/store', [ProductImagesController::class, 'store'])->name('.store');
         Route::get('/delete', [ProductImagesController::class, 'destroy'])->name('.delete');

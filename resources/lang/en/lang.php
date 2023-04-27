@@ -774,5 +774,5 @@ return [
     'Preview' => 'Preview',
     'agencies'=>'agencies',
     'whyus'=>'why us',
-
+    'products-images'=>'Product Images',
 ];

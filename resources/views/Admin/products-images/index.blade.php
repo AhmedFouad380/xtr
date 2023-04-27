@@ -28,7 +28,6 @@
             <div class="card">
                 <!--begin::Card body-->
                 <div class="card-body pt-0">
-                {{$id}}
                     <!--begin::Table-->
                     <table class="table align-middle table-row-dashed fs-4 gy-5" id="users_table">
                         <!--begin::Table head-->
@@ -65,7 +64,6 @@
 
 @section('script')
     <script src="{{ URL::asset('assets/plugins/custom/datatables/datatables.bundle.js')}}"></script>
-
     <script type="text/javascript">
         $(function () {
             var table = $('#users_table').DataTable({
@@ -98,7 +96,7 @@
                 ajax: {
                     url: '{{ route($route.'.datatable') }}',
                     data: {
-                        product_id: {{$id}}
+                        product_id:'{{$id}}',
                     }
                 },
                 columns: [
@@ -113,7 +111,7 @@
                 ]
             });
             $.ajax({
-                url: "{{ route($route.'.table_buttons',$id)}}",
+                url: "{{ URL::to($route.'/add-button',$id)}}",
                 success: function (data) {
                     $('.add_button').append(data);
                 },
