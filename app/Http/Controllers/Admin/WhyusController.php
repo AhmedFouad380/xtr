@@ -42,7 +42,7 @@ class WhyusController extends Controller
                 $name .= ' <span class="text-gray-800 text-hover-primary mb-1">' . $row->title . '</span>';
                 return $name;
             })
-            ->addColumn('is_active', $this->viewPath . 'parts.active_btn')
+            ->addColumn('is_active', $this->viewPath . '.parts.active_btn')
             ->addColumn('actions', function ($row) {
                 $actions = ' <a href="' . url($this->route . "/edit/" . $row->id) . '" class="btn btn-active-light-info">' . trans('lang.edit') . '<i class="bi bi-pencil-fill"></i>  </a>';
                 return $actions;

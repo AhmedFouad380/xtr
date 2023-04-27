@@ -17,7 +17,10 @@ class Solution extends Model
     {
         return $query->where('is_active','active');
     }
-
+    public function scopePopular($query)
+    {
+        return $query->where('is_popular','active');
+    }
     public function getNameAttribute()
     {
         if (\app()->getLocale() == "ar") {

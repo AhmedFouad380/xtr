@@ -9,6 +9,13 @@ class Agency extends Model
 {
     use HasFactory;
     protected $guarded = ['id', 'created_at', 'updated_at'];
+
+
+    public function scopeActive($query)
+    {
+        return $query->where('is_active','active');
+    }
+
     public function getImageAttribute($image)
     {
         if (!empty($image)) {

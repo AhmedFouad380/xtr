@@ -180,18 +180,21 @@
                 <div class="col-md-6 col-lg-6 col-6 d-flex flex-row justify-content-end">
                     <a class="see-more" href="#" target="_blank">see more</a>
                 </div>
-                <div class="col-md-12 add-padding">
+                @if(\App\Models\Solution::active()->popular()->first())
+                    <div class="col-md-12 add-padding">
                   <div class="add-bg-1">
                       <div class="row">
                           <div class="col-md-3 col-lg-2 col-6">
                             <div class="our-solution-img">
-                                <img src="assets/img/comingsoon.png" alt="">
+                                <img src="{{\App\Models\Solution::active()->popular()->first()->image}}" alt="{{\App\Models\Solution::active()->popular()->first()->name}}">
                             </div>
                           </div>
                           <div class="col-md-7 col-lg-8 col-6">
                             <div>
-                                <h6 class="mt-3 fw-bold our-solution-h">Lorem ipsum dolor sit.</h6>
-                                <p class="our-solution-p">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio aperiam quos, dignissimos sit libero repellat repudiandae tenetur! Similique, molestias numquam Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio obcaecati nesciunt laudantium, nam eligendi rerum temporibus! Officia nisi totam reiciendis?!</p>
+                                <h6 class="mt-3 fw-bold our-solution-h">{{\App\Models\Solution::active()->popular()->first()->name}}.</h6>
+                                <p class="our-solution-p">
+                                    {{\App\Models\Solution::active()->popular()->first()->description}}
+                                </p>
                             </div>
                           </div>
                           <div class="col-md-2 col-lg-2 col-12 text-center">
@@ -200,6 +203,7 @@
                       </div>
                   </div>
                 </div>
+                @endif
             </div>
             <!--///////////////////////////// end section 3 ///////////////////////////////-->
           </main>
@@ -211,10 +215,10 @@
                 <div class="col-md-4 col-lg-4 col-12">
                    <div class="d-flex flex-column justify-content-center add-m-left">
                     <h4 class="popular-adress text-capitalize">
-                      Why Choose Us
+                        {{\App\Models\Setting::find(1)->why_us_name}}
                     </h4>
                     <p class="choose-us-text">
-                      It is a company that specializes in integrated security systems and light current and works in entertainment and satellite networks.
+                        {{\App\Models\Setting::find(1)->why_us_description}}
                     </p>
                    </div>
                 </div>
@@ -222,60 +226,17 @@
                     <div class="position-relative">
                         <div class="choose-us-box">
                           <div class="row">
-                              <div class="col-md-4 col-lg-4 col-6">
-                                <div class="choose-box text-center">
-                                    <div class="choose-img">
-                                        <img src="assets/img/Professional installation.png" alt="">
+                              @foreach($whyus as $data)
+                                  <div class="col-md-4 col-lg-4 col-6">
+                                    <div class="choose-box text-center">
+                                        <div class="choose-img">
+                                            <img src="{{$data->image}}" alt="{{$data->name}}">
+                                        </div>
+                                        <h6 class="text-capitalize">{{$data->name}}</h6>
+                                        <p>{{$data->description}}</p>
                                     </div>
-                                    <h6 class="text-capitalize">Professional installation</h6>
-                                    <p>By the most skilled technicians</p>
-                                </div>
-                              </div>
-                              <div class="col-md-4 col-lg-4 col-6">
-                                <div class="choose-box text-center">
-                                    <div class="choose-img">
-                                        <img src="assets/img/State of the art technology.png" alt="">
-                                    </div>
-                                    <h6 class="text-capitalize">State of the art technology (UNV)</h6>
-                                    <p>By the most skilled technicians</p>
-                                </div>
-                              </div>
-                              <div class="col-md-4 col-lg-4 col-6">
-                                <div class="choose-box text-center">
-                                    <div class="choose-img">
-                                        <img src="assets/img/FREE inspection.png" alt="">
-                                    </div>
-                                    <h6 class="text-capitalize">FREE inspection (limited time offer)</h6>
-                                    <p>By the most skilled technicians</p>
-                                </div>
-                              </div>
-                              <div class="col-md-4 col-lg-4 col-6">
-                                <div class="choose-box text-center">
-                                    <div class="choose-img">
-                                        <img src="assets/img/24-7 alarm monitoring.png" alt="">
-                                    </div>
-                                    <h6 class="text-capitalize">24/7 alarm monitoring</h6>
-                                    <p>By the most skilled technicians</p>
-                                </div>
-                              </div>
-                              <div class="col-md-4 col-lg-4 col-6">
-                                <div class="choose-box text-center">
-                                    <div class="choose-img">
-                                        <img src="assets/img/100% safety.png" alt="">
-                                    </div>
-                                    <h6 class="text-capitalize">Two-Year Warranty</h6>
-                                    <p>By the most skilled technicians</p>
-                                </div>
-                              </div>
-                              <div class="col-md-4 col-lg-4 col-6">
-                                <div class="choose-box text-center">
-                                    <div class="choose-img">
-                                        <img src="assets/img/Two-Year Warranty.png" alt="">
-                                    </div>
-                                    <h6 class="text-capitalize">Professional installation</h6>
-                                    <p>By the most skilled technicians</p>
-                                </div>
-                              </div>
+                                  </div>
+                              @endforeach
                           </div>
                         </div>
                         <div class="bg-choose-us">
@@ -295,71 +256,14 @@
                 </h4>
               </div>
               <div class="owl-carousel owl-theme">
+                  @foreach($agancies as $agancy)
                 <div class="item">
                     <div class="image-item">
-                        <img src="assets/img/لوجو-كارفور.jpg" alt="">
+                        <img src="{{$agancy->image}}" alt="">
                     </div>
                 </div>
-                <div class="item">
-                    <div class="image-item">
-                        <img src="assets/img/جامعة الازهر.jpg" alt="">
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="image-item">
-                        <img src="assets/img/شركات البترول.PNG" alt="">
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="image-item">
-                        <img src="assets/img/istockphoto-1158342659-612x612.jpg" alt="">
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="image-item">
-                        <img src="assets/img/لوجو-كارفور.jpg" alt="">
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="image-item">
-                        <img src="assets/img/جامعة الازهر.jpg" alt="">
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="image-item">
-                        <img src="assets/img/شركات البترول.PNG" alt="">
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="image-item">
-                        <img src="assets/img/istockphoto-1158342659-612x612.jpg" alt="">
-                    </div>
-                </div>
-                <div class="item">
-                      <div class="image-item">
-                          <img src="assets/img/logo.png" alt="">
-                      </div>
-                </div>
-                <div class="item">
-                    <div class="image-item">
-                        <img src="assets/img/لوجو-كارفور.jpg" alt="">
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="image-item">
-                        <img src="assets/img/جامعة الازهر.jpg" alt="">
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="image-item">
-                        <img src="assets/img/شركات البترول.PNG" alt="">
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="image-item">
-                        <img src="assets/img/istockphoto-1158342659-612x612.jpg" alt="">
-                    </div>
-                </div>
+                  @endforeach
+
               </div>
             </div>
           </div>

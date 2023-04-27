@@ -782,5 +782,6 @@ return [
     'accepted_orders' => 'الطلبات المقبوله ',
     'canceled_orders' => 'الطلبات الملغبة',
     'products-images'=>'صورة المنتج',
+    'solution'=>'الحلول ',
 
 ];

@@ -33,7 +33,7 @@
     <!--begin::Input-->
     <textarea rows="3" name="description_ar" id="editor1"
            class="form-control form-control-solid mb-3 mb-lg-0"
-              placeholder="" value="{{old('description_ar',$data->description_ar ?? '')}}" > </textarea>
+              placeholder="" value="" >{{old('description_ar',$data->description_ar ?? '')}} </textarea>
     <!--end::Input-->
 </div>
 <!--end::Input group-->  <!--begin::Input group-->
@@ -44,7 +44,7 @@
     <!--begin::Input-->
     <textarea rows="3" name="description_en" id="editor2"
               class="form-control form-control-solid mb-3 mb-lg-0"
-              placeholder="" value="{{old('description_en',$data->description_en ?? '')}}" > </textarea>
+              placeholder="" value="" > {{old('description_en',$data->description_en ?? '')}} </textarea>
     <!--end::Input-->
 </div>
 
