@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Admin;
 use App\Models\Agency;
+use App\Models\Cart;
 use App\Models\Category;
 use App\Models\Contact;
 use App\Models\Order;
@@ -70,6 +71,66 @@ class frontController extends Controller
         $count = Solution::active()->count();
         $agancies = Agency::active()->get();
         return view('front.solutions', compact('agancies','products','count'));
+    }
+    public function cart(){
+//        $IP = Request::ip();
+//        dd($IP);
+        $carts = Cart::get();
+        return view('front.cart', compact('carts'));
+    }
+
+    public function addCart(Request $request){
+        $Product = Product::findOrFail($request->id);
+        if($request->count){
+            if(Cart::where('ip',Request::ip())->where('product_id',$Product->id)->count() > 0){
+                $cart =  Cart::where('ip',Request::ip())->where('product_id',$Product->id)->first();
+                $cart->count= $request->count;
+                $cart->save();
+            }else{
+                $cart = new Cart();
+                $cart->product_id = $Product->id;
+                $cart->ip=Request::ip();
+                if(isset($request->count)){
+                    $cart->count=$request->count;
+                }else{
+                    $cart->count=1;
+                }
+                $cart->save();
+            }
+
+        }else{
+            if(Cart::where('ip',Request::ip())->where('product_id',$Product->id)->count() > 0){
+                $cart =  Cart::where('ip',Request::ip())->where('product_id',$Product->id)->first();
+                $cart->count=$cart->count + 1;
+                $cart->save();
+            }else{
+                $cart = new Cart();
+                $cart->product_id = $Product->id;
+                $cart->ip=Request::ip();
+                if(isset($request->count)){
+                    $cart->count=$request->count;
+                }else{
+                    $cart->count=1;
+                }
+                $cart->save();
+            }
+        }
+
+
+
+        return response()->json(Cart::where('user_id',Auth::guard('web')->id())->sum('count'));
+    }
+
+    public function deleteCartItem(Request $request){
+        Cart::where('id',$request->id)->delete();
+        return response()->json(['message'=>'success']);
+
+    }
+    public function cartCustomerData(){
+//        $IP = Request::ip();
+//        dd($IP);
+        $carts = Cart::get();
+        return view('front.customerdata', compact('carts'));
     }
 
     public function login(Request $request)

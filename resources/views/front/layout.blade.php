@@ -73,10 +73,10 @@
             <!-- cart  (mobile)-->
             <div class="d-flex align-items-center cart-mobile">
                 <div class="cart-btn">
-                    <a href="cart.html" >
+                    <a href="{{url('cart')}}" >
                         <i class="fa-solid fa-cart-shopping"></i>
-                        cart
-                        <span>04</span>
+                        {{__('lang.cart')}}
+{{--                        <span>04</span>--}}
                     </a>
                 </div>
                 <div class="nav-border"></div>
@@ -97,10 +97,10 @@
         <!-- cart (pc)-->
         <div class="d-flex align-items-center cart-phone">
             <div class="cart-btn">
-                <a href="cart.html">
+                <a href="{{url('cart')}}">
                     <i class="fa-solid fa-cart-shopping"></i>
-                    cart
-                    <span>04</span>
+                    {{__('lang.cart')}}
+{{--                    <span>04</span>--}}
                 </a>
             </div>
             <div class="nav-border"></div>
@@ -222,6 +222,35 @@
 <!-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 <script src="{{asset('website')}}/assets/js/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+@yield('js')
+<script>
+    $(".add-cart").click(function () {
+        var id = $(this).data('id')
+
+
+            var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+            $.ajax({
+                type: "GET",
+                url: "{{url('add-cart')}}",
+                data: {"id": id },
+                success: function (data) {
+                    $('#CountCart').html(data)
+                    Swal.fire({
+                        icon: 'success',
+                        title: "{{__('lang.Success')}}",
+                        text: "{{__('lang.Success_text')}}",
+                        type: "success",
+                        timer: 1000,
+                        showConfirmButton: false
+                    });
+
+                }
+            })
+
+    })
+
+</script>
 </body>
 </html>

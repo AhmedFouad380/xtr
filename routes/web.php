@@ -34,6 +34,12 @@ Route::get('/', [\App\Http\Controllers\frontController::class, 'index'])->name('
 Route::get('/Page/{id}', [\App\Http\Controllers\frontController::class, 'Page'])->name('Page');
 Route::get('/Category/{id}', [\App\Http\Controllers\frontController::class, 'Category'])->name('Category');
 Route::get('/solutions', [\App\Http\Controllers\frontController::class, 'solutions'])->name('solutions');
+Route::get('/cart', [\App\Http\Controllers\frontController::class, 'cart'])->name('cart');
+Route::get('delete-cart-item', [\App\Http\Controllers\frontController::class, 'deleteCartItem']);
+
+Route::get('/add-cart', [\App\Http\Controllers\frontController::class, 'addCart'])->name('cart');
+
+Route::get('/cart_customer_data', [\App\Http\Controllers\frontController::class, 'cartCustomerData'])->name('cart_customer_data');
 Route::post('Login', [\App\Http\Controllers\frontController::class, 'login']);
 Route::get('forget-password', [\App\Http\Controllers\frontController::class, 'showForgetPasswordForm'])->name('forget.password.get');
 Route::post('forget-password', [\App\Http\Controllers\frontController::class, 'submitForgetPasswordForm'])->name('forget.password.post');

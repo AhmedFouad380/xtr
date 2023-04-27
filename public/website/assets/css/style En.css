@@ -29,7 +29,7 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: var(--blue2);
+  background: var(--line);
 }
 
 /* Handle */
@@ -1247,6 +1247,131 @@ footer p {
   display: inline-block;
 }
 
+/* (((((((((((((((((((((((((((( start customer section page ))))))))))))))))))))*/
+
+.bg-customer ,
+.customer-info {
+  background-color: var(--white);
+  padding: 0.5rem;
+}
+
+.customer-info {
+  padding: 1rem;
+}
+
+.customer-info input  {
+  margin-bottom: 1rem;
+  background-color: var(--white2);
+  border-color: var(--white2);
+  text-transform: capitalize;
+  font-size: 0.9rem;
+  border-radius: 8px;
+}
+
+input[type=checkbox] {
+  accent-color: var(--blue)
+}
+
+.check-box label {
+  font-size: 0.9rem;
+  color: var(--gray2);
+  text-transform: capitalize;
+}
+
+.end-form {
+  margin-top: 3rem;
+}
+
+.end-form a {
+  color: var(--gray2);
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.end-form a:hover {
+  color: var(--blue2);
+}
+
+.form-submit {
+  padding: 0.4rem 2rem !important;
+}
+
+
+.flex-input input {
+  width: 49.5%;
+}
+
+.bg-customer h6 {
+  margin-top: 0.5rem;
+}
+
+.customer-data-scroll {
+  height: 500px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding-right: 0.9rem;
+}
+
+.border-gray {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0px 2px 6px #00000029;
+}
+
+.cart-customer-img {
+  height: 100px;
+}
+
+.customer-p-size {
+  font-size: 0.9rem;
+}
+
+.customer-price {
+  font-size: 0.9rem;
+}
+
+.sub-total,
+.sub-total2 {
+  border: 1px solid var(--line);
+  padding: 1rem;
+  color: var(--black);
+  border-radius: 8px;
+}
+
+.sub-total {
+  margin-top: 4rem;
+  border-bottom: none;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.sub-total2 {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.add-mb {
+  margin-bottom: 1.2rem;
+}
+
+.sub-total-color {
+  color: var(--gray2);
+  text-transform: capitalize;
+  font-size: 0.9rem;
+}
+
+.size-kwd {
+  font-size: 0.8rem;
+  color: var(--gray2);
+}
+
+.color-black {
+  color: var(--black);
+  font-size: 0.9rem;
+}
+
+
+
 
 /* (((((((((((((((((((((((((((( start media query ))))))))) )))))))))))))))))*/
 
@@ -1544,6 +1669,55 @@ footer p {
   .ptz-text2 {
     padding-top: 1rem;
   }
+
+  /* (((((((((((((((((((((((((((( start customer section page ))))))))))))))))))))*/
+
+.customer-info input  {
+  font-size: 0.8rem;
+}
+
+.check-box label {
+  font-size: 0.8rem;
+}
+
+.end-form a {
+  font-size: 0.8rem;
+}
+
+.customer-data-scroll {
+  height: 230px;
+}
+
+.customer-p-size {
+  font-size: 0.8rem;
+}
+
+.customer-price {
+  font-size: 0.8rem;
+}
+
+.sub-total {
+  margin-top: 2rem;
+}
+
+
+.add-mb {
+  margin-bottom: 1rem;
+}
+
+.sub-total-color {
+  font-size: 0.8rem;
+}
+
+.size-kwd {
+  font-size: 0.7rem;
+}
+
+.color-black {
+  font-size: 0.8rem;
+}
+
+
 
 
   
@@ -1969,6 +2143,13 @@ footer p {
 .cart-checkout {
   padding: 0.2rem 1.3rem !important;
 }
+
+/* (((((((((((((((((((((((((((( start customer section page ))))))))))))))))))))*/
+
+.customer-p-size {
+  font-size: 0.7rem;
+}
+
 
 
 
