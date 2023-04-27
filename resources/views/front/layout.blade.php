@@ -150,13 +150,13 @@
                             <img src="{{asset('website/assets/img/fb.png')}}" alt="">
                         </a>
                         <a href="">
-                            <img src="{{asset('assets/img/whatsapp.png')}}" alt="">
+                            <img src="{{asset('website/assets/img/whatsapp.png')}}" alt="">
                         </a>
                         <a href="">
-                            <img src="assets/img/instagram.png" alt="">
+                            <img src="{{asset('website/assets/img/instagram.png')}}" alt="">
                         </a>
                         <a href="">
-                            <img src="assets/img/twitter.png" alt="">
+                            <img src="{{asset('website/assets/img/twitter.png')}}" alt="">
                         </a>
                     </div>
                 </div>
