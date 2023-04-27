@@ -47,7 +47,7 @@ class ProductsController extends Controller
 
             ->addColumn('actions', function ($row) {
                 $actions = ' <a href="' . url($this->route."/edit/" . $row->id) . '" class="btn btn-active-light-info"><i class="bi bi-pencil-fill"></i> تعديل </a>';
-                $actions .= ' <a href="' . url($this->route."/images/" . $row->id) . '" class="btn btn-active-light-info"><i class="bi bi-pencil-fill"></i> الصور </a>';
+                $actions .= ' <a href="' . url($this->route."-images/" . $row->id) . '" class="btn btn-active-light-info"><i class="bi bi-pencil-fill"></i> الصور </a>';
                 return $actions;
 
             })

@@ -74,7 +74,13 @@ class UsersController extends Controller
     public function store(UserRequest $request)
     {
         $data = $request->validated();
-        $this->objectName::create($data);
+        $user = new User;
+        $user->name=$request->name;
+        $user->phone=$request->phone;
+        $user->password=Hash::make($request->password);
+        $user->email=$request->email;
+        $user->image=$request->image;
+        $user->save();
 
         return redirect(route($this->route . '.index'))->with('message', trans('lang.added_s'));
 

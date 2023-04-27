@@ -28,7 +28,7 @@
             <div class="card">
                 <!--begin::Card body-->
                 <div class="card-body pt-0">
-
+                {{$id}}
                     <!--begin::Table-->
                     <table class="table align-middle table-row-dashed fs-4 gy-5" id="users_table">
                         <!--begin::Table head-->
@@ -96,7 +96,7 @@
                     // {extend: 'colvis', className: 'btn secondary', text: 'إظهار / إخفاء الأعمدة '}
                 ],
                 ajax: {
-                    url: '{{ route($route.'.datatable',$id) }}',
+                    url: '{{ route($route.'.datatable') }}',
                     data: {
                         product_id: {{$id}}
                     }
