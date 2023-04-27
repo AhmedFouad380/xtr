@@ -46,10 +46,23 @@ class frontController extends Controller
         $agancies = Agency::active()->get();
         return view('front.index',compact('UnvPopular','BeinPopular','receiversPopular','whyus','agancies'));
     }
-    public function pages($type)
+    public function Page($type)
     {
-        $data = Page::where('type', $type)->first();
-        return view('Front.pages', compact('type','data'));
+        $data = Page::findOrFail($type);
+        $whyus = WhyUs::active()->limit(6)->get();
+        $agancies = Agency::active()->get();
+
+        return view('front.pages', compact('data','whyus','agancies'));
+    }
+    public function Category($type)
+    {
+        $data = Category::findOrFail($type);
+        $products = Product::active()->where('category_id',$data->id)->paginate(12);
+        $whyus = WhyUs::active()->limit(6)->get();
+        $agancies = Agency::active()->get();
+
+         return view('front.'.$data->type, compact('data','whyus','agancies','products'));
+
     }
 
     public function login(Request $request)

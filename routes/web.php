@@ -31,6 +31,8 @@ Route::get('/login', function () {
 })->name('login');
 
 Route::get('/', [\App\Http\Controllers\frontController::class, 'index'])->name('home');
+Route::get('/Page/{id}', [\App\Http\Controllers\frontController::class, 'Page'])->name('Page');
+Route::get('/Category/{id}', [\App\Http\Controllers\frontController::class, 'Category'])->name('Category');
 Route::post('Login', [\App\Http\Controllers\frontController::class, 'login']);
 Route::get('forget-password', [\App\Http\Controllers\frontController::class, 'showForgetPasswordForm'])->name('forget.password.get');
 Route::post('forget-password', [\App\Http\Controllers\frontController::class, 'submitForgetPasswordForm'])->name('forget.password.post');
