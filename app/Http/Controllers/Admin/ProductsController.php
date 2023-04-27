@@ -47,7 +47,7 @@ class ProductsController extends Controller
                 return $name;
             })
             ->addColumn('is_active', $this->viewPath . 'parts.active_btn')
-            ->addColumn('is_popular', $this->viewPath . 'parts.active_btn')
+            ->addColumn('is_popular', $this->viewPath . 'parts.popular_btn')
 
 
             ->addColumn('actions', function ($row) {

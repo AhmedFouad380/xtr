@@ -522,6 +522,7 @@ License: For each use you must have a valid license purchased only from above li
             }
         });
     }
+
     function update_popular(el, route) {
         if (el.checked) {
             var status = 'active';

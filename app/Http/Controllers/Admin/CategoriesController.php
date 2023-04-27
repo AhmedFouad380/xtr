@@ -46,7 +46,6 @@ class CategoriesController extends Controller
 
             ->addColumn('is_active', $this->viewPath . 'parts.active_btn')
 
-
             ->addColumn('actions', function ($row) {
                 $actions = ' <a href="' . url($this->route."/edit/" . $row->id) . '" class="btn btn-active-light-info"><i class="bi bi-pencil-fill"></i> تعديل </a>';
                 return $actions;
