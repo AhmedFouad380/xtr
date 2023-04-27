@@ -35,8 +35,8 @@
                 </a>
             </div>
             <div class="menu-item">
-                <a class="menu-link @if(request()->routeIs('admins.*')) active @endif "
-                   href="{{url('Admin_setting')}}">
+                <a class="menu-link @if(request()->routeIs('users.*')) active @endif "
+                   href="{{route('users.index')}}">
 															<span class="menu-icon">
 																<!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
 																<span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\General\User.svg--><svg

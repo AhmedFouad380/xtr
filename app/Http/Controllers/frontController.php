@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Admin;
+use App\Models\Agency;
 use App\Models\Category;
 use App\Models\Contact;
 use App\Models\Order;
 use App\Models\Page;
 use App\Models\Product;
 use App\Models\User;
+use App\Models\WhyUs;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -39,8 +41,10 @@ class frontController extends Controller
     public function index(){
         $UnvPopular = Product::active()->where('is_popular','active')->OrderBy('id','desc')->where('type','camera')->limit(8)->get();
         $BeinPopular = Product::active()->where('is_popular','active')->OrderBy('id','desc')->where('type','subscription')->limit(4)->get();
-        $receiversPopular = Product::active()->where('is_popular','active')->OrderBy('id','desc')->where('type','receivers')->limit(4)->get();
-        return view('front.index',compact('UnvPopular','BeinPopular','receiversPopular'));
+        $receiversPopular = Product::active()->where('is_popular','active')->OrderBy('id','desc')->where('type','receiver')->limit(4)->get();
+        $whyus = WhyUs::active()->limit(6)->get();
+        $agancies = Agency::active()->get();
+        return view('front.index',compact('UnvPopular','BeinPopular','receiversPopular','whyus','agancies'));
     }
     public function pages($type)
     {
