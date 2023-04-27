@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\ProductRequest;
+use App\Models\Category;
 use App\Models\Product;
 use App\Models\ProductImages;
 use Illuminate\Http\Request;
@@ -37,12 +38,16 @@ class ProductsController extends Controller
             })
             ->editColumn('name', function ($row) {
                 $name = '';
-                $name .= ' <span class="text-gray-800 text-hover-primary mb-1">' . $row->name . '</span>
-                                   <br> <small class="text-gray-600">' . $row->email . '</small>';
+                $name .= ' <span class="text-gray-800 text-hover-primary mb-1">' . $row->name . '</span>';
                 return $name;
             })
-
+            ->editColumn('category', function ($row) {
+                $name = '';
+                $name .= ' <span class="text-gray-800 text-hover-primary mb-1">' . $row->Category->name . '</span>';
+                return $name;
+            })
             ->addColumn('is_active', $this->viewPath . 'parts.active_btn')
+            ->addColumn('is_popular', $this->viewPath . 'parts.active_btn')
 
 
             ->addColumn('actions', function ($row) {
@@ -51,7 +56,7 @@ class ProductsController extends Controller
                 return $actions;
 
             })
-            ->rawColumns(['actions', 'checkbox', 'name', 'is_active'])
+            ->rawColumns(['actions', 'checkbox', 'name', 'is_active','is_popular','category'])
             ->make();
 
     }
@@ -67,6 +72,7 @@ class ProductsController extends Controller
     public function store(ProductRequest $request)
     {
         $data = $request->validated();
+        $data['type'] = Category::findOrFail($request->category_id)->type;
         $product_id = $this->objectName::create($data);
 
 
@@ -155,6 +161,12 @@ class ProductsController extends Controller
     public function changeActive(Request $request)
     {
         $data['is_active'] = $request->status;
+        $this->objectName::where('id', $request->id)->update($data);
+        return 1;
+    }
+    public function changePopular(Request $request)
+    {
+        $data['is_popular'] = $request->status;
         $this->objectName::where('id', $request->id)->update($data);
         return 1;
     }

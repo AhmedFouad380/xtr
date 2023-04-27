@@ -120,6 +120,7 @@ Route::group(['middleware' => ['web']], function () {
         Route::post('/update/{id}', [ProductsController::class, 'update'])->name('.update');
         Route::get('delete', [ProductsController::class, 'destroy'])->name('.delete');
         Route::post('/change_active', [ProductsController::class, 'changeActive'])->name('.change_active');
+        Route::post('/change_popular', [ProductsController::class, 'changePopular'])->name('.change_popular');
         Route::get('/add-button', [ProductsController::class, 'table_buttons'])->name('.table_buttons');
     });
     Route::group(['prefix' => 'products-images', 'as' => 'products-images'], function () {

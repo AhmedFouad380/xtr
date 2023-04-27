@@ -19,6 +19,8 @@ class Product extends Model
         'type',
         'price',
         'is_active',
+        'is_popular',
+        'category_id',
     ];
     protected $appends = ['name','description'];
 

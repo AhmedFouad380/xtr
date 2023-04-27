@@ -32,8 +32,9 @@ class ProductRequest extends FormRequest
             'long_description_en' => 'nullable',
             'image' => 'nullable|image|mimes:png,jpg,jpeg,svg',
             'is_active' => 'nullable|string',
-            'type' => 'nullable',
+            'is_popular' => 'nullable|string',
             'price' => 'required',
+            'category_id' => 'required',
             'images' => 'array',
             'images.*' => 'image|mimes:jpeg,png,jpg',
             ];

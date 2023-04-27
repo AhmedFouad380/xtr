@@ -80,14 +80,14 @@
 </div>
 <div class="fv-row mb-7">
     <!--begin::Label-->
-    <label class="required fw-bold fs-6 mb-2">{{__('lang.type')}}</label>
+    <label class="required fw-bold fs-6 mb-2">{{__('lang.category')}}</label>
     <!--end::Label-->
     <!--begin::Input-->
-    <select name="type" class="form-control">
+    <select name="category_id" class="form-control">
 
-        <option @isset($data) @if($data->type == 'camera') selected @endif @endisset value="camera"> {{__('lang.camera')}} </option>
-        <option @isset($data) @if($data->type == 'subscription') selected @endif @endisset value="subscription"> {{__('lang.subscription')}} </option>
-        <option @isset($data) @if($data->type == 'receivers') selected @endif @endisset value="receivers"> {{__('lang.receiver')}} </option>
+        @foreach(\App\Models\Category::all() as $category)
+            <option @isset($data) @if($data->category_id == $category->id) selected @endif @endisset value="{{$category->id}}">{{$category->name}}</option>
+        @endforeach
     </select>
     <!--end::Input-->
 </div>
