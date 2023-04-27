@@ -59,23 +59,23 @@
 </div>
 <div class="fv-row mb-7">
     <!--begin::Label-->
-    <label class=" fw-bold fs-6 mb-2">{{__('lang.description_ar')}}</label>
+    <label class=" fw-bold fs-6 mb-2">{{__('lang.long_description_ar')}}</label>
     <!--end::Label-->
     <!--begin::Input-->
     <textarea rows="3" name="long_description_ar" id="editor1"
               class="form-control form-control-solid mb-3 mb-lg-0"
-              placeholder="" >{{old('description_ar',$data->long_description_ar ?? '')}} </textarea>
+              placeholder="" >{{old('long_description_ar',$data->long_description_ar ?? '')}} </textarea>
     <!--end::Input-->
 </div>
 <!--end::Input group-->  <!--begin::Input group-->
 <div class="fv-row mb-7">
     <!--begin::Label-->
-    <label class=" fw-bold fs-6 mb-2">{{__('lang.description_en')}}</label>
+    <label class=" fw-bold fs-6 mb-2">{{__('lang.long_description_en')}}</label>
     <!--end::Label-->
     <!--begin::Input-->
     <textarea rows="3" name="long_description_en" id="editor2"
               class="form-control form-control-solid mb-3 mb-lg-0"
-              placeholder=""  > {{old('description_en',$data->long_description_en ?? '')}}</textarea>
+              placeholder=""  > {{old('Long_description_en',$data->long_description_en ?? '')}}</textarea>
     <!--end::Input-->
 </div>
 <div class="fv-row mb-7">
@@ -99,14 +99,16 @@
         <span class="form-text text-muted">{{trans('lang.allows_files_type')}}:  png, jpg, jpeg , svg.</span>
     </div>
 </div>
+@if(request()->segment(2) != 'edit')
 <div class="form-group row">
     <label class="col-xl-3 col-lg-3 col-form-label text-right">{{trans('lang.images')}}</label>
     <div class="col-lg-9 col-xl-12">
-        <input type="file" @if(request()->segment(2) != 'edit') required @endif name="images[]" class="dropify" multiple
+        <input type="file"  name="images[]" class="dropify" multiple
                data-default-file="">
         <span class="form-text text-muted">{{trans('lang.allows_files_type')}}:  png, jpg, jpeg , svg.</span>
     </div>
 </div>
+ @endif
 @push('scripts')
     <script src="https://cdn.ckeditor.com/4.21.0/full/ckeditor.js"></script>
     <script>
