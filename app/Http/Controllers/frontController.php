@@ -132,7 +132,7 @@ class frontController extends Controller
     public function cartCustomerData(){
 //        $IP = Request::ip();
 //        dd($IP);
-        $carts = Cart::get();
+        $carts = Cart::where('ip',\Request::ip())->get();
         return view('front.customerdata', compact('carts'));
     }
     public function product($id)
