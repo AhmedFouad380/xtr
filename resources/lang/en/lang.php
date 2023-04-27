@@ -287,6 +287,8 @@ return [
     'accept' => 'accept',
     'reject' => 'reject',
     'pending_orders' => 'pending orders',
+    'accepted_orders' => 'accepted orders',
+    'canceled_orders' => 'canceled orders',
     'all' => 'all',
     'ReOrder' => 'ReOrder',
     'delivery_date' => 'delivery date',

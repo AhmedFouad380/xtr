@@ -37,7 +37,7 @@ Route::post('reset-password', [\App\Http\Controllers\frontController::class, 'su
 Route::group(['middleware' => ['web']], function () {
 
 
-        Route::get('/Dashboard', [HomeController::class, 'index'])->name('dashboard.index');
+        Route::get('/Dashboard', [\App\Http\Controllers\frontController::class, 'dashboard'])->name('dashboard.index');
 
         Route::get('Setting', [\App\Http\Controllers\frontController::class, 'Setting'])->name('profile');
 

@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Admin;
+use App\Models\Category;
+use App\Models\Contact;
+use App\Models\Order;
 use App\Models\Page;
+use App\Models\Product;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -18,9 +22,18 @@ use Illuminate\Support\Str;
 class frontController extends Controller
 {
 
-    public function home()
+    public function dashboard()
     {
-        return view('Front.home');
+        $counts['users'] = User::count();
+        $counts['products'] = Product::count();
+        $counts['categories'] = Category::count();
+        $counts['contact'] = Contact::count();
+        $counts['pending_orders'] = Order::where('type','pending')->count();
+        $counts['accepted_orders'] = Order::where('type','accepted')->count();
+        $counts['completed_orders'] = Order::where('type','completed')->count();
+        $counts['canceled_orders'] = Order::where('type','canceled')->count();
+
+        return view('Admin.index',compact('counts'));
     }
 
     public function pages($type)
@@ -35,7 +48,7 @@ class frontController extends Controller
         $remember_me = $request->has('remember_me') ? true : false;
         if (Auth::guard('web')->attempt($credentials, $remember_me)) {
             // Authentication passed...
-            return redirect()->intended('/');
+            return redirect()->intended('/Dashboard');
         } else {
             return back()->with('danger', 'البريد الإلكتروني او كلمة المرور خطأ');
         }
@@ -50,7 +63,7 @@ class frontController extends Controller
         if (Auth::guard('web')->check()) {
             Auth::guard('web')->logout();
         }
-        return redirect('/Dashboard')->with('message', 'success');
+        return redirect('/')->with('message', 'success');
     }
 
     public function register()

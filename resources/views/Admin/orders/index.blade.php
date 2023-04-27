@@ -105,7 +105,6 @@
                     {data: 'name', name: 'name', "searchable": true, "orderable": true},
                     {data: 'email', name: 'email', "searchable": true, "orderable": true},
                     {data: 'phone', name: 'phone', "searchable": true, "orderable": true},
-                    {data: 'status', name: 'status', "searchable": true, "orderable": true},
                     {data: 'actions', name: 'actions', "searchable": false, "orderable": false},
                 ]
             });

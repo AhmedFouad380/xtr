@@ -778,5 +778,8 @@ return [
     'paypal' => 'باي بال ',
     'Click to open on map' => 'اضغط لفتح الموقع على الخريطة',
     'Preview' => 'عرض',
-    'whyus'=>'لماذا تخترنا'
+    'whyus'=>'لماذا تخترنا',
+    'accepted_orders' => 'الطلبات المقبوله ',
+    'canceled_orders' => 'الطلبات الملغبة',
+
 ];

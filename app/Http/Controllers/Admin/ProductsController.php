@@ -152,4 +152,10 @@ class ProductsController extends Controller
     {
         return view($this->viewPath . '.button');
     }
+    public function changeActive(Request $request)
+    {
+        $data['is_active'] = $request->status;
+        $this->objectName::where('id', $request->id)->update($data);
+        return 1;
+    }
 }
