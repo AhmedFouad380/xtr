@@ -57,7 +57,7 @@
 
         <option @isset($data) @if($data->type == 'camera') selected @endif @endisset value="receiver"> {{__('lang.camera')}} </option>
         <option @isset($data) @if($data->type == 'subscription') selected @endif @endisset value="receiver"> {{__('lang.subscription')}} </option>
-        <option @isset($data) @if($data->type == 'receiver') selected @endif @endisset value="receiver"> {{__('lang.receiver')}} </option>
+        <option @isset($data) @if($data->type == 'receiver') selected @endif @endisset value="receiver"> {{__('lang.receivers')}} </option>
     </select>
     <!--end::Input-->
 </div>

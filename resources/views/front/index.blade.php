@@ -135,7 +135,7 @@
                             </span>
                           </div>
                           <div class="box-content-2">
-                            <a class="details" href="productdetails.html">{{__('lang.Details')}}</a>
+                            <a class="details" href="productdetails.blade.php">{{__('lang.Details')}}</a>
                             <!-- Button trigger modal -->
                             <button type="button" class="btn all-btn d-block m-auto add-cart" data-bs-toggle="modal" data-bs-target="#exampleModal{{$product->id}}">
                                {{__('lang.add to cart')}}

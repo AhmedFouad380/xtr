@@ -155,6 +155,13 @@ return [
     'basic_menus' => 'القوائم الرئيسية',
     'page_type' => 'نوع الصفحة',
     'sliders' => 'صور الاعلانات',
+    'camera' => 'كاميرا  ',
+    'subscription' => 'الاشتراك ',
+    'receivers' => 'ريسيفير  ',
+    'images' => 'الصور  ',
+    'long_description_ar' => 'وصف طويل باللغة العربية  ',
+    'long_description_en' => 'وصف طويل باللغة الانجليزية  ',
+    'popular' => 'شائع   ',
 
     'please_wait' => 'برجاء الانتظار',
     'number' => 'الرقم',
