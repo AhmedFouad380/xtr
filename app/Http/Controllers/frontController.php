@@ -77,23 +77,22 @@ class frontController extends Controller
         return view('front.solutions', compact('agancies','products','count'));
     }
     public function cart(){
-//        $IP = Request::ip();
-//        dd($IP);
-        $carts = Cart::get();
+        $IP = \Request::ip();
+        $carts = Cart::where('ip',$IP)->get();
         return view('front.cart', compact('carts'));
     }
 
     public function addCart(Request $request){
         $Product = Product::findOrFail($request->id);
         if($request->count){
-            if(Cart::where('ip',Request::ip())->where('product_id',$Product->id)->count() > 0){
-                $cart =  Cart::where('ip',Request::ip())->where('product_id',$Product->id)->first();
+            if(Cart::where('ip',\Request::ip())->where('product_id',$Product->id)->count() > 0){
+                $cart =  Cart::where('ip',\Request::ip())->where('product_id',$Product->id)->first();
                 $cart->count= $request->count;
                 $cart->save();
             }else{
                 $cart = new Cart();
                 $cart->product_id = $Product->id;
-                $cart->ip=Request::ip();
+                $cart->ip=\Request::ip();
                 if(isset($request->count)){
                     $cart->count=$request->count;
                 }else{
@@ -103,14 +102,14 @@ class frontController extends Controller
             }
 
         }else{
-            if(Cart::where('ip',Request::ip())->where('product_id',$Product->id)->count() > 0){
-                $cart =  Cart::where('ip',Request::ip())->where('product_id',$Product->id)->first();
+            if(Cart::where('ip',\Request::ip())->where('product_id',$Product->id)->count() > 0){
+                $cart =  Cart::where('ip',\Request::ip())->where('product_id',$Product->id)->first();
                 $cart->count=$cart->count + 1;
                 $cart->save();
             }else{
                 $cart = new Cart();
                 $cart->product_id = $Product->id;
-                $cart->ip=Request::ip();
+                $cart->ip=\Request::ip();
                 if(isset($request->count)){
                     $cart->count=$request->count;
                 }else{
