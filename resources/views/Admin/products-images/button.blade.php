@@ -60,6 +60,15 @@
                              data-kt-scroll-dependencies="#kt_modal_add_user_header"
                              data-kt-scroll-wrappers="#kt_modal_add_user_scroll"
                              data-kt-scroll-offset="300px">
+                            <div class="fv-row mb-7">
+                                <!--begin::Label-->
+                                <!--end::Label-->
+                                <!--begin::Input-->
+                                <input type="text" name="product_id"
+                                       class="form-control form-control-solid mb-3 mb-lg-0"
+                                       placeholder="" value="{{$id}}" hidden/>
+                                <!--end::Input-->
+                            </div>
                         @include('Admin.'.$route.'.form')
                         <!--end::Actions-->
                         </div>
