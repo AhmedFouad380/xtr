@@ -40,7 +40,7 @@
                 </li>
                 @endforeach
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="camera.html" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         camera
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -52,7 +52,7 @@
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="beinsport.html" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         beIN sport
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
