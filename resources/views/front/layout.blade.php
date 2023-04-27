@@ -121,12 +121,13 @@
 </nav>
 <!-- search -->
 <div class="bg-search">
-    <form class="d-flex justify-content-center m-auto nav-search ">
+    <form class="d-flex justify-content-center m-auto nav-search" method="post" action="{{route('search')}}">
+        @csrf
         <div class="d-flex w-100 position-relative">
                 <span class="search-icon">
                   <i class="fa-solid fa-magnifying-glass"></i>
                 </span>
-            <input class="form-control search-input text-capitalize" type="search" placeholder="Search for available products" aria-label="Search">
+            <input name="search" class="form-control search-input text-capitalize" type="search" placeholder="Search for available products" aria-label="Search">
         </div>
         <button class="btn btn-search" type="submit">Search</button>
     </form>

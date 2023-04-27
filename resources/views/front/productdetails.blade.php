@@ -333,7 +333,7 @@
                               </span>
                                 </div>
                                 <div class="box-content-2">
-                                    <a class="details" href="{{url('Product',$Product->id)}}">{{__('lang.details')}}</a>
+                                    <a class="details" href="{{url('Product',$Product->id)}}">{{__('lang.product-details')}}</a>
                                     <button class="btn all-btn d-block m-auto add-cart" data-id="{{$Product->id}}" >{{__('lang.add to cart')}}</button>
                                 </div>
                             </div>

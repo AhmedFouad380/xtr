@@ -76,7 +76,25 @@ class frontController extends Controller
         $whyus = WhyUs::active()->limit(6)->get();
         $agancies = Agency::active()->get();
 
-        return view('front.productdetails', compact('settings','whyus','agancies','data','productImages','similarProducts'));
+        return view('front.productdetails', compact('whyus','agancies','data','productImages','similarProducts'));
+
+    }
+    public function search(Request $request)
+    {
+        $data = Product::where('is_active','active')
+            ->where(function ($q) use ($request) {
+            $q->where('name_ar','like','%'.$request->search.'%')->
+            OrWhere('name_en','like','%'.$request->search.'%')->
+            OrWhere('description_ar','like','%'.$request->search.'%')->
+            OrWhere('description_en','like','%'.$request->search.'%');
+        });
+        if($request->category_id != 0){
+            $data->where('category_id',$request->catgory_id);
+        }
+        $products = $data->paginate(10);
+        $agancies = Agency::active()->get();
+
+        return view('front.search', compact('products','agancies','data'));
 
     }
     public function login(Request $request)

@@ -12,8 +12,8 @@
                     </div>
                 </div>
                 <div class="d-flex align-items-center">
-                    <a href="{{url('Category',$data->id)}}" class="text-uppercase fw-bold m-0 add-size color-text-about">
-                      {{$data->name}}
+                    <a href="/" class="text-uppercase fw-bold m-0 add-size color-text-about">
+                      Search Products
                     </a>
                 </div>
               </div>
@@ -25,10 +25,10 @@
         <div class="bg-ptz">
              <div class="ptz-content">
                   <h2 class="text-capitalize fw-bold">
-                      {{$data->name}}
+                      Search Products
                   </h2>
                   <p class="ptz-text">
-                  {!! $data->description !!}
+                      Search Products
                   </p>
              </div>
         </div>
@@ -47,7 +47,6 @@
                         <i class="fa-solid fa-magnifying-glass"></i>
                         </span>
                         <input class="form-control search-input text-capitalize" name="search" type="search" placeholder="Search for available products" aria-label="Search">
-                        <input class="form-control search-input text-capitalize" name="category_id" type="search" placeholder="Search for available products" hidden aria-label="Search">
                     </div>
                     <button class="btn btn-search" type="submit">Search</button>
                     </form>
@@ -62,7 +61,7 @@
             <div class="d-flex align-items-center justify-content-between mb-3">
                 <div class="result-num">
                      <span class="fw-bold">
-                         403
+                         {{$data->count()}}
                      </span>
                      result found
                 </div>
