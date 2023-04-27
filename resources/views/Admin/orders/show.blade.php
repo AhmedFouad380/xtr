@@ -56,13 +56,15 @@
                             <!--begin::Head-->
                             <div class="d-flex justify-content-between align-items-start flex-wrap mb-2">
                                 <!--begin::Details-->
-                                <div class="d-flex flex-column">
-                                    <!--begin::Status-->
-                                    <!--end::Status-->
+                                <div class="d-flex flex-column a" >
                                     <!--begin::Description-->
                                     <div class="d-flex flex-wrap fw-bold mb-4 fs-5 text-gray-400"> {{__('lang.name')}} :  {{$data->first_name}}  {{$data->last_name}}</div>
                                     <div class="d-flex flex-wrap fw-bold mb-4 fs-5 text-gray-400"> {{__('lang.phone')}}  : {{$data->phone}}</div>
                                     <div class="d-flex flex-wrap fw-bold mb-4 fs-5 text-gray-400"> {{__('lang.email')}}  : {{$data->email}}</div>
+                                    <!--end::Description-->
+                                </div>
+                                <div class="d-flex flex-column" style="">
+                                    <!--begin::Description-->
                                     <div class="d-flex flex-wrap fw-bold mb-4 fs-5 text-gray-400"> {{__('lang.Country')}} : {{$data->country}}</div>
                                     <div class="d-flex flex-wrap fw-bold mb-4 fs-5 text-gray-400"> {{__('lang.City')}} : {{$data->city}}</div>
                                     <div class="d-flex flex-wrap fw-bold mb-4 fs-5 text-gray-400"> zip : {{$data->zip}}</div>
@@ -71,7 +73,7 @@
                                 <!--end::Details-->
                                 <!--begin::Actions-->
 
-
+                                <
                                 <!--end::Actions-->
                             </div>
                             <!--end::Head-->
@@ -88,6 +90,16 @@
                                         <!--end::Number-->
                                         <!--begin::Label-->
                                         <div class="fw-bold fs-6 text-gray-400">{{__('lang.date')}}</div>
+                                        <!--end::Label-->
+                                    </div>
+                                    <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
+                                        <!--begin::Number-->
+                                        <div class="d-flex align-items-center">
+                                            <div class="fs-4 fw-bolder">{{$data->total_price}}</div>
+                                        </div>
+                                        <!--end::Number-->
+                                        <!--begin::Label-->
+                                        <div class="fw-bold fs-6 text-gray-400">{{__('lang.total_price')}}</div>
                                         <!--end::Label-->
                                     </div>
                                     <!--end::Stat-->
@@ -155,6 +167,8 @@
                                     <th class="min-w-30px">م</th>
                                     <th class="min-w-125px">{{__('lang.Product')}}</th>
                                     <th class="min-w-100px">{{__('lang.Quantity')}}</th>
+                                    <th class="min-w-100px">{{__('lang.price')}}</th>
+                                    <th class="min-w-100px">{{__('lang.Total')}}</th>
                                 </tr>
                                 </thead>
                                 <!--end::Table head-->
@@ -177,12 +191,20 @@
                                                 {{$OrderDetails->count}}
                                             </div>
                                         </td>
-
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                {{$OrderDetails->price}}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                {{$OrderDetails->price * $OrderDetails->count}}
+                                            </div>
+                                        </td>
                                     </tr>
                                 @endforeach
                                 </tbody>
-                                <!--end::Table body-->
-                            </table>
+                              </table>
                             <!--end::Table-->
                         </div>
                         <!--end::Table container-->

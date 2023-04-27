@@ -20,7 +20,25 @@ class Product extends Model
         'price',
         'is_active',
     ];
+    protected $appends = ['name','description'];
 
+
+    public function getNameAttribute()
+    {
+        if (\app()->getLocale() == "ar") {
+            return $this->name_ar;
+        } else {
+            return $this->name_en;
+        }
+    }
+    public function getDescriptionAttribute()
+    {
+        if (\app()->getLocale() == "ar") {
+            return $this->description_ar;
+        } else {
+            return $this->description_en;
+        }
+    }
     public function Category(){
         return $this->belongsTo(Category::class ,'category_id');
     }
