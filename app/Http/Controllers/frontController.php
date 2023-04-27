@@ -121,7 +121,7 @@ class frontController extends Controller
 
 
 
-        return response()->json(Cart::where('user_id',Auth::guard('web')->id())->sum('count'));
+        return response()->json(Cart::where('ip',\Request::ip())->sum('count'));
     }
 
     public function deleteCartItem(Request $request){
