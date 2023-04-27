@@ -11,7 +11,7 @@
     <div class="row">
         <div class="col-md-12 col-lg-12 col-12 d-flex align-items-center">
             <div class="d-flex align-items-center">
-                <a href="homepage.html" class="text-uppercase add-color add-size">home</a>
+                <a href="{{url('/')}}" class="text-uppercase add-color add-size">{{__('lang.home')}}</a>
                 <div class="d-flex add-space">
                     <span class="dott"></span><span class="dott"></span><span class="dott"></span>
                 </div>
@@ -25,8 +25,8 @@
                 </div>
             </div>
             <div class="d-flex align-items-center">
-                <a href="productdetails.blade.php" class="text-uppercase fw-bold m-0 add-size color-text-about">
-                    product details
+                <a href="/" class="text-uppercase fw-bold m-0 add-size color-text-about">
+                    {{__('lang.product-details')}}
                 </a>
             </div>
         </div>
@@ -44,48 +44,24 @@
                 <!-- swiper gallery in product details -->
                 <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff ; width: 75%"class="swiper mySwiper2 add-height">
                     <div class="swiper-wrapper">
+                        @foreach($productImages as $image)
                         <div class="swiper-slide swiper-slide1">
-                            <img src="assets/img/0.png"/>
+                            <img src="{{asset($image->image)}}"/>
                         </div>
-                        <div class="swiper-slide swiper-slide1">
-                            <img src="assets/img/5MP HD Intelligent 80m IR Fixed Bullet Network Camera.png" />
-                        </div>
-                        <div class="swiper-slide swiper-slide1">
-                            <img src="assets/img/4MP HD IR VF Dome Network.png" />
-                        </div>
-                        <div class="swiper-slide swiper-slide1">
-                            <img src="assets/img/0.png"/>
-                        </div>
-                        <div class="swiper-slide swiper-slide1">
-                            <img src="assets/img/5MP HD Intelligent 80m IR Fixed Bullet Network Camera.png" />
-                        </div>
-                        <div class="swiper-slide swiper-slide1">
-                            <img src="assets/img/4MP HD IR VF Dome Network.png" />
-                        </div>
+                        @endforeach
+
                     </div>
                     <div class="swiper-button-next swiper-button-next2"></div>
                     <div class="swiper-button-prev swiper-button-prev2"></div>
                 </div>
                 <div thumbsSlider="" class="swiper mySwiper add-height" style="width: 18%;">
                     <div class="swiper-wrapper d-flex flex-column w-100 scroll">
-                        <div class="swiper-slide swiper-slide1 swiper-slide2 w-100">
-                            <img src="assets/img/0.png"/>
-                        </div>
-                        <div class="swiper-slide swiper-slide1 swiper-slide2 w-100">
-                            <img src="assets/img/5MP HD Intelligent 80m IR Fixed Bullet Network Camera.png" />
-                        </div>
-                        <div class="swiper-slide swiper-slide1 swiper-slide2 w-100">
-                            <img src="assets/img/4MP HD IR VF Dome Network.png" />
-                        </div>
-                        <div class="swiper-slide swiper-slide1 swiper-slide2 w-100">
-                            <img src="assets/img/0.png"/>
-                        </div>
-                        <div class="swiper-slide swiper-slide1 swiper-slide2 w-100">
-                            <img src="assets/img/5MP HD Intelligent 80m IR Fixed Bullet Network Camera.png" />
-                        </div>
-                        <div class="swiper-slide swiper-slide1 swiper-slide2 w-100">
-                            <img src="assets/img/4MP HD IR VF Dome Network.png" />
-                        </div>
+                        @foreach($productImages as $image)
+                            <div class="swiper-slide swiper-slide1 swiper-slide2 w-100">
+                                <img src="{{asset($image->image)}}"/>
+                            </div>
+                        @endforeach
+
                     </div>
                 </div>
             </div>
@@ -93,16 +69,14 @@
         <div class="col-md-6 col-lg-6 col-12">
             <div>
                 <h5 class="blue fw-bold adress-dsecrip">
-                    Uniview IPC3534SR3-ADZK-G 4MP HD IRVF Dome Network Camera
+                    {{$data->name}}
                 </h5>
                 <div>
                     <div class="d-flex align-items-center add-m-space">
                         <span class="add-dott"></span>
-                        <p class="text-descrip">
-                            1/2.0",progressive scan,CMOS
-                        </p>
+                        {{$data->description}}
                     </div>
-                    <div class="d-flex align-items-center add-m-space">
+                {{--    <div class="d-flex align-items-center add-m-space">
                         <span class="add-dott"></span>
                         <p class="text-descrip">
                             Up to 3840×2160 resolution,20fps
@@ -139,12 +113,12 @@
                         </p>
                     </div>
 
-
+--}}
                 </div>
             </div>
             <div class="d-flex justify-content-between align-items-center">
                 <div>
-                    <span class="price">135.00 KWD</span>
+                    <span class="price">{{$data->price}}.00 KWD</span>
                 </div>
                 <div class="d-flex align-items-center">
                     <div class="number">
@@ -156,7 +130,7 @@
                                <span class="d-block">+</span>
                             </span>
                     </div>
-                    <button class="all-btn btn add-cart">add to cart </button>
+                    <button class="all-btn btn add-cart">{{__('lang.add to cart')}} </button>
                 </div>
             </div>
         </div>
@@ -181,10 +155,10 @@
                     <div class="d-flex align-items-center add-m-space">
                         <span class="add-dott"></span>
                         <p class="text-descrip">
-                            1/2.0",progressive scan,CMOS
+                            {{$data->description}}
                         </p>
                     </div>
-                    <div class="d-flex align-items-center add-m-space">
+                    {{--<div class="d-flex align-items-center add-m-space">
                         <span class="add-dott"></span>
                         <p class="text-descrip">
                             Up to 3840×2160 resolution,20fps
@@ -219,13 +193,13 @@
                         <p class="text-descrip">
                             IP67
                         </p>
-                    </div>
+                    </div>--}}
                 </div>
             </div>
         </div>
         <div class="overviwe-line add-m-topp"></div>
     </div>
-    <div class="overview-details">
+    {{--<div class="overview-details">
         <div class="container">
             <div class="row">
                 <h6 class="text-capitalize blue fw-bold">optics</h6>
@@ -328,7 +302,7 @@
             </div>
         </div>
         <div class="overviwe-line add-m-topp"></div>
-    </div>
+    </div>--}}
 </div>
 
 
@@ -342,26 +316,32 @@
         </h5>
     </div>
     <div class="row row-cols-2 row-cols-md-3 row-cols-lg-5">
-        <div class="col">
-            <div class="popular-products-box">
-                <div class="div-img">
-                    <img src="assets/img/4MP HD IR VF Dome Network.png" alt="">
-                </div>
-                <div class="box-content-1">
-                    <p class="popular-product-description">
-                        4MP HD IR VF Dome Network Camera
-                    </p>
-                    <span class="price">
-                           135.00 KWD
-                         </span>
-                </div>
-                <div class="box-content-2">
-                    <a class="details" href="#">details</a>
-                    <button class="btn all-btn d-block m-auto add-cart">add to cart</button>
-                </div>
-            </div>
-        </div>
-        <div class="col">
+
+                @foreach($similarProducts as $key =>$Product)
+                    @if($key < 4)
+                        <div class="col-md-3 col-lg-3 col-6">
+                            <div class="popular-products-box">
+                                <div class="div-img">
+                                    <img src="{{$Product->image}}" alt="{{$Product->name}}">
+                                </div>
+                                <div class="box-content-1">
+                                    <p class="popular-product-description">
+                                        {{$Product->name}}
+                                    </p>
+                                    <span class="price">
+                                {{$Product->price}} KWD
+                              </span>
+                                </div>
+                                <div class="box-content-2">
+                                    <a class="details" href="{{url('Product',$Product->id)}}">{{__('lang.details')}}</a>
+                                    <button class="btn all-btn d-block m-auto add-cart" data-id="{{$Product->id}}" >{{__('lang.add to cart')}}</button>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+                @endforeach
+
+        {{--<div class="col">
             <div class="popular-products-box">
                 <div class="div-img">
                     <img src="assets/img/4MP+4MP Lighthunter Dual-lens.png" alt="">
@@ -493,87 +473,14 @@
                     <button class="btn all-btn d-block m-auto add-cart">add to cart</button>
                 </div>
             </div>
-        </div>
+        </div>--}}
     </div>
 </div>
 <!--/////////////////////////// end unv product section 3 //////////////////////////////-->
 
 
 <!--/////////////////////////// start section 5  ///////////////////////////////-->
-<div class="container">
-    <div class="bg-carousel">
-        <div class="text-center">
-            <h4 class="popular-adress text-uppercase mb-4 m-auto">
-                our agency
-            </h4>
-        </div>
-        <div class="owl-carousel owl-theme">
-            <div class="item">
-                <div class="image-item">
-                    <img src="assets/img/لوجو-كارفور.jpg" alt="">
-                </div>
-            </div>
-            <div class="item">
-                <div class="image-item">
-                    <img src="assets/img/جامعة الازهر.jpg" alt="">
-                </div>
-            </div>
-            <div class="item">
-                <div class="image-item">
-                    <img src="assets/img/شركات البترول.PNG" alt="">
-                </div>
-            </div>
-            <div class="item">
-                <div class="image-item">
-                    <img src="assets/img/istockphoto-1158342659-612x612.jpg" alt="">
-                </div>
-            </div>
-            <div class="item">
-                <div class="image-item">
-                    <img src="assets/img/لوجو-كارفور.jpg" alt="">
-                </div>
-            </div>
-            <div class="item">
-                <div class="image-item">
-                    <img src="assets/img/جامعة الازهر.jpg" alt="">
-                </div>
-            </div>
-            <div class="item">
-                <div class="image-item">
-                    <img src="assets/img/شركات البترول.PNG" alt="">
-                </div>
-            </div>
-            <div class="item">
-                <div class="image-item">
-                    <img src="assets/img/istockphoto-1158342659-612x612.jpg" alt="">
-                </div>
-            </div>
-            <div class="item">
-                <div class="image-item">
-                    <img src="assets/img/logo.png" alt="">
-                </div>
-            </div>
-            <div class="item">
-                <div class="image-item">
-                    <img src="assets/img/لوجو-كارفور.jpg" alt="">
-                </div>
-            </div>
-            <div class="item">
-                <div class="image-item">
-                    <img src="assets/img/جامعة الازهر.jpg" alt="">
-                </div>
-            </div>
-            <div class="item">
-                <div class="image-item">
-                    <img src="assets/img/شركات البترول.PNG" alt="">
-                </div>
-            </div>
-            <div class="item">
-                <div class="image-item">
-                    <img src="assets/img/istockphoto-1158342659-612x612.jpg" alt="">
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
+<!--/////////////////////////// start section 5  ///////////////////////////////-->
+@include('front.agancies')
 @endsection

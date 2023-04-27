@@ -10,6 +10,8 @@ use App\Models\Contact;
 use App\Models\Order;
 use App\Models\Page;
 use App\Models\Product;
+use App\Models\ProductImages;
+use App\Models\Setting;
 use App\Models\User;
 use App\Models\WhyUs;
 use Carbon\Carbon;
@@ -44,6 +46,8 @@ class frontController extends Controller
         $receiversPopular = Product::active()->where('is_popular','active')->OrderBy('id','desc')->where('type','receiver')->limit(4)->get();
         $whyus = WhyUs::active()->limit(6)->get();
         $agancies = Agency::active()->get();
+        $settings = Setting::findOrFail(1);
+
         return view('front.index',compact('UnvPopular','BeinPopular','receiversPopular','whyus','agancies'));
     }
     public function Page($type)
@@ -64,7 +68,17 @@ class frontController extends Controller
          return view('front.'.$data->type, compact('data','whyus','agancies','products'));
 
     }
+    public function product($id)
+    {
+        $data = Product::active()->where('id',$id)->get()->first();
+        $productImages = ProductImages::where('product_id',$id)->get();
+        $similarProducts = Product::active()->where('category_id',$data->category_id)->get();
+        $whyus = WhyUs::active()->limit(6)->get();
+        $agancies = Agency::active()->get();
 
+        return view('front.productdetails', compact('settings','whyus','agancies','data','productImages','similarProducts'));
+
+    }
     public function login(Request $request)
     {
         $credentials = $request->only('email', 'password');

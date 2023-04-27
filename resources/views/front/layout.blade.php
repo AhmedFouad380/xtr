@@ -141,15 +141,15 @@
         <div class="row">
             <div class="col-md-6 col-lg-6 col-12">
                 <div class="bottom-footer-content">
-                    <h6 class="text-uppercase fw-bold">ABOUT <span class="blue">x</span>TRADE</h6>
+                    <h6 class="text-uppercase fw-bold">{{__('lang.about')}} <span class="blue">x</span>TRADE</h6>
                     <p class="choose-us-text">It is a company that specializes in integrated security systems and light current and works in entertainment and satellite networks.</p>
                     <div>
-                        <h6 class="text-uppercase fw-bold">CONNECT WITH US</h6>
+                        <h6 class="text-uppercase fw-bold">{{__('lang.Contact info')}}</h6>
                         <a href="">
-                            <img src="assets/img/fb.png" alt="">
+                            <img src="{{asset('website/assets/img/fb.png')}}" alt="">
                         </a>
                         <a href="">
-                            <img src="assets/img/whatsapp.png" alt="">
+                            <img src="{{asset('assets/img/whatsapp.png')}}" alt="">
                         </a>
                         <a href="">
                             <img src="assets/img/instagram.png" alt="">
@@ -165,17 +165,15 @@
                     <h6 class="text-uppercase fw-bold">QUICK LINK</h6>
                     <ul class="quik-links">
                         <li>
-                            <a href="#" target="_blank">Home</a>
+                            <a href="{{url('/')}}" target="_blank">{{__('lang.home')}}</a>
                         </li>
                         <li>
-                            <a href="#" target="_blank">Services</a>
+                            <a href="{{url('/services')}}" target="_blank">{{__('lang.services')}}</a>
                         </li>
                         <li>
-                            <a href="#" target="_blank">Our Agency</a>
+                            <a href="#" target="_blank">{{__('lang.agencies')}}</a>
                         </li>
-                        <li>
-                            <a href="#" target="_blank">Our Agency</a>
-                        </li>
+
                     </ul>
                 </div>
             </div>
@@ -185,21 +183,21 @@
                     <ul class="contact-us">
                         <li class="d-flex">
                            <span>
-                              <img src="assets/img/phone.png" alt="">
+                              <img src="{{asset('website/assets/img/phone.png')}}" alt="">
                            </span>
-                            +96595000362 +96560658666
+                            +965{{\App\Models\Setting::find(1)->phone}}
                         </li>
                         <li class="d-flex">
                            <span>
-                              <img src="assets/img/mail.png" alt="">
+                              <img src="{{asset('website/assets/img/mail.png')}}" alt="">
                            </span>
-                            Info@xtradekuwait.com
+                            {{\App\Models\Setting::find(1)->email}}
                         </li>
                         <li class="d-flex">
                            <span>
-                              <img src="assets/img/location.png" alt="">
+                              <img src="{{asset('website/assets/img/location.png')}}" alt="">
                            </span>
-                            Hessa Al-Hajeri Complex, Ibn Khaldoun St, Hawally, Kuwait
+                            {{\App\Models\Setting::find(1)->address}}
                         </li>
                     </ul>
                 </div>
@@ -216,12 +214,12 @@
 
 
 
-<script src="{{asset('website')}}/assets/js/jquery-3.6.1.min.js"></script>
-<script src="{{asset('website')}}/assets/js/bootstrap.bundle.min.js"></script>
-<script src="{{asset('website')}}/assets/js/owl.carousel.min.js"></script>
+<script src="{{asset('website/assets/js/jquery-3.6.1.min.js')}}"></script>
+<script src="{{asset('website/assets/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{asset('website/assets/js/owl.carousel.min.js')}}"></script>
 <!-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-<script src="{{asset('website')}}/assets/js/script.js"></script>
+<script src="{{asset('website/assets/js/script.js')}}"></script>
 
 </body>
 </html>
