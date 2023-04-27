@@ -34,18 +34,21 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{{url('/')}}">{{__('lang.Home')}}</a>
                 </li>
+                @foreach(\App\Models\Page::active()->get() as $page)
                 <li class="nav-item">
-                    <a class="nav-link" href="aboutus.html">about us</a>
+                    <a class="nav-link" href="{{url('Page',$page->id)}}">{{$page->name}}</a>
                 </li>
+                @endforeach
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="camera.html" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         camera
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="unv.html">
-                                <span class="text-uppercase">unv</span> product</a>
+                        @foreach(\App\Models\Category::active()->where('type','camera')->get() as $cat)
+                        <li><a class="dropdown-item" href="{{url('Category',$cat->id)}}">
+                               {{$cat->name}} </a>
                         </li>
-                        <li><a class="dropdown-item" href="HIKVISION PRODUCTS.html">HIKVISION PRODUCTS</a></li>
+                        @endforeach
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -53,8 +56,11 @@
                         beIN sport
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        @foreach(\App\Models\Category::active()->where('type','!=','camera')->get() as $cat)
+                            <li><a class="dropdown-item" href="{{url('Category',$cat->id)}}">
+                                    {{$cat->name}} </a>
+                            </li>
+                        @endforeach
                     </ul>
                 </li>
                 <li class="nav-item">
