@@ -62,7 +62,7 @@
     <label class=" fw-bold fs-6 mb-2">{{__('lang.description_ar')}}</label>
     <!--end::Label-->
     <!--begin::Input-->
-    <textarea rows="3" name="long_description_ar"
+    <textarea rows="3" name="long_description_ar" id="editor1"
               class="form-control form-control-solid mb-3 mb-lg-0"
               placeholder="" >{{old('description_ar',$data->long_description_ar ?? '')}} </textarea>
     <!--end::Input-->
@@ -73,7 +73,7 @@
     <label class=" fw-bold fs-6 mb-2">{{__('lang.description_en')}}</label>
     <!--end::Label-->
     <!--begin::Input-->
-    <textarea rows="3" name="long_description_en"
+    <textarea rows="3" name="long_description_en" id="editor2"
               class="form-control form-control-solid mb-3 mb-lg-0"
               placeholder=""  > {{old('description_en',$data->long_description_en ?? '')}}</textarea>
     <!--end::Input-->
@@ -108,6 +108,12 @@
     </div>
 </div>
 @push('scripts')
+    <script src="https://cdn.ckeditor.com/4.21.0/full/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace( 'editor1' );
+        CKEDITOR.replace( 'editor2' );
+    </script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js"
             integrity="sha512-8QFTrG0oeOiyWo/VM9Y8kgxdlCryqhIxVeRpWSezdRRAvarxVtwLnGroJgnVW9/XBRduxO/z1GblzPrMQoeuew=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>

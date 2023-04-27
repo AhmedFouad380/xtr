@@ -67,8 +67,13 @@
 
 @section('script')
     <script src="{{ URL::asset('assets/plugins/custom/datatables/datatables.bundle.js')}}"></script>
+    <script src="https://cdn.ckeditor.com/4.21.0/full/ckeditor.js"></script>
+
 
     <script type="text/javascript">
+        CKEDITOR.replace( 'editor1' );
+        CKEDITOR.replace( 'editor2' );
+
         $(function () {
             var table = $('#users_table').DataTable({
                 processing: true,

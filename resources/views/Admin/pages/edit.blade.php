@@ -88,6 +88,8 @@
 @endsection
 
 @section('script')
+    <script src="https://cdn.ckeditor.com/4.21.0/full/ckeditor.js"></script>
+
 
     <script>
 
