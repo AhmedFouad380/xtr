@@ -37,9 +37,9 @@ class frontController extends Controller
     }
 
     public function index(){
-        $UnvPopular = Product::where('is_active','active')->where('is_popular','active')->OrderBy('id','desc')->where('type','camera')->limit(8)->get();
-        $BeinPopular = Product::where('is_active','active')->where('is_popular','active')->OrderBy('id','desc')->where('type','subscription')->limit(4)->get();
-        $receiversPopular = Product::where('is_active','active')->where('is_popular','active')->OrderBy('id','desc')->where('type','receivers')->limit(4)->get();
+        $UnvPopular = Product::active()->where('is_popular','active')->OrderBy('id','desc')->where('type','camera')->limit(8)->get();
+        $BeinPopular = Product::active()->where('is_popular','active')->OrderBy('id','desc')->where('type','subscription')->limit(4)->get();
+        $receiversPopular = Product::active()->where('is_popular','active')->OrderBy('id','desc')->where('type','receivers')->limit(4)->get();
         return view('front.index',compact('UnvPopular','BeinPopular','receiversPopular'));
     }
     public function pages($type)

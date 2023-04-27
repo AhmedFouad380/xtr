@@ -12,6 +12,7 @@ use \App\Http\Controllers\Admin\WhyusController;
 use \App\Http\Controllers\Admin\CouponController;
 use \App\Http\Controllers\Admin\ContactController;
 use \App\Http\Controllers\Admin\OrderController;
+use \App\Http\Controllers\Admin\SolutionController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -79,6 +80,17 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('delete', [PagesController::class, 'destroy'])->name('.delete');
         Route::post('/change_active', [PagesController::class, 'changeActive'])->name('.change_active');
         Route::get('/add-button', [PagesController::class, 'table_buttons'])->name('.table_buttons');
+    });
+    Route::group(['prefix' => 'solution', 'as' => 'solution'], function () {
+        Route::get('/', [SolutionController::class, 'index'])->name('.index');
+        Route::get('/datatable', [SolutionController::class, 'datatable'])->name('.datatable');
+        Route::get('/create', [SolutionController::class, 'create'])->name('.create');
+        Route::post('/store', [SolutionController::class, 'store'])->name('.store');
+        Route::get('/edit/{id}', [SolutionController::class, 'edit'])->name('.edit');
+        Route::post('/update/{id}', [SolutionController::class, 'update'])->name('.update');
+        Route::get('delete', [SolutionController::class, 'destroy'])->name('.delete');
+        Route::post('/change_active', [SolutionController::class, 'changeActive'])->name('.change_active');
+        Route::get('/add-button', [SolutionController::class, 'table_buttons'])->name('.table_buttons');
     });
     Route::group(['prefix' => 'contact_us', 'as' => 'contact_us'], function () {
         Route::get('/', [ContactController::class, 'index'])->name('.index');

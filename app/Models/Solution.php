@@ -5,28 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class Solution extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'name_ar',
-        'name_en',
-        'description_ar',
-        'description_en',
-        'long_description_en',
-        'long_description_ar',
-        'image',
-        'type',
-        'price',
-        'is_active',
-    ];
-    protected $appends = ['name','description'];
 
+    protected $guarded = ['id', 'created_at', 'updated_at'];
+
+    protected $appends = ['name','description'];
 
     public function scopeActive($query)
     {
         return $query->where('is_active','active');
     }
+
     public function getNameAttribute()
     {
         if (\app()->getLocale() == "ar") {
@@ -43,23 +34,22 @@ class Product extends Model
             return $this->description_en;
         }
     }
-    public function Category(){
-        return $this->belongsTo(Category::class ,'category_id');
-    }
+
+
     public function getImageAttribute($image)
     {
         if (!empty($image)) {
-            return asset('uploads/product') . '/' . $image;
+            return asset('uploads/Solution') . '/' . $image;
         }
-        return null;
-
+        return asset('defaults/default_blank.png');
     }
-
     public function setImageAttribute($image)
     {
         if (is_file($image)) {
-            $imageFields = upload($image, 'product');
+            $imageFields = upload($image, 'Solution');
             $this->attributes['image'] = $imageFields;
+        }else {
+            $this->attributes['image'] = $image;
         }
     }
 }
