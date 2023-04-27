@@ -144,7 +144,6 @@ class frontController extends Controller
         $agancies = Agency::active()->get();
 
         return view('front.productdetails', compact('whyus','agancies','data','productImages','similarProducts'));
-
     }
     public function search(Request $request)
     {
