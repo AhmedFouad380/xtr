@@ -775,4 +775,5 @@ return [
     'agencies'=>'agencies',
     'whyus'=>'why us',
     'products-images'=>'Product Images',
+    'solution'=>'Solutions',
 ];
