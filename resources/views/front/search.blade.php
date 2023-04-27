@@ -12,8 +12,8 @@
                     </div>
                 </div>
                 <div class="d-flex align-items-center">
-                    <a href="{{url('Category',$data->id)}}" class="text-uppercase fw-bold m-0 add-size color-text-about">
-                      {{$data->name}}
+                    <a href="/" class="text-uppercase fw-bold m-0 add-size color-text-about">
+                      Search Products
                     </a>
                 </div>
               </div>
@@ -25,10 +25,10 @@
         <div class="bg-ptz">
              <div class="ptz-content">
                   <h2 class="text-capitalize fw-bold">
-                      {{$data->name}}
+                      Search Products
                   </h2>
                   <p class="ptz-text">
-                  {!! $data->description !!}
+                      Search Products
                   </p>
              </div>
         </div>
@@ -47,7 +47,6 @@
                         <i class="fa-solid fa-magnifying-glass"></i>
                         </span>
                         <input class="form-control search-input text-capitalize" name="search" type="search" placeholder="Search for available products" aria-label="Search">
-                        <input class="form-control search-input text-capitalize" name="category_id" type="search" placeholder="Search for available products" hidden aria-label="Search">
                     </div>
                     <button class="btn btn-search" type="submit">Search</button>
                     </form>
@@ -62,7 +61,7 @@
             <div class="d-flex align-items-center justify-content-between mb-3">
                 <div class="result-num">
                      <span class="fw-bold">
-                         {{$count}}
+                         {{$data->count()}}
                      </span>
                      result found
                 </div>
@@ -104,36 +103,7 @@
             <div class="container">
                 <nav aria-label="Page navigation example">
                     <ul class="pagination justify-content-center">
-                      @php
-                            $paginator =$products->appends(request()->input())->links()->paginator;
-                                if ($paginator->currentPage() < 2 ){
-                                    $link = $paginator->currentPage();
-                                }else{
-                                     $link = $paginator->currentPage() -1;
-                                }
-                                if($paginator->currentPage() == $paginator->lastPage()){
-                                           $last_links = $paginator->currentPage();
-                                }else{
-                                           $last_links = $paginator->currentPage() +1;
-
-                                }
-                        @endphp
-                        @if ($paginator->lastPage() > 1)
-                            <ul class="pagination">
-                                <li class="{{ ($paginator->currentPage() == 1) ? ' disabled' : '' }} page-item">
-                                    <a class="page-link" href="{{ $paginator->url(1) }}">First </a>
-                                </li>
-                                @for ($i = $link; $i <= $last_links; $i++)
-                                    <li class="{{ ($paginator->currentPage() == $i) ? ' active' : '' }} page-item">
-                                        <a class="page-link" href="{{ $paginator->url($i) }}">{{ $i }}</a>
-                                    </li>
-                                @endfor
-                                <li class="{{ ($paginator->currentPage() == $paginator->lastPage()) ? ' disabled' : '' }} page-item">
-                                    <a class="page-link"
-                                       href="{{ $paginator->url($paginator->lastPage()) }}">Last</a>
-                                </li>
-                            </ul>
-                        @endif
+                     {!! $products->links() !!}
                     </ul>
                   </nav>
             </div>
@@ -148,7 +118,84 @@
 
 
           <!--/////////////////////////// start section 4 ///////////////////////////////-->
-            @include('front.whyus')
+          <section class="container-fluid">
+             <div class="row align-items-center">
+                <div class="col-md-4 col-lg-4 col-12">
+                   <div class="d-flex flex-column justify-content-center add-m-left">
+                    <h4 class="popular-adress text-capitalize">
+                      Why Choose Us
+                    </h4>
+                    <p class="choose-us-text">
+                      It is a company that specializes in integrated security systems and light current and works in entertainment and satellite networks.
+                    </p>
+                   </div>
+                </div>
+                <div class="col-md-8 col-lg-8 col-12 p-0">
+                    <div class="position-relative">
+                        <div class="choose-us-box">
+                          <div class="row">
+                              <div class="col-md-4 col-lg-4 col-6">
+                                <div class="choose-box text-center">
+                                    <div class="choose-img">
+                                        <img src="{{asset('website/assets/img/Professional installation.png')}}" alt="">
+                                    </div>
+                                    <h6 class="text-capitalize">Professional installation</h6>
+                                    <p>By the most skilled technicians</p>
+                                </div>
+                              </div>
+                              <div class="col-md-4 col-lg-4 col-6">
+                                <div class="choose-box text-center">
+                                    <div class="choose-img">
+                                        <img src="{{asset('website/assets/img/State of the art technology.png')}}" alt="">
+                                    </div>
+                                    <h6 class="text-capitalize">State of the art technology (UNV)</h6>
+                                    <p>By the most skilled technicians</p>
+                                </div>
+                              </div>
+                              <div class="col-md-4 col-lg-4 col-6">
+                                <div class="choose-box text-center">
+                                    <div class="choose-img">
+                                        <img src="{{asset('website/assets/img/FREE inspection.png')}}" alt="">
+                                    </div>
+                                    <h6 class="text-capitalize">FREE inspection (limited time offer)</h6>
+                                    <p>By the most skilled technicians</p>
+                                </div>
+                              </div>
+                              <div class="col-md-4 col-lg-4 col-6">
+                                <div class="choose-box text-center">
+                                    <div class="choose-img">
+                                        <img src="{{asset('website/assets/img/24-7 alarm monitoring.png')}}" alt="">
+                                    </div>
+                                    <h6 class="text-capitalize">24/7 alarm monitoring</h6>
+                                    <p>By the most skilled technicians</p>
+                                </div>
+                              </div>
+                              <div class="col-md-4 col-lg-4 col-6">
+                                <div class="choose-box text-center">
+                                    <div class="choose-img">
+                                        <img src="{{asset('website/assets/img/100% safety.png')}}" alt="">
+                                    </div>
+                                    <h6 class="text-capitalize">Two-Year Warranty</h6>
+                                    <p>By the most skilled technicians</p>
+                                </div>
+                              </div>
+                              <div class="col-md-4 col-lg-4 col-6">
+                                <div class="choose-box text-center">
+                                    <div class="choose-img">
+                                        <img src="{{asset('website/assets/img/Two-Year Warranty.png')}}" alt="">
+                                    </div>
+                                    <h6 class="text-capitalize">Professional installation</h6>
+                                    <p>By the most skilled technicians</p>
+                                </div>
+                              </div>
+                          </div>
+                        </div>
+                        <div class="bg-choose-us">
+                        </div>
+                    </div>
+                </div>
+             </div>
+          </section>
           <!--///////////////////////////// end section 4 ///////////////////////////////-->
 
           <!--/////////////////////////// start section 5  ///////////////////////////////-->

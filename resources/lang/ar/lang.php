@@ -789,6 +789,7 @@ return [
     'accepted_orders' => 'الطلبات المقبوله ',
     'canceled_orders' => 'الطلبات الملغبة',
     'products-images'=>'صورة المنتج',
+    'product-details'=>'تفاصيل المنتج',
     'solution'=>'الحلول ',
     'contact-us'=>'تواصل معانا ',
     'Details'=>'التفاصيل',

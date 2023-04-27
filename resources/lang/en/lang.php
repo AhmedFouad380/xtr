@@ -8,7 +8,7 @@ return [
     'service' => 'service',
     'view_request' => 'view request',
     'provider_service_requests' => 'Provider service requests',
-    'home' => 'home page',
+    'home' => 'Home Page',
     'request_details' => 'request details',
     'service_approval' => 'Service request approval',
     'service_info' => 'service info',
@@ -165,7 +165,7 @@ return [
     'phone_not_exists_register_now' => 'The phone number does not exist, you can create an account now',
     'otp_invalid' => 'Verification code is incorrect',
     'code_send_to_email' => 'The verification code has been sent to the email successfully',
-    'services' => 'services',
+    'services' => 'Services',
     'your_otp_code_is' => 'The verification code is:',
     'phone_in_ksa' => 'Saudi Mobile Number',
     'phone_out_ksa' => 'Non-Saudi mobile number',
@@ -786,5 +786,6 @@ return [
     'contact-us'=>'contact us',
     'Details'=>'Details',
     'details'=>'Details',
+    'product-details'=>'Product Details',
 
 ];

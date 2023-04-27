@@ -12,6 +12,8 @@ use App\Models\Order;
 use App\Models\Page;
 use App\Models\Product;
 use App\Models\Solution;
+use App\Models\ProductImages;
+use App\Models\Setting;
 use App\Models\User;
 use App\Models\WhyUs;
 use Carbon\Carbon;
@@ -46,6 +48,8 @@ class frontController extends Controller
         $receiversPopular = Product::active()->where('is_popular','active')->OrderBy('id','desc')->where('type','receiver')->limit(4)->get();
         $whyus = WhyUs::active()->limit(6)->get();
         $agancies = Agency::active()->get();
+        $settings = Setting::findOrFail(1);
+
         return view('front.index',compact('UnvPopular','BeinPopular','receiversPopular','whyus','agancies'));
     }
     public function Page($type)
@@ -132,7 +136,35 @@ class frontController extends Controller
         $carts = Cart::get();
         return view('front.customerdata', compact('carts'));
     }
+    public function product($id)
+    {
+        $data = Product::active()->where('id',$id)->get()->first();
+        $productImages = ProductImages::where('product_id',$id)->get();
+        $similarProducts = Product::active()->where('category_id',$data->category_id)->get();
+        $whyus = WhyUs::active()->limit(6)->get();
+        $agancies = Agency::active()->get();
 
+        return view('front.productdetails', compact('whyus','agancies','data','productImages','similarProducts'));
+
+    }
+    public function search(Request $request)
+    {
+        $data = Product::where('is_active','active')
+            ->where(function ($q) use ($request) {
+            $q->where('name_ar','like','%'.$request->search.'%')->
+            OrWhere('name_en','like','%'.$request->search.'%')->
+            OrWhere('description_ar','like','%'.$request->search.'%')->
+            OrWhere('description_en','like','%'.$request->search.'%');
+        });
+        if($request->category_id != 0){
+            $data->where('category_id',$request->catgory_id);
+        }
+        $products = $data->paginate(10);
+        $agancies = Agency::active()->get();
+
+        return view('front.search', compact('products','agancies','data'));
+
+    }
     public function login(Request $request)
     {
         $credentials = $request->only('email', 'password');
