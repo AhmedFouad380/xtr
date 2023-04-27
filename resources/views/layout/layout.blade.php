@@ -522,7 +522,24 @@ License: For each use you must have a valid license purchased only from above li
             }
         });
     }
-
+    function update_popular(el, route) {
+        if (el.checked) {
+            var status = 'active';
+        } else {
+            var status = 'inactive';
+        }
+        $.post(route, {
+            _token: '{{ csrf_token() }}',
+            id: el.value,
+            status: status
+        }, function (data) {
+            if (data == 1) {
+                toastr.success("{{trans('lang.status_changed')}}");
+            } else {
+                toastr.error("{{trans('lang.status_changed')}}");
+            }
+        });
+    }
     function update_is_checked(el, route) {
         if (el.checked) {
             var is_checked = 1;

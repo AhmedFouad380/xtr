@@ -23,7 +23,7 @@ class CreateProductsTable extends Migration
             $table->longText('long_description_en')->nullable();
             $table->string('image')->nullable();
             $table->double('price')->default(0);
-            $table->enum('type',['camera','subscription','receivers'])->default('camera');
+            $table->enum('type',['camera','subscription','receiver'])->default('camera');
             $table->enum('is_active',['active','inactive'])->default('active');
 
             $table->timestamps();

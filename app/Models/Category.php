@@ -40,7 +40,6 @@ class Category extends Model
             return $this->description_en;
         }
     }
-
     public function Products(){
         return $this->HasMany(Product::class ,'category_id');
     }
