@@ -783,5 +783,9 @@ return [
     'canceled_orders' => 'الطلبات الملغبة',
     'products-images'=>'صورة المنتج',
     'solution'=>'الحلول ',
+    'contact-us'=>'تواصل معانا ',
+    'Details'=>'التفاصيل',
+    'details'=>'التفاصيل',
+
 
 ];

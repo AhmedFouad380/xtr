@@ -33,6 +33,7 @@ Route::get('/login', function () {
 Route::get('/', [\App\Http\Controllers\frontController::class, 'index'])->name('home');
 Route::get('/Page/{id}', [\App\Http\Controllers\frontController::class, 'Page'])->name('Page');
 Route::get('/Category/{id}', [\App\Http\Controllers\frontController::class, 'Category'])->name('Category');
+Route::get('/solutions', [\App\Http\Controllers\frontController::class, 'solutions'])->name('solutions');
 Route::post('Login', [\App\Http\Controllers\frontController::class, 'login']);
 Route::get('forget-password', [\App\Http\Controllers\frontController::class, 'showForgetPasswordForm'])->name('forget.password.get');
 Route::post('forget-password', [\App\Http\Controllers\frontController::class, 'submitForgetPasswordForm'])->name('forget.password.post');
@@ -185,4 +186,20 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('/', [\App\Http\Controllers\Admin\SettingController::class, 'index'])->name('.index');
         Route::post('/update/{id}', [\App\Http\Controllers\Admin\SettingController::class, 'update'])->name('.update');
     });
+});
+
+
+Route::get('lang/{lang}', function ($lang) {
+
+    if (session()->has('lang')) {
+        session()->forget('lang');
+    }
+    if ($lang == 'en') {
+        session()->put('lang', 'en');
+    } else {
+        session()->put('lang', 'ar');
+    }
+
+
+    return back();
 });

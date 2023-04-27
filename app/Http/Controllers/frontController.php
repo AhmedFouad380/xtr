@@ -10,6 +10,7 @@ use App\Models\Contact;
 use App\Models\Order;
 use App\Models\Page;
 use App\Models\Product;
+use App\Models\Solution;
 use App\Models\User;
 use App\Models\WhyUs;
 use Carbon\Carbon;
@@ -58,11 +59,17 @@ class frontController extends Controller
     {
         $data = Category::findOrFail($type);
         $products = Product::active()->where('category_id',$data->id)->paginate(12);
+        $count = Product::active()->where('category_id',$data->id)->count();
         $whyus = WhyUs::active()->limit(6)->get();
         $agancies = Agency::active()->get();
 
-         return view('front.'.$data->type, compact('data','whyus','agancies','products'));
-
+         return view('front.'.$data->type, compact('data','whyus','agancies','products','count'));
+    }
+    public function solutions(){
+        $products = Solution::active()->paginate(12);
+        $count = Solution::active()->count();
+        $agancies = Agency::active()->get();
+        return view('front.solutions', compact('agancies','products','count'));
     }
 
     public function login(Request $request)

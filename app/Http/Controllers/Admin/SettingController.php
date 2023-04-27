@@ -13,7 +13,7 @@ class SettingController extends Controller
         return view('Admin.settings.edit',compact('data'));
     }
 
-    public function store(Request $request){
+    public function update(Request $request){
         $data = Setting::find(1);
         $data->name_ar=$request->name_ar;
         $data->name_en=$request->name_en;
@@ -30,7 +30,7 @@ class SettingController extends Controller
         $data->why_us_name_en=$request->why_us_name_en;
         $data->why_us_description_ar=$request->why_us_description_ar;
         $data->why_us_description_en=$request->why_us_description_en;
-        $data->why_us_is_active=$request->why_us_is_active;
+//        $data->why_us_is_active=$request->why_us_is_active;
         $data->save();
 
         return redirect('settings')->with('message', trans('lang.updated_s'));

@@ -776,4 +776,8 @@ return [
     'whyus'=>'why us',
     'products-images'=>'Product Images',
     'solution'=>'Solutions',
+    'contact-us'=>'contact us',
+    'Details'=>'Details',
+    'details'=>'Details',
+
 ];
