@@ -119,7 +119,7 @@ class ProductsController extends Controller
         $data = $request->validated();
         if (isset($data['image'])) {
             $img_name = 'slider_' . time() . random_int(0000, 9999) . '.' . $data['image']->getClientOriginalExtension();
-            $data['image']->move(public_path('/uploads/users/'), $img_name);
+            $data['image']->move(public_path('/uploads/product/'), $img_name);
             $data['image'] = $img_name;
         } else {
             unset($data['image']);

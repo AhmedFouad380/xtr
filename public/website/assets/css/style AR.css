@@ -1,0 +1,95 @@
+:root {
+  font-size: 16px;
+    /* Colors: */
+  --white: #FFFFFF;
+  --white2: #F7F7FA;
+  --white3: #F5F5F5;
+  --white4: #EEFCEF;
+  --white5: #F2F4FF;
+  --white6: #F7F4F9;
+  --white7: #FFFAED;
+  --gray: #CCCCCC;
+  --gray2: #707070;
+  --black: #3D3D3D;
+  --blue1: #1492E6;
+  --blue2: #3AC5F3;
+  --blue: #282662;
+  --blue-transparent: #EFF9FC;
+}
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--color-o);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-o);
+}
+
+.over-xx {
+  overflow-x: hidden !important;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-w);
+}
+
+a:hover {
+  color: var(--color-w);
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: var(--color-o2);
+}
+
+.btn:focus {
+  box-shadow: none;
+}
+
+/* (((((((((((((((((((((((((((((( start nav bar ))))))))))))))))))))))))))) */
+
+
+
+/* (((((((((((((((((((((((((((((( end nav bar ))))))))))))))))))))))))))))) */
+
+
+/* (((((((((((((((((((((((((((( start media query ))))))))))))))))))))))))))*/
+
+/*------------------- Mobile -------------------*/
+
+@media (max-width: 767px) {
+}
+
+/*-------------------  Small Screens -------------------- */
+
+@media (min-width: 768px) and (max-width: 991px) {
+}
+
+/*-------------------  Medium Screens ------------------- */
+
+@media (min-width: 992px) {
+}
+
+/*-------------------  Large Screens -------------------- */
+
+@media (min-width: 1200px) {
+}
+
+/*-------------------  Custom --------------------------- */
+
+@media (max-width: 1199px) {
+}
