@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 
+use App\Http\Requests\Front\OrderSubmitRequest;
 use App\Models\Admin;
 use App\Models\Agency;
 use App\Models\Cart;
 use App\Models\Category;
 use App\Models\Contact;
 use App\Models\Order;
+use App\Models\OrderDetail;
 use App\Models\Page;
 use App\Models\Product;
 use App\Models\Solution;
@@ -134,6 +136,51 @@ class frontController extends Controller
 //        dd($IP);
         $carts = Cart::where('ip',\Request::ip())->get();
         return view('front.customerdata', compact('carts'));
+    }
+    public function submitOrder(OrderSubmitRequest $request){
+        $data = $request->validated();
+        $carts = Cart::where('ip',\Request::ip())->get();
+        $total_price = $this->getTotalPrice($carts);
+
+
+        $data['total_price'] = $total_price;
+        $order = Order::create($data);
+
+
+
+
+        /*$order = new Order();
+        $order->total_price = $total_price;
+        $order->type = 'pending';
+        $order->first_name = $request->first_name;
+        $order->last_name = $request->last_name;
+        $order->email = $request->email;
+        $order->phone = $request->phone;
+        $order->country = $request->country;
+        $order->city = $request->city;
+        $order->zip = $request->zip;
+        $order->tax = 10;
+        $order->save();*/
+
+        foreach ($carts as $cart){
+            $orderDetails = new OrderDetail();
+            $orderDetails->order_id = $order->id;
+            $orderDetails->product_id = $cart->product_id;
+            $orderDetails->count = $cart->count;
+            $orderDetails->price = $cart->Product->price;
+            $orderDetails->save();
+
+        }
+        return redirect('/')->with('message', 'success');
+
+    }
+    public function getTotalPrice($carts){
+        $total_price = 0;
+        foreach ($carts as $cart){
+            $total_price += $cart->Product->price * $cart->count;
+        }
+        return $total_price;
+
     }
     public function product($id)
     {

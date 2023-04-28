@@ -38,6 +38,7 @@ Route::get('/cart', [\App\Http\Controllers\frontController::class, 'cart'])->nam
 Route::get('delete-cart-item', [\App\Http\Controllers\frontController::class, 'deleteCartItem']);
 Route::get('/add-cart', [\App\Http\Controllers\frontController::class, 'addCart'])->name('cart');
 Route::get('/cart_customer_data', [\App\Http\Controllers\frontController::class, 'cartCustomerData'])->name('cart_customer_data');
+Route::post('/submit-order', [\App\Http\Controllers\frontController::class, 'submitOrder'])->name('submit-order');
 Route::get('/Product/{id}', [\App\Http\Controllers\frontController::class, 'product'])->name('Product');
 Route::post('/search-products', [\App\Http\Controllers\frontController::class, 'search'])->name('search');
 Route::post('Login', [\App\Http\Controllers\frontController::class, 'login']);

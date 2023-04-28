@@ -37,37 +37,37 @@
                      <!-- //////////////////////// start custmer page section 1 /////////////////////////-->
                       <div class="row">
                           <div class="col-md-8 col-lg-8 col-12 mt-3">
-                            <form action="">
+                            <form method="post" action="{{url('/submit-order')}}" enctype="multipart/form-data">
+                                @csrf
                                 <div class="customer-info">
                                     <h6 class="fw-bold text-capitalize color-text-about mb-3">
                                         customer data
                                      </h6>
-                                     <input type="text" class="form-control" placeholder="email adress" value="" name="">
+                                     <input type="text" class="form-control" placeholder="{{__('lang.email')}}" value="" name="email" required>
                                      <h6 class="fw-bold text-capitalize color-text-about mb-3">
                                         customer data
                                      </h6>
-                                     <input type="text" class="form-control" placeholder="country" value="" name="">
+                                     <input type="text" class="form-control" placeholder="{{__('lang.country')}}" value="" name="country" required>
                                      <div class="d-flex justify-content-between flex-input">
-                                        <input type="text" class="form-control" placeholder="first name" value="" name="">
-                                        <input type="text" class="form-control" placeholder="last name" value="" name="">
+                                        <input type="text" class="form-control" placeholder="{{__('lang.first_name')}}" value="" name="first_name" required>
+                                        <input type="text" class="form-control" placeholder="{{__('lang.last_name')}}" value="" name="last_name" required>
                                      </div>
-                                     <input type="text" class="form-control" placeholder="adress" value="" name="">
-                                     <input type="text" class="form-control" placeholder="adress" value="" name="">
+                                     <input type="text" class="form-control" placeholder="{{__('lang.address')}}" value="" name="address" required>
                                      <div class="d-flex justify-content-between flex-input">
-                                        <input type="text" class="form-control" placeholder="city" value="" name="">
-                                        <input type="number" class="form-control" placeholder="zip code" value="" name="">
+                                        <input type="text" class="form-control" placeholder="{{__('lang.city')}}" value="" name="city" required>
+                                        <input type="number" class="form-control" placeholder="{{__('lang.zip_code')}}" value="" name="zip" required>
                                      </div>
-                                     <input type="tel" class="form-control" placeholder="number" value="" name="">
-                                     <div class="check-box">
+                                     <input type="tel" class="form-control" placeholder="{{__('lang.phone')}}" value="" name="phone" required>
+                                     {{--<div class="check-box">
                                         <input type="checkbox" id="save" name="" value="">
                                         <label for="save"> save data for next time</label>
-                                     </div>
+                                     </div>--}}
                                      <div class="d-flex justify-content-between end-form">
-                                         <a href="cart.html">
+                                         <a href="{{url('/cart')}}">
                                             <i class="fa-solid fa-angle-left"></i>
                                              back to cart
                                          </a>
-                                         <submit class="all-btn btn form-submit">check out</submit>
+                                         <button type="submit" class="all-btn btn form-submit">check out</button>
                                      </div>
                                   </div>
                             </form>
@@ -154,3 +154,4 @@
 
           </section>
 @endsection
+
