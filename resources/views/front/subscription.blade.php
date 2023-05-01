@@ -37,17 +37,18 @@
     <!--/////////////////////////// start unv product srction 2 //////////////////////////////-->
     <div class="container">
         <div class="border-search-unv">
-            <h5 class="text-capitalize color-h5">Search for available products</h5>
+            <h5 class="text-capitalize color-h5">{{__('lang.Search for available products')}}</h5>
             <!-- search -->
             <div class="">
-                <form class="d-flex justify-content-center m-auto">
+                <form class="d-flex justify-content-center m-auto" action="{{url('search-products')}}" method="post">
+                    @csrf
                     <div class="d-flex w-100 position-relative">
                         <span class="search-icon">
                         <i class="fa-solid fa-magnifying-glass"></i>
                         </span>
-                        <input class="form-control search-input text-capitalize" type="search" placeholder="Search for available products" aria-label="Search">
+                        <input class="form-control search-input text-capitalize" name="search" type="text" placeholder="" aria-label="Search">
                     </div>
-                    <button class="btn btn-search" type="submit">Search</button>
+                    <button class="btn btn-search" type="submit">{{__('lang.search')}}</button>
                 </form>
             </div>
         </div>
@@ -62,18 +63,19 @@
                      <span class="fw-bold">
                          {{$count}}
                      </span>
-                result found
+                {{__('lang.result found')}}
+
             </div>
-            <div class="dropdown">
-                <button class="btn dropdown-toggle dropdown-toggle2 text-capitalize" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-                    newst
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                    <li><button class="dropdown-item" type="button">Action</button></li>
-                    <li><button class="dropdown-item" type="button">Another action</button></li>
-                    <li><button class="dropdown-item" type="button">Something else here</button></li>
-                </ul>
-            </div>
+{{--            <div class="dropdown">--}}
+{{--                <button class="btn dropdown-toggle dropdown-toggle2 text-capitalize" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">--}}
+{{--                    newst--}}
+{{--                </button>--}}
+{{--                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">--}}
+{{--                    <li><button class="dropdown-item" type="button">Action</button></li>--}}
+{{--                    <li><button class="dropdown-item" type="button">Another action</button></li>--}}
+{{--                    <li><button class="dropdown-item" type="button">Something else here</button></li>--}}
+{{--                </ul>--}}
+{{--            </div>--}}
         </div>
         <div class="row row-cols-2 row-cols-md-3 row-cols-lg-5">
             <div class="col-md-12 col-lg-12 col-12">
@@ -101,19 +103,59 @@
 
                                     <!-- Modal -->
                                     <div class="modal fade" id="exampleModal{{$product->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
+                                        <div class="modal-dialog" style="z-index: 100000">
                                             <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                <div class="modal-header model-header1 modal-header-bein">
+                                                    <!-- <h5 class="modal-title" id="exampleModalLabel"></h5> -->
+                                                    <button type="button" class="btn-close d-block" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    <!-- second medol -->
+                                                    <div class="flex-gap d-flex align-items-center justify-content-center">
+                                                        <div class="">
+                                                            <button type="button" class="text-uppercase btn-model btn all-btn d-block btn-model-1" data-bs-toggle="modal" data-bs-target="#exampleModal-second-{{$product->id}}">
+                                                                renew subscribtion
+                                                            </button>
+                                                            <div class="modal fade" id="exampleModal-second-{{$product->id}}" tabindex="-1" aria-labelledby="exampleModalLabel-second" aria-hidden="true">
+                                                                <div class="modal-dialog">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <h6 class="m-auto text-capitalize fw-bold">enter card number</h6>
+                                                                            <form action="{{url('add-cart-subscription')}}">
+                                                                                @csrf
+                                                                                <input type="hidden" name="id" value="{{$product->id}}" >
+                                                                                <span class="gray mb-1">Please enter your card number</span>
+                                                                                <input type="text" name="subscription_number" class="form-control text-capitalize input-model m-auto" placeholder="card number">
+                                                                                <div class="text-center mt-2">
+                                                                                    <button  type="submit" class="all-btn btn form-submit">send</button >
+                                                                                    <span class="d-block cancel">cancel</span>
+                                                                                </div>
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!-- end second model -->
+                                                        </div>
+                                                        <div class="">
+                                                            <a href="{{url('Category',\App\Models\Category::where('type','receiver')->first()->id)}}" class="btn-model btn all-btn btn-model-2 text-uppercase">new subscribtion</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="bein-img">
+                                                        <img src="{{asset('website')}}/assets/img/images-bein.png" alt="">
+                                                    </div>
                                                 </div>
-                                                <div class="modal-body">
-                                                    lkljklljlkjk
+                                                <div class="modal-body modal-body-bein">
+                                                    <div class="bein-img">
+                                                        <img src="{{asset('website')}}/assets/img/images-bein2.png" alt="">
+                                                    </div>
+                                                    <p class="text-center fw-bold">Get ready for an unforgettable entertainment experience</p>
                                                 </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                    <button type="button" class="btn btn-primary">Save changes</button>
-                                                </div>
+                                                <!-- <div class="modal-footer">
+                                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                  <button type="button" class="btn btn-primary">Save changes</button>
+                                                </div> -->
                                             </div>
                                         </div>
                                     </div>

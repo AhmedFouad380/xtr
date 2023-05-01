@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  @if(session()->get('lang') == 'ar') dir="rtl" @endif>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,9 +9,14 @@
     <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;500;600;700&family=Itim&family=Poppins:wght@300&family=Source+Sans+Pro&display=swap" rel="stylesheet">
     <link  rel="stylesheet" href="{{asset('website')}}/assets/css/all.min.css">
     <link rel="stylesheet" href="{{asset('website')}}/assets/css/bootstrap.min.css">
+{{--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">--}}
     <link rel="stylesheet" href="{{asset('website')}}/assets/css/owl.carousel.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+    @if(session()->get('lang') == 'ar')
+        <link rel="stylesheet" href="{{asset('website')}}/assets/css/style En.css">
+    @else
     <link rel="stylesheet" href="{{asset('website')}}/assets/css/style En.css">
+    @endif
     @yield('css')
     <title>{{\App\Models\Setting::find(1)->name}} || @yield('title') </title>
 </head>
@@ -41,7 +46,7 @@
                 @endforeach
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        camera
+                        {{__('lang.camera')}}
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         @foreach(\App\Models\Category::active()->where('type','camera')->get() as $cat)
@@ -53,7 +58,7 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        beIN sport
+                        {{__('lang.bein sport')}}
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         @foreach(\App\Models\Category::active()->where('type','!=','camera')->get() as $cat)
@@ -88,8 +93,8 @@
                         ar
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">ar</a></li>
-                        <li><a class="dropdown-item" href="#">en</a></li>
+                        <li><a class="dropdown-item" href="{{url('lang/ar')}}">ar</a></li>
+                        <li><a class="dropdown-item" href="{{url('lang/en')}}">en</a></li>
                     </ul>
                 </div>
             </div>
@@ -109,11 +114,11 @@
                     <span class="lang-icon">
                       <i class="fa-solid fa-globe"></i>
                     </span>
-                    ar
+                    {{session()->get('lang')}}
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#">ar</a></li>
-                    <li><a class="dropdown-item" href="#">en</a></li>
+                    <li><a class="dropdown-item" href="{{url('lang/ar')}}">ar</a></li>
+                    <li><a class="dropdown-item" href="{{url('lang/en')}}">en</a></li>
                 </ul>
             </div>
         </div>
@@ -127,9 +132,9 @@
                 <span class="search-icon">
                   <i class="fa-solid fa-magnifying-glass"></i>
                 </span>
-            <input name="search" class="form-control search-input text-capitalize" type="search" placeholder="Search for available products" aria-label="Search">
+            <input name="search" class="form-control search-input text-capitalize" type="search" placeholder="" aria-label="Search">
         </div>
-        <button class="btn btn-search" type="submit">Search</button>
+        <button class="btn btn-search" type="submit">{{__('lang.search')}}</button>
     </form>
 </div>
 <!--/////////////////////////// end nav bar ////////////////////////////////////-->
@@ -143,7 +148,7 @@
             <div class="col-md-6 col-lg-6 col-12">
                 <div class="bottom-footer-content">
                     <h6 class="text-uppercase fw-bold">{{__('lang.about')}} <span class="blue">x</span>TRADE</h6>
-                    <p class="choose-us-text">It is a company that specializes in integrated security systems and light current and works in entertainment and satellite networks.</p>
+                    <p class="choose-us-text">{{\App\Models\Setting::find(1)->description}}.</p>
                     <div>
                         <h6 class="text-uppercase fw-bold">{{__('lang.Contact info')}}</h6>
                         <a href="">
@@ -163,7 +168,7 @@
             </div>
             <div class="col-md-3">
                 <div class="bottom-footer-content">
-                    <h6 class="text-uppercase fw-bold">QUICK LINK</h6>
+                    <h6 class="text-uppercase fw-bold">{{__('lang.QUICK LINK')}}</h6>
                     <ul class="quik-links">
                         <li>
                             <a href="{{url('/')}}" target="_blank">{{__('lang.home')}}</a>
@@ -171,16 +176,18 @@
                         <li>
                             <a href="{{url('/services')}}" target="_blank">{{__('lang.services')}}</a>
                         </li>
+                        @foreach(\App\Models\Category::Active()->get() as $cat)
                         <li>
-                            <a href="#" target="_blank">{{__('lang.agencies')}}</a>
+                            <a href="{{url('Category',$cat->id)}}" target="_blank">{{$cat->name}}</a>
                         </li>
+                        @endforeach
 
                     </ul>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="bottom-footer-content">
-                    <h6 class="text-uppercase fw-bold">CONTACT US</h6>
+                    <h6 class="text-uppercase fw-bold">{{__('lang.contact')}}</h6>
                     <ul class="contact-us">
                         <li class="d-flex">
                            <span>
@@ -205,7 +212,7 @@
             </div>
             <div class="col-12 col-lg-12 col-md-12">
                 <div class="copy-right">
-                    &copy; 2023 XTRADE Dev. by 000
+                    &copy; 2023 eshotkw.com Dev. by 000
                 </div>
             </div>
         </div>

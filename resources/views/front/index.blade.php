@@ -115,11 +115,11 @@
             <!--/////////////////////////// start section 2 ///////////////////////////////-->
             <div class="row mt-5">
               <div class="col-md-12 col-lg-12 col-12 m-auto text-center">
-                <h4 class="popular-adress text-uppercase mb-5">
+                 <h4 class="popular-adress text-uppercase mb-5">
                   {{__('lang.BEIN SPORTS SUBSCRIPTION')}}
-              </h4>
-              <div class="col-md-12 col-lg-12 col-12">
-                <div class="row row-cols-2 row-cols-md-4 row-cols-lg-5 popular-products p-0 justify-content-center">
+                 </h4>
+                 <div class="col-md-12 col-lg-12 col-12">
+                  <div class="row row-cols-2 row-cols-md-4 row-cols-lg-5 popular-products p-0 justify-content-center">
                    @foreach($BeinPopular as $product)
                     <div class="col">
                       <div class="popular-products-box">
@@ -135,16 +135,17 @@
                             </span>
                           </div>
                           <div class="box-content-2">
+
                             <a class="details" href="{{url('Product',$product->id)}}">{{__('lang.Details')}}</a>
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn all-btn d-block m-auto add-cart" data-id="{{$product->id}}" {{--data-bs-toggle="modal" data-bs-target="#exampleModal{{$product->id}}"--}}>
-                               {{__('lang.add to cart')}}
-                            </button>
+                              <button type="button" class="btn all-btn d-block m-auto add-cart" data-bs-toggle="modal" data-bs-target="#exampleModal{{$product->id}}">
+                                  {{__('lang.add to cart')}}
+                              </button>
 
                               <!-- Modal -->
-{{--
+
                             <div class="modal fade" id="exampleModal{{$product->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
+                                <div class="modal-dialog" style="z-index: 100000">
                                     <div class="modal-content">
                                         <div class="modal-header model-header1 modal-header-bein">
                                             <!-- <h5 class="modal-title" id="exampleModalLabel"></h5> -->
@@ -152,10 +153,10 @@
                                             <!-- second medol -->
                                             <div class="flex-gap d-flex align-items-center justify-content-center">
                                                 <div class="">
-                                                    <button type="button" class="text-uppercase btn-model btn all-btn d-block btn-model-1" data-bs-toggle="modal" data-bs-target="#exampleModal-second">
+                                                    <button type="button" class="text-uppercase btn-model btn all-btn d-block btn-model-1" data-bs-toggle="modal" data-bs-target="#exampleModal-second-{{$product->id}}">
                                                         renew subscribtion
                                                     </button>
-                                                    <div class="modal fade" id="exampleModal-second" tabindex="-1" aria-labelledby="exampleModalLabel-second" aria-hidden="true">
+                                                    <div class="modal fade" id="exampleModal-second-{{$product->id}}" tabindex="-1" aria-labelledby="exampleModalLabel-second" aria-hidden="true">
                                                         <div class="modal-dialog">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
@@ -163,13 +164,13 @@
                                                                 </div>
                                                                 <div class="modal-body">
                                                                     <h6 class="m-auto text-capitalize fw-bold">enter card number</h6>
-                                                                    <form action="{{url('add_cart')}}">
+                                                                    <form action="{{url('add-cart-subscription')}}">
                                                                         @csrf
-                                                                        <input type="hidden" name="id" value="{{$product->id}}">
+                                                                        <input type="hidden" name="id" value="{{$product->id}}" >
                                                                         <span class="gray mb-1">Please enter your card number</span>
-                                                                        <input type="text" class="form-control text-capitalize input-model m-auto" name="subscription_number" placeholder="card number">
+                                                                        <input type="text" name="subscription_number" class="form-control text-capitalize input-model m-auto" placeholder="card number">
                                                                         <div class="text-center mt-2">
-                                                                            <submit class="all-btn btn form-submit">send</submit>
+                                                                            <button  type="submit" class="all-btn btn form-submit">send</button >
                                                                             <span class="d-block cancel">cancel</span>
                                                                         </div>
                                                                     </form>
@@ -180,16 +181,16 @@
                                                     <!-- end second model -->
                                                 </div>
                                                 <div class="">
-                                                    <a href="#" class="btn-model btn all-btn btn-model-2 text-uppercase">new subscribtion</a>
+                                                    <a href="{{url('Category',\App\Models\Category::where('type','receiver')->first()->id)}}" class="btn-model btn all-btn btn-model-2 text-uppercase">new subscribtion</a>
                                                 </div>
                                             </div>
                                             <div class="bein-img">
-                                                <img src="assets/img/images-bein.png" alt="">
+                                                <img src="{{asset('website')}}/assets/img/images-bein.png" alt="">
                                             </div>
                                         </div>
                                         <div class="modal-body modal-body-bein">
                                             <div class="bein-img">
-                                                <img src="assets/img/images-bein2.png" alt="">
+                                                <img src="{{asset('website')}}/assets/img/images-bein2.png" alt="">
                                             </div>
                                             <p class="text-center fw-bold">Get ready for an unforgettable entertainment experience</p>
                                         </div>
@@ -200,14 +201,14 @@
                                     </div>
                                 </div>
                             </div>
---}}
+
 
                           </div>
                       </div>
                     </div>
                     @endforeach
                 </div>
-            </div>
+                 </div>
               </div>
             </div>
             <!--///////////////////////////// end section 2 ///////////////////////////////-->
@@ -216,7 +217,7 @@
             <div class="row mt-5">
                 <div class="col-md-6 col-lg-6 col-6">
                     <h4 class="popular-adress text-uppercase">
-                      DISCOVER OUR SOLUTIONS
+                      {{__('lang.DISCOVER OUR SOLUTIONS')}}
                     </h4>
                 </div>
                 <div class="col-md-6 col-lg-6 col-6 d-flex flex-row justify-content-end">
@@ -257,3 +258,4 @@
         @include('front.agancies')
           <!--///////////////////////////// end section 5 ///////////////////////////////-->
 @endsection
+@section('js')

@@ -600,7 +600,7 @@ main {
 
 .btn-model {
   font-weight: lighter;
-  width: 200px; 
+  width: 200px;
   margin-top: 1.5rem;
   margin-bottom: 2rem;
 }
@@ -1688,10 +1688,10 @@ textarea:focus {
   /* model */
 
   .btn-model {
-    width: auto; 
+    width: auto;
   }
 
-  
+
   .modal-body-bein p {
     color: var(--white);
     font-size: 0.9rem;

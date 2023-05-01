@@ -170,7 +170,9 @@ return [
     'basic_menus' => 'القوائم الرئيسية',
     'page_type' => 'نوع الصفحة',
     'sliders' => 'صور الاعلانات',
-    'camera' => 'كاميرا  ',
+    'camera' => 'الكاميرات  ',
+    'bein sport' => ' بين سبورت  ',
+
     'subscription' => 'الاشتراك ',
     'receivers' => 'ريسيفير  ',
     'images' => 'الصور  ',
@@ -809,6 +811,9 @@ return [
     'contact-us'=>'تواصل معانا ',
     'Details'=>'التفاصيل',
     'details'=>'التفاصيل',
-
-
+    'QUICK LINK'=>'الروابط السريعه ',
+    'contact-info'=>'معلومات التواصل',
+    'DISCOVER OUR SOLUTIONS'=>'اكتشف حلولنا',
+    'Search for available products'=>'ابحث عن المنتجات ',
+    'result found'=>'النتائج',
 ];

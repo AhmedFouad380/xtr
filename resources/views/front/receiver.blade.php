@@ -46,7 +46,7 @@
                      <span class="fw-bold">
                          {{$count}}
                      </span>
-                result found
+                {{__('lang.result found')}}
             </div>
 
         </div>

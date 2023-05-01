@@ -46,7 +46,8 @@
     <div class="container mb-pro-sec">
         <div class="d-flex align-items-center justify-content-between mb-3">
             <div class="result-num">
-                <h5>Discover Our Solution</h5>
+                <h5>                      {{__('lang.DISCOVER OUR SOLUTIONS')}}
+                </h5>
             </div>
 
         </div>

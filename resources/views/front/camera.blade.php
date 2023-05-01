@@ -36,23 +36,23 @@
 
          <!--/////////////////////////// start unv product srction 2 //////////////////////////////-->
          <div class="container">
-            <div class="border-search-unv">
-                 <h5 class="text-capitalize color-h5">Search for available products</h5>
-                       <!-- search -->
-                <div class="">
-                    <form class="d-flex justify-content-center m-auto" method="post" action="{{route('search')}}">
-                        @csrf
-                    <div class="d-flex w-100 position-relative">
+             <div class="border-search-unv">
+                 <h5 class="text-capitalize color-h5">{{__('lang.Search for available products')}}</h5>
+                 <!-- search -->
+                 <div class="">
+                     <form class="d-flex justify-content-center m-auto" action="{{url('search-products')}}" method="post">
+                         @csrf
+                         <div class="d-flex w-100 position-relative">
                         <span class="search-icon">
                         <i class="fa-solid fa-magnifying-glass"></i>
                         </span>
-                        <input class="form-control search-input text-capitalize" name="search" type="search" placeholder="Search for available products" aria-label="Search">
-                        <input class="form-control search-input text-capitalize" name="category_id" type="search" placeholder="Search for available products" hidden aria-label="Search">
-                    </div>
-                    <button class="btn btn-search" type="submit">Search</button>
-                    </form>
-                </div>
-            </div>
+                             <input class="form-control search-input text-capitalize" name="search" type="text" placeholder="" aria-label="Search">
+                         </div>
+                         <button class="btn btn-search" type="submit">{{__('lang.search')}}</button>
+                     </form>
+                 </div>
+             </div>
+
          </div>
          <!--/////////////////////////// end unv product section 2 //////////////////////////////-->
 
@@ -64,18 +64,18 @@
                      <span class="fw-bold">
                          {{$count}}
                      </span>
-                     result found
+                    {{__('lang.result found')}}
                 </div>
-                <div class="dropdown">
-                    <button class="btn dropdown-toggle dropdown-toggle2 text-capitalize" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-                       newst
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                      <li><button class="dropdown-item" type="button">Action</button></li>
-                      <li><button class="dropdown-item" type="button">Another action</button></li>
-                      <li><button class="dropdown-item" type="button">Something else here</button></li>
-                    </ul>
-                </div>
+{{--                <div class="dropdown">--}}
+{{--                    <button class="btn dropdown-toggle dropdown-toggle2 text-capitalize" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">--}}
+{{--                       newst--}}
+{{--                    </button>--}}
+{{--                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">--}}
+{{--                      <li><button class="dropdown-item" type="button">Action</button></li>--}}
+{{--                      <li><button class="dropdown-item" type="button">Another action</button></li>--}}
+{{--                      <li><button class="dropdown-item" type="button">Something else here</button></li>--}}
+{{--                    </ul>--}}
+{{--                </div>--}}
             </div>
             <div class="row row-cols-2 row-cols-md-3 row-cols-lg-5">
                 @foreach($products as $product)

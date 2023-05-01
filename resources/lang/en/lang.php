@@ -800,5 +800,11 @@ return [
     'Details'=>'Details',
     'details'=>'Details',
     'product-details'=>'Product Details',
+    'bein sport' => ' bein sport  ',
+    'QUICK LINK'=>'QUICK LINK',
+    'contact-info'=>'contact-info',
+    'DISCOVER OUR SOLUTIONS'=>'DISCOVER OUR SOLUTIONS',
+    'Search for available products'=>'Search for available products',
+    'result found'=>'result found',
 
 ];

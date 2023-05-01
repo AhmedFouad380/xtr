@@ -130,7 +130,7 @@
                                             </span>
                                         </div>
                                         <div class=" add-mb d-flex justify-content-between align-items-center">
-                                            <span class="d-block sub-total-color">{{__('lang.tax')}}</span>
+                                            <span class="d-block sub-total-color">{{__('lang.Tax')}}</span>
                                             <span class="d-block text-uppercase size-kwd">
                                                  kwd
                                                   <span class="fw-bold color-black">000</span>

@@ -2,7 +2,7 @@
     <div class="bg-carousel">
         <div class="text-center">
             <h4 class="popular-adress text-uppercase mb-4 m-auto">
-                our agency
+                {{__('lang.agencies')}}
             </h4>
         </div>
         <div class="owl-carousel owl-theme">
