@@ -144,19 +144,59 @@
                               <!-- Modal -->
                             <div class="modal fade" id="exampleModal{{$product->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    <div class="modal-content">
+                                        <div class="modal-header model-header1 modal-header-bein">
+                                            <!-- <h5 class="modal-title" id="exampleModalLabel"></h5> -->
+                                            <button type="button" class="btn-close d-block" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            <!-- second medol -->
+                                            <div class="flex-gap d-flex align-items-center justify-content-center">
+                                                <div class="">
+                                                    <button type="button" class="text-uppercase btn-model btn all-btn d-block btn-model-1" data-bs-toggle="modal" data-bs-target="#exampleModal-second">
+                                                        renew subscribtion
+                                                    </button>
+                                                    <div class="modal fade" id="exampleModal-second" tabindex="-1" aria-labelledby="exampleModalLabel-second" aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <h6 class="m-auto text-capitalize fw-bold">enter card number</h6>
+                                                                    <form action="{{url('add_cart')}}">
+                                                                        @csrf
+                                                                        <input type="hidden" name="id" value="{{$product->id}}">
+                                                                        <span class="gray mb-1">Please enter your card number</span>
+                                                                        <input type="text" class="form-control text-capitalize input-model m-auto" name="subscription_number" placeholder="card number">
+                                                                        <div class="text-center mt-2">
+                                                                            <submit class="all-btn btn form-submit">send</submit>
+                                                                            <span class="d-block cancel">cancel</span>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- end second model -->
+                                                </div>
+                                                <div class="">
+                                                    <a href="#" class="btn-model btn all-btn btn-model-2 text-uppercase">new subscribtion</a>
+                                                </div>
+                                            </div>
+                                            <div class="bein-img">
+                                                <img src="assets/img/images-bein.png" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="modal-body modal-body-bein">
+                                            <div class="bein-img">
+                                                <img src="assets/img/images-bein2.png" alt="">
+                                            </div>
+                                            <p class="text-center fw-bold">Get ready for an unforgettable entertainment experience</p>
+                                        </div>
+                                        <!-- <div class="modal-footer">
+                                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                          <button type="button" class="btn btn-primary">Save changes</button>
+                                        </div> -->
                                     </div>
-                                    <div class="modal-body">
-                                      lkljklljlkjk
-                                    </div>
-                                    <div class="modal-footer">
-                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                      <button type="button" class="btn btn-primary">Save changes</button>
-                                    </div>
-                                  </div>
                                 </div>
                             </div>
 

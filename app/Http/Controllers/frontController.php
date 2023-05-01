@@ -125,6 +125,23 @@ class frontController extends Controller
 
         return response()->json(Cart::where('ip',\Request::ip())->sum('count'));
     }
+    public function addCartSubscription(Request $request){
+        $Product = Product::findOrFail($request->id);
+
+                $cart = new Cart();
+                $cart->product_id = $Product->id;
+                $cart->ip=\Request::ip();
+                $cart->subscription_number=$request->subscription_number;
+                if(isset($request->count)){
+                    $cart->count=$request->count;
+                }else{
+                    $cart->count=1;
+                }
+                $cart->save();
+
+
+        return redirect('/cart')->with('message', 'success');
+    }
 
     public function deleteCartItem(Request $request){
         Cart::where('id',$request->id)->delete();
@@ -147,8 +164,6 @@ class frontController extends Controller
         $order = Order::create($data);
 
 
-
-
         /*$order = new Order();
         $order->total_price = $total_price;
         $order->type = 'pending';
@@ -167,7 +182,9 @@ class frontController extends Controller
             $orderDetails->order_id = $order->id;
             $orderDetails->product_id = $cart->product_id;
             $orderDetails->count = $cart->count;
+            $orderDetails->subscription_number = $cart->subscription_number;
             $orderDetails->price = $cart->Product->price;
+
             $orderDetails->save();
 
         }

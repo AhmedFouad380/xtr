@@ -37,6 +37,8 @@ Route::get('/solutions', [\App\Http\Controllers\frontController::class, 'solutio
 Route::get('/cart', [\App\Http\Controllers\frontController::class, 'cart'])->name('cart');
 Route::get('delete-cart-item', [\App\Http\Controllers\frontController::class, 'deleteCartItem']);
 Route::get('/add-cart', [\App\Http\Controllers\frontController::class, 'addCart'])->name('cart');
+Route::get('/add-cart-subscription', [\App\Http\Controllers\frontController::class, 'addCartSubscription'])->name('cart');
+
 Route::get('/cart_customer_data', [\App\Http\Controllers\frontController::class, 'cartCustomerData'])->name('cart_customer_data');
 Route::post('/submit-order', [\App\Http\Controllers\frontController::class, 'submitOrder'])->name('submit-order');
 Route::get('/Product/{id}', [\App\Http\Controllers\frontController::class, 'product'])->name('Product');
