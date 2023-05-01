@@ -67,7 +67,7 @@
                     <a class="nav-link" href="{{url('solutions')}}">{{__('lang.solution')}}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{url('contact-us')}}">{{__('lang.contact-us')}}</a>
+                    <a class="nav-link" href="{{url('contact')}}">{{__('lang.contact-us')}}</a>
                 </li>
             </ul>
             <!-- cart  (mobile)-->
