@@ -45,7 +45,7 @@
             <div class="row">
               <div class="col-md-12">
                 <h4 class="popular-adress">
-                    {{__('lang.popular')}} <span class="text-uppercase">unv</span>{{__('lang.products')}}
+                 {{__('lang.products_popular')}}
                 </h4>
                 <p class="popular-text">
                     {{__('lang.with over')}} {{$products->count()}}+

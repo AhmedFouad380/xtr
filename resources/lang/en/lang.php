@@ -806,5 +806,7 @@ return [
     'DISCOVER OUR SOLUTIONS'=>'DISCOVER OUR SOLUTIONS',
     'Search for available products'=>'Search for available products',
     'result found'=>'result found',
+    'products_popular'=>'popular products ',
+
 
 ];

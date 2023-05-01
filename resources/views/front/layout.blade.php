@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="{{asset('website')}}/assets/css/owl.carousel.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
     @if(session()->get('lang') == 'ar')
-        <link rel="stylesheet" href="{{asset('website')}}/assets/css/style En.css">
+        <link rel="stylesheet" href="{{asset('website')}}/assets/css/style Ar.css">
     @else
     <link rel="stylesheet" href="{{asset('website')}}/assets/css/style En.css">
     @endif

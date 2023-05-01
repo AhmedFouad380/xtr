@@ -81,3 +81,7 @@ $(".minus").click(function(){
     $(".minus").removeClass("counter-active");
   });
   
+// show model
+  $(".add-cart").click(function(){
+    $(".show-me").show();
+  });

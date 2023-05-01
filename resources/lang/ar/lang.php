@@ -816,4 +816,5 @@ return [
     'DISCOVER OUR SOLUTIONS'=>'اكتشف حلولنا',
     'Search for available products'=>'ابحث عن المنتجات ',
     'result found'=>'النتائج',
+    'products_popular'=>'المتجات الشائعة',
 ];

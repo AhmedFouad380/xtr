@@ -104,6 +104,18 @@ $(".minus").click(function(){
     $(this).addClass("counter-active");
     $(".minus").removeClass("counter-active");
   });
+
+// show model
+
+  $(".add-cart").click(function(){
+    $(".show-me").show();
+  });
+
+  
+
+ 
+  
+ 
   
 
 

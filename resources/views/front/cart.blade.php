@@ -30,8 +30,10 @@
                               <?php
                               $total[] = 0;
                               ?>
+                              <div class="add-bg-2-scroll">
                               @foreach($carts as $cart)
-                            <div class="add-bg-2">
+
+                            <div class="add-bg-2 ">
                               <div class="row d-flex">
                                   <div class="col-md-3 col-lg-2 col-12">
                                     <div class="our-solution-img cart-img">
@@ -79,6 +81,7 @@
                                   $total[] = $cart->count * $cart->Product->price;
                                   ?>
                               @endforeach
+                              </div>
                           </div>
                           <div class="col-md-4 col-lg-4 col-6 mt-3">
                             <div class="cart-total">
