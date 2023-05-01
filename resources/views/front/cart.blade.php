@@ -61,7 +61,10 @@
                                     <div class="fw-bold blue d-flex flex-column justify-content-between" style="height:100%">
                                       <div class="cart-price">
                                         <span class="text-uppercase fw-light">kwd</span>
-                                          {{$cart->Product->price}}
+                                          <?php
+                                          $priceAll = $cart->count * $cart->Product->price;
+                                          ?>
+                                          {{$priceAll}}
                                       </div>
                                       <div class="right-trash">
                                           <span class="cart-trash delete" data-id="{{$cart->id}}">
@@ -80,26 +83,26 @@
                           <div class="col-md-4 col-lg-4 col-6 mt-3">
                             <div class="cart-total">
                                 <div class="d-flex justify-content-between">
-                                   <h5 class="text-uppercase fw-bold cart-total-h">cart total</h5>
+                                   <h5 class="text-uppercase fw-bold cart-total-h">{{__('lang.Total')}}</h5>
                                    <div class="cart-price cart-price2 blue fw-bold">
                                     <span class="text-uppercase fw-light">kwd</span>
                                        {{array_sum($total)}}
                                   </div>
                                 </div>
                                 <span class="gray">
-                                  Shipping calculated at checkout
+                                  {{__('lang.Shipping calculated at checkout')}}
                                 </span>
                                 <div class="overviwe-line"></div>
-                                <input type="text" placeholder="discount code" class="input-total form-control">
-                                <span class="d-block color-gray">discount applied next step</span>
+                                <input type="text" placeholder="{{__('lang.coupon')}}" class="input-total form-control">
+                                <span class="d-block color-gray">{{__('lang.discount applied next step')}}</span>
                                 <div class="text-center">
-                                  <a href="{{url('cart_customer_data')}}" class="all-btn fw-light cart-checkout">proceed to checkout</a>
+                                  <a href="{{url('cart_customer_data')}}" class="all-btn fw-light cart-checkout">{{__('lang.Proceed To CheckOut')}}</a>
                                 </div>
                             </div>
                           </div>
                           <div class="col-md-12">
                               <a href="{{url('/')}}" class="all-btn fw-light text-uppercase cart-shopping-btn">
-                                 continue shopping
+                                  {{__('lang.Continue Shopping')}}
                               </a>
                           </div>
                       </div>

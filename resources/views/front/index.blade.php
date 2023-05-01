@@ -198,7 +198,7 @@
                             </div>
                           </div>
                           <div class="col-md-2 col-lg-2 col-12 text-center">
-                            <a href="contactus.html" target="_blank" class="all-btn contact-btn mt-3 text-center">contact us</a>
+                            <a href="contactus.blade.php" target="_blank" class="all-btn contact-btn mt-3 text-center">contact us</a>
                           </div>
                       </div>
                   </div>

@@ -1370,6 +1370,89 @@ input[type=checkbox] {
   font-size: 0.9rem;
 }
 
+/*((((((((((((((((((((((((((((((((((( contact us section 1  )))))))))))))))))))))))))))))*/
+.contact-bg {
+  background: linear-gradient(#00000034,#0000002c),url('../img/image-unvservices.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding: 0.5rem 0.5rem 0.5rem 1.3rem;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  color: var(--white);
+}
+
+.contact-bg h5 {
+  margin: 1rem 0;
+}
+
+.contact-bg h6 {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.contact-bg li {
+  color: var(--line);
+}
+
+.contact-bg span {
+  margin-right: 0.8rem;
+}
+
+.contact-top {
+  margin-top: 0.5rem;
+}
+
+.m-l-contact {
+  margin-left: 0.5rem;
+}
+
+iframe {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.contact-bg2 {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  min-height: 670px;
+}
+
+
+.lets,
+.cancel {
+  font-size: 0.9rem;
+}
+
+.lets {
+  display: block;
+  margin-bottom: 0.9rem;
+}
+
+textarea {
+  background-color: var(--white2) !important;
+  border-color: var(--white2) !important;
+  min-height: 120px !important;
+  border-radius: 8px !important;
+  text-transform: capitalize;
+  color: #d0d0d0 !important;
+}
+
+textarea:focus {
+  background-color: var(--white) !important;
+  border-color: var(--blue2) !important;
+}
+
+.send-top {
+  margin-top: 4rem;
+  padding: 0.3rem 5rem !important;
+}
+
+.cancel {
+ color: var(--gray2);
+ margin-top: 0.5rem;
+ text-transform: capitalize;
+}
 
 
 
@@ -1871,6 +1954,26 @@ input[type=checkbox] {
   font-size: 0.6rem;
 }
 
+/*((((((((((((((((((((((((((((((((((( contact us section 1  )))))))))))))))))))))))))))))*/
+
+.contact-bg {
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.bottom-contact-us {
+  margin-bottom: 1rem;
+}
+
+iframe {
+  border-radius: 8px !important;
+}
+
+.contact-bg2 {
+  min-height: auto;
+  border-radius: 8px;
+}
+
 
 }
 
@@ -2152,6 +2255,25 @@ input[type=checkbox] {
 
 
 
+/*((((((((((((((((((((((((((((((((((( contact us section 1  )))))))))))))))))))))))))))))*/
+
+.contact-bg {
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.bottom-contact-us {
+  margin-bottom: 1rem;
+}
+
+iframe {
+  border-radius: 8px !important;
+}
+
+.contact-bg2 {
+  min-height: auto;
+  border-radius: 8px;
+}
 
 
   
@@ -2300,12 +2422,8 @@ input[type=checkbox] {
 @media (min-width: 1200px) {
 
   /* (((((((((((((((((((((((((((((( start nav bar ))))))))))))))))))))))))))) */
-  .navbar-nav {
-    margin-left: 4.5rem;
-  }
-
   .nav-item {
-    margin-right: 4.2rem;
+    margin-left: 2.8rem;
   }
 
 

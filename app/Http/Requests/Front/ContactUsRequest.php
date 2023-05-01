@@ -4,7 +4,7 @@ namespace App\Http\Requests\Front;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class OrderSubmitRequest extends FormRequest
+class ContactUsRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,16 +25,14 @@ class OrderSubmitRequest extends FormRequest
     {
         return [
             //
-            'first_name' => 'required|string|max:255',
-            'last_name' => 'required|string|max:255',
-            'email' => 'required|email',
+            //
+            'name' => 'required|string|max:255',
             'phone' => 'required|numeric|min:8',
-            'country' => 'required|string|max:20',
-            'city' => 'required|string|max:50',
-            'zip' => 'nullable|numeric',
-            'coupon_name' => 'nullable',
-            'coupon_discount' => 'nullable',
-            'tax' => 'nullable',
+            'email' => 'required|email',
+            'message' => 'required|string|max:255',
+            'address' => 'required|string|max:255',
+            'subject' => 'required|string|max:255',
+
         ];
     }
 }

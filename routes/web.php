@@ -32,6 +32,8 @@ Route::get('/login', function () {
 
 Route::get('/', [\App\Http\Controllers\frontController::class, 'index'])->name('home');
 Route::get('/Page/{id}', [\App\Http\Controllers\frontController::class, 'Page'])->name('Page');
+Route::get('/contact-us', [\App\Http\Controllers\frontController::class, 'contactUs'])->name('contact');
+Route::post('/contact-us/store', [\App\Http\Controllers\frontController::class, 'contactUsStore'])->name('contact-store');
 Route::get('/Category/{id}', [\App\Http\Controllers\frontController::class, 'Category'])->name('Category');
 Route::get('/solutions', [\App\Http\Controllers\frontController::class, 'solutions'])->name('solutions');
 Route::get('/cart', [\App\Http\Controllers\frontController::class, 'cart'])->name('cart');
