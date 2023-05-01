@@ -68,11 +68,12 @@ class frontController extends Controller
         $UnvPopular = Product::active()->where('is_popular','active')->OrderBy('id','desc')->where('type','camera')->limit(8)->get();
         $BeinPopular = Product::active()->where('is_popular','active')->OrderBy('id','desc')->where('type','subscription')->limit(4)->get();
         $receiversPopular = Product::active()->where('is_popular','active')->OrderBy('id','desc')->where('type','receiver')->limit(4)->get();
+        $products = Product::active()->get();
         $whyus = WhyUs::active()->limit(6)->get();
         $agancies = Agency::active()->get();
         $settings = Setting::findOrFail(1);
 
-        return view('front.index',compact('UnvPopular','BeinPopular','receiversPopular','whyus','agancies'));
+        return view('front.index',compact('products','UnvPopular','BeinPopular','receiversPopular','whyus','agancies'));
     }
     public function Page($type)
     {

@@ -5,6 +5,9 @@ return [
     'reports' => 'التقارير',
     'sales' => 'المبيعات',
     'earnings' => 'الارباح',
+    'load more' => 'حمل اكثر',
+    'BEIN SPORTS SUBSCRIPTION' => 'اشتراكات بين سبورت',
+
     'provider_requests' => 'طلبات مقدمين الخدمة',
     'rejected_by_provider' => 'مرفوضة عن طرية مقدم الخدمة',
     'current_status' => 'حالة الطلب الحالية',
@@ -23,6 +26,9 @@ return [
     'Shipping calculated at checkout' => 'يتم حساب الشحن اثناء الدفع',
     'discount applied next step' => 'يتم تطبيق الخصم فى الخطوة التالية',
     "let's talk" => " لنتحدث معا",
+    'with over' => 'مع اكثر من ',
+    'products for sale is available on' => 'منتجات متاحة للبيع  ',
+    'KWD' => 'دك  ',
 
     'home' => 'الصفحة الرئيسية',
     'request_details' => 'تفاصيل الطلب',
