@@ -54,7 +54,7 @@
                     <div class="swiper-button-next swiper-button-next2"></div>
                     <div class="swiper-button-prev swiper-button-prev2"></div>
                 </div>
-                <div thumbsSlider="" class="swiper mySwiper add-height" style="width: 18%;">
+                <div thumbsSlider="" class="swiper mySwiper3 add-height" style="width: 18%;">
                     <div class="swiper-wrapper d-flex flex-column w-100 scroll">
                         @foreach($productImages as $image)
                             <div class="swiper-slide swiper-slide1 swiper-slide2 w-100">

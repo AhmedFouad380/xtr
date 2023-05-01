@@ -64,7 +64,11 @@
                                      </div>--}}
                                      <div class="d-flex justify-content-between end-form">
                                          <a href="{{url('/cart')}}">
-                                            <i class="fa-solid fa-angle-left"></i>
+                                             @if(session()->get('lang') == 'ar')
+                                                 <i class="fa-solid fa-angle-right"></i>
+                                             @else
+                                               <i class="fa-solid fa-angle-left"></i>
+                                             @endif
                                              {{__('lang.back')}}
                                          </a>
                                          <button type="submit" class="all-btn btn form-submit">{{__('lang.CheckOut')}}</button>

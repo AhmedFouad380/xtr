@@ -17,3 +17,40 @@
         </div>
     </div>
 </div>
+
+@section('js')
+
+    <script>
+        // owl carousel
+        var owl = $('.owl-carousel');
+        owl.owlCarousel({
+            loop:true,
+            margin:10,
+            autoplay:true,
+            @if(Session()->get('lang') == 'ar')
+            rtl:true,
+            @endif
+            autoplayTimeout:1000,
+            autoplayHoverPause:true,
+            stagePadding: 50,
+            responsiveClass:true,
+            responsive:{
+                0:{
+                    items:1,
+                    nav:true
+                },
+                600:{
+                    items:3,
+                    nav:false
+                },
+                1000:{
+                    items:8,
+                    nav:true,
+                    loop:false
+                }
+            }
+
+
+        });
+    </script>
+@endsection

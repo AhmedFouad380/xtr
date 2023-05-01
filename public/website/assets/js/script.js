@@ -34,41 +34,14 @@ $('.load-more').click(function(){
     var $this = $(this);
     $this.toggleClass('load-more');
     if($this.hasClass('load-more')){
-        $this.text('load-more');         
+        $this.text('load-more');
     } else {
         $this.text('Less');
         $this.addClass('less');
     }
 });
 
-// owl carousel
-var owl = $('.owl-carousel');
-owl.owlCarousel({
-    loop:true,
-    margin:10,
-    autoplay:true,
-    autoplayTimeout:1000,
-    autoplayHoverPause:true,
-    stagePadding: 50,
-    responsiveClass:true,
-    responsive:{
-        0:{
-            items:1,
-            nav:true
-        },
-        600:{
-            items:3,
-            nav:false
-        },
-        1000:{
-            items:8,
-            nav:true,
-            loop:false
-        }
-    }
 
-
-});
 $('.play').on('click',function(){
     owl.trigger('play.owl.autoplay',[1000])
 })
@@ -111,12 +84,12 @@ $(".minus").click(function(){
     $(".show-me").show();
   });
 
-  
 
- 
-  
- 
-  
+
+
+
+
+
 
 
 
