@@ -22,7 +22,7 @@ class Product extends Model
         'is_popular',
         'category_id',
     ];
-    protected $appends = ['name','description'];
+    protected $appends = ['name','description','long_description'];
 
 
     public function scopeActive($query)
@@ -43,6 +43,14 @@ class Product extends Model
             return $this->description_ar;
         } else {
             return $this->description_en;
+        }
+    }
+    public function getLongDescriptionAttribute()
+    {
+        if (\app()->getLocale() == "ar") {
+            return $this->long_description_ar;
+        } else {
+            return $this->long_description_en;
         }
     }
     public function Category(){

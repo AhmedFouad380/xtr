@@ -150,13 +150,12 @@
     <div class="overview-details">
         <div class="container">
             <div class="row">
-                <h6 class="text-capitalize blue fw-bold">optics</h6>
+                <h6 class="text-capitalize blue fw-bold"></h6>
                 <div>
                     <div class="d-flex align-items-center add-m-space">
-                        <span class="add-dott"></span>
-                        <p class="text-descrip">
-                            {{$data->description}}
-                        </p>
+
+                            {!! $data->long_description !!}
+
                     </div>
                     {{--<div class="d-flex align-items-center add-m-space">
                         <span class="add-dott"></span>
@@ -483,4 +482,8 @@
 
 <!--/////////////////////////// start section 5  ///////////////////////////////-->
 @include('front.agancies')
+@endsection
+@section('js')
+    <script src="{{asset('website')}}/assets/js/script2.js"></script>
+
 @endsection
