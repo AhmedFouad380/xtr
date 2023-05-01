@@ -187,7 +187,7 @@
             </div>
             <div class="col-md-3">
                 <div class="bottom-footer-content">
-                    <h6 class="text-uppercase fw-bold">{{__('lang.contact')}}</h6>
+                    <h6 class="text-uppercase fw-bold">{{__('lang.contact-us')}}</h6>
                     <ul class="contact-us">
                         <li class="d-flex">
                            <span>
