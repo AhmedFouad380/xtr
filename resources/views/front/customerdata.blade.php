@@ -23,7 +23,7 @@
                               </div>
                               <div class="d-flex align-items-center">
                                 <a href="#" class="text-uppercase fw-bold m-0 add-size color-text-about">
-                                    {{__('lang.customer data')}}
+                                    {{__('lang.Customer_data')}}
                                 </a>
                               </div>
                             </div>
@@ -41,13 +41,13 @@
                                 @csrf
                                 <div class="customer-info">
                                     <h6 class="fw-bold text-capitalize color-text-about mb-3">
-                                        customer data
+                                        {{__('lang.Customer_data')}}
                                      </h6>
                                      <input type="text" class="form-control" placeholder="{{__('lang.email')}}" value="" name="email" required>
-                                     <h6 class="fw-bold text-capitalize color-text-about mb-3">
-                                        customer data
+                                     <h6 class="fw-bold color-text-about mb-3">
+                                         {{__('lang.Customer_data')}}
                                      </h6>
-                                     <input type="text" class="form-control" placeholder="{{__('lang.country')}}" value="" name="country" required>
+                                     <input type="text" class="form-control" placeholder="{{__('lang.Country')}}" value="" name="country" required>
                                      <div class="d-flex justify-content-between flex-input">
                                         <input type="text" class="form-control" placeholder="{{__('lang.first_name')}}" value="" name="first_name" required>
                                         <input type="text" class="form-control" placeholder="{{__('lang.last_name')}}" value="" name="last_name" required>
@@ -65,9 +65,9 @@
                                      <div class="d-flex justify-content-between end-form">
                                          <a href="{{url('/cart')}}">
                                             <i class="fa-solid fa-angle-left"></i>
-                                             back to cart
+                                             {{__('lang.back')}}
                                          </a>
-                                         <button type="submit" class="all-btn btn form-submit">check out</button>
+                                         <button type="submit" class="all-btn btn form-submit">{{__('lang.CheckOut')}}</button>
                                      </div>
                                   </div>
                             </form>
@@ -75,8 +75,8 @@
                           <div class="col-md-4 col-lg-4 col-12 mt-3">
                             <div class="bg-customer">
                                    <h6 class="fw-bold text-capitalize color-text-about mb-3">
-                                      review your order
-                                      <span class="fw-light text-lowercase">( 03 items )</span>
+                                       {{__('lang.review_your_order')}}
+                                      <span class="fw-light text-lowercase">( {{$carts->count()}} items )</span>
                                    </h6>
                                    <div class="customer-data-scroll">
                                        <?php
@@ -116,21 +116,21 @@
                                    </div>
                                     <div class="sub-total">
                                          <div class=" add-mb d-flex justify-content-between align-items-center">
-                                             <span class="d-block sub-total-color">Sub Total</span>
+                                             <span class="d-block sub-total-color">{{__('lang.Subtotal')}}</span>
                                              <span class="d-block text-uppercase size-kwd">
                                                  kwd
                                                   <span class="fw-bold color-black">{{array_sum($total)}}</span>
                                              </span>
                                          </div>
                                          <div class=" add-mb d-flex justify-content-between align-items-center">
-                                            <span class="d-block sub-total-color">Shipping Fees</span>
+                                            <span class="d-block sub-total-color">{{__('lang.Shipping')}}</span>
                                             <span class="d-block text-uppercase size-kwd">
                                                  kwd
                                                   <span class="fw-bold color-black">000</span>
                                             </span>
                                         </div>
                                         <div class=" add-mb d-flex justify-content-between align-items-center">
-                                            <span class="d-block sub-total-color">Tax</span>
+                                            <span class="d-block sub-total-color">{{__('lang.tax')}}</span>
                                             <span class="d-block text-uppercase size-kwd">
                                                  kwd
                                                   <span class="fw-bold color-black">000</span>
@@ -139,7 +139,7 @@
                                     </div>
                                     <div class="sub-total2">
                                         <div class="d-flex justify-content-between align-items-center">
-                                            <h5 class="text-uppercase fw-bold">total</h5>
+                                            <h5 class="text-uppercase fw-bold">{{__('lang.Total')}}</h5>
                                             <div class="cart-price blue fw-bold">
                                                 <span class="text-uppercase fw-light">kwd</span>
                                                 {{array_sum($total)}}

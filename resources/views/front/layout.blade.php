@@ -67,7 +67,7 @@
                     <a class="nav-link" href="{{url('solutions')}}">{{__('lang.solution')}}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{url('contact')}}">{{__('lang.contact-us')}}</a>
+                    <a class="nav-link" href="{{url('contact-us')}}">{{__('lang.contact-us')}}</a>
                 </li>
             </ul>
             <!-- cart  (mobile)-->
@@ -251,5 +251,64 @@
     })
 
 </script>
+
 </body>
 </html>
+<?php
+$message = session()->get("message");
+?>
+@if( session()->has("message"))
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: "{{__('lang.Success')}}",
+            text: "{{__('lang.Success_text')}}",
+            type: "success",
+            timer: 1000,
+            showConfirmButton: false
+        });
+    </script>
+
+
+
+@endif
+<?php
+$errors = session()->get("errors");
+?>
+
+@if( session()->has("errors"))
+    <?php
+    $e = implode(' - ', $errors->all());
+    ?>
+
+    <script>
+        Swal.fire({
+            icon: 'warning',
+            title: "برجاء التأكد من البيانات.",
+            text: "{{$e}} ",
+            type: "error",
+            timer: 5000,
+            showConfirmButton: false
+        });
+    </script>
+
+@endif
+
+
+@if( session()->has("error"))
+    <?php
+    $e = session()->get("error");
+    ?>
+
+    <script>
+        Swal.fire({
+            icon: 'warning',
+            title: "برجاء التأكد من البيانات.",
+            text: "كلمة المرور غير صحيحه  ",
+            type: "error",
+            timer: 5000,
+            showConfirmButton: false
+        });
+    </script>
+
+@endif

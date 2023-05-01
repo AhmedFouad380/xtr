@@ -45,12 +45,12 @@
             <div class="row">
               <div class="col-md-12">
                 <h4 class="popular-adress">
-                    Popular <span class="text-uppercase">unv</span>products
+                    {{__('lang.popular')}} <span class="text-uppercase">unv</span>{{__('lang.products')}}
                 </h4>
                 <p class="popular-text">
-                    with over 150+
+                    {{__('lang.with over')}} {{$products->count()}}+
                     <span class="text-uppercase">unv</span>
-                    products for sale is available on
+                    {{__('lang.products for sale is available on')}}
                     <span class="text-uppercase">xtrade</span>
                 </p>
               </div>
@@ -68,7 +68,7 @@
                                   {{$Product->name}}
                               </p>
                               <span class="price">
-                                {{$Product->price}} KWD
+                                {{$Product->price}} {{__('lang.KWD')}}
                               </span>
                             </div>
                             <div class="box-content-2">
@@ -95,7 +95,7 @@
                                         {{$Product->name}}
                                     </p>
                                     <span class="price">
-                                {{$Product->price}} KWD
+                                {{$Product->price}} {{__('lang.KWD')}}
                               </span>
                                 </div>
                                 <div class="box-content-2">
@@ -116,7 +116,7 @@
             <div class="row mt-5">
               <div class="col-md-12 col-lg-12 col-12 m-auto text-center">
                 <h4 class="popular-adress text-uppercase mb-5">
-                  BEIN SPORTS SUBSCRIPTION
+                  {{__('lang.BEIN SPORTS SUBSCRIPTION')}}
               </h4>
               <div class="col-md-12 col-lg-12 col-12">
                 <div class="row row-cols-2 row-cols-md-4 row-cols-lg-5 popular-products p-0 justify-content-center">
@@ -131,17 +131,18 @@
                                 {{$product->name}}
                             </p>
                             <span class="price">
-                              {{$product->price}} KWD
+                              {{$product->price}} {{__('lang.KWD')}}
                             </span>
                           </div>
                           <div class="box-content-2">
-                            <a class="details" href="productdetails.blade.php">{{__('lang.Details')}}</a>
+                            <a class="details" href="{{url('Product',$product->id)}}">{{__('lang.Details')}}</a>
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn all-btn d-block m-auto add-cart" data-bs-toggle="modal" data-bs-target="#exampleModal{{$product->id}}">
+                            <button type="button" class="btn all-btn d-block m-auto add-cart" data-id="{{$product->id}}" {{--data-bs-toggle="modal" data-bs-target="#exampleModal{{$product->id}}"--}}>
                                {{__('lang.add to cart')}}
                             </button>
 
                               <!-- Modal -->
+{{--
                             <div class="modal fade" id="exampleModal{{$product->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
@@ -199,6 +200,7 @@
                                     </div>
                                 </div>
                             </div>
+--}}
 
                           </div>
                       </div>
@@ -238,7 +240,7 @@
                             </div>
                           </div>
                           <div class="col-md-2 col-lg-2 col-12 text-center">
-                            <a href="contactus.html" target="_blank" class="all-btn contact-btn mt-3 text-center">contact us</a>
+                            <a href="contactus.blade.php" target="_blank" class="all-btn contact-btn mt-3 text-center">{{__('lang.CONTACT US')}}</a>
                           </div>
                       </div>
                   </div>

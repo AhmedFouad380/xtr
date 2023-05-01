@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Http\Requests\Front\ContactUsRequest;
 use App\Http\Requests\Front\OrderSubmitRequest;
 use App\Models\Admin;
 use App\Models\Agency;
@@ -24,12 +25,31 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
 
 
 class frontController extends Controller
 {
 
+    public function contactUs(){
+        $UnvPopular = Product::active()->where('is_popular','active')->OrderBy('id','desc')->where('type','camera')->limit(8)->get();
+        $BeinPopular = Product::active()->where('is_popular','active')->OrderBy('id','desc')->where('type','subscription')->limit(4)->get();
+        $receiversPopular = Product::active()->where('is_popular','active')->OrderBy('id','desc')->where('type','receiver')->limit(4)->get();
+        $whyus = WhyUs::active()->limit(6)->get();
+        $agancies = Agency::active()->get();
+        $settings = Setting::findOrFail(1);
+
+        return view('front.contactus',compact( 'UnvPopular','BeinPopular','receiversPopular','whyus','agancies'));
+
+    }
+    public function contactUsStore(ContactUsRequest $request){
+        $data = $request->validated();
+        Contact::create($data);
+
+        return redirect('/');
+
+    }
     public function dashboard()
     {
         $counts['users'] = User::count();
@@ -48,11 +68,12 @@ class frontController extends Controller
         $UnvPopular = Product::active()->where('is_popular','active')->OrderBy('id','desc')->where('type','camera')->limit(8)->get();
         $BeinPopular = Product::active()->where('is_popular','active')->OrderBy('id','desc')->where('type','subscription')->limit(4)->get();
         $receiversPopular = Product::active()->where('is_popular','active')->OrderBy('id','desc')->where('type','receiver')->limit(4)->get();
+        $products = Product::active()->get();
         $whyus = WhyUs::active()->limit(6)->get();
         $agancies = Agency::active()->get();
         $settings = Setting::findOrFail(1);
 
-        return view('front.index',compact('UnvPopular','BeinPopular','receiversPopular','whyus','agancies'));
+        return view('front.index',compact('products','UnvPopular','BeinPopular','receiversPopular','whyus','agancies'));
     }
     public function Page($type)
     {
@@ -156,6 +177,7 @@ class frontController extends Controller
     }
     public function submitOrder(OrderSubmitRequest $request){
         $data = $request->validated();
+
         $carts = Cart::where('ip',\Request::ip())->get();
         $total_price = $this->getTotalPrice($carts);
 
