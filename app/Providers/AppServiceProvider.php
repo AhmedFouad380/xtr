@@ -27,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
         if (!session()->has('lang')) {
             session()->put('lang', 'en');
         }
-        Artisan::call('migrate');
+//        Artisan::call('migrate');
 
     }
 }
